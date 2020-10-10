@@ -17,6 +17,21 @@
             $this->SaveData();
         }
 
+        public function Remove($id) // Método NO PROBADO
+        {
+            $this->RetrieveData();
+
+            for ($i = 0; $i < count($this->movieList); $i++)
+            {
+                if($id == $this->movieList[$i]->getId())
+                {   
+                    unset($this->movieList[$i]);
+                }
+            }
+
+            $this->SaveData();
+        }
+
         public function GetAll()
         {
             $this->RetrieveData();
@@ -72,10 +87,11 @@
             }
         }
 
-        public function refreshData()
+        public function RefreshData()
         {
-            $arrayToEncode = array();
+            //$arrayToEncode = array();
             $jsonContentAPI = file_get_contents('https://api.themoviedb.org/3/movie/now_playing?page=1&language=es-US&api_key=36267897603498f1c34335429569f1c0'); #aca deberia leer el link de la api para traernos un json
+
             $arrayToDecode = ($jsonContentAPI) ? json_decode($jsonContentAPI, true) : array(); #transformamos el json de la api en un arreglo
 
             if(file_exists('Data/movies.json'))
@@ -85,14 +101,19 @@
 
             foreach($arrayToDecode['results'] as $valuesArray)
             {
-                $movie = new Movie($valuesArray['posterPath'], $valuesArray['id'], $valuesArray['language'], $valuesArray['genreIds'], $valuesArray['title'], $valuesArray['overview'], $valuesArray['releaseDate']); 
-                array_push($arrayToEncode, $movie);
+                $posterPath = $valuesArray['posterPath'];
+                $id = $valuesArray['id'];
+                $language = $valuesArray['original_language'];
+                $genreIds = $valuesArray['genreIds'];
+                $title = $valuesArray['title'];
+                $overview = $valuesArray['overview'];
+                $releaseDate = $valuesArray['releaseDate'];
+
+                $movie = new Movie($posterPath, $id, $language, $genreIds, $title, $overview, $releaseDate); 
+                array_push($this->movieList, $movie);
             }
 
-            $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
-
-            file_put_contents('Data/movies.json', $jsonContent);
-
+            $this->SaveData();
         }
 
     }
