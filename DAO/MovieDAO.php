@@ -45,13 +45,13 @@
 
             foreach($this->movieList as $movie)
             {
-                $valuesArray["posterPath"] = $movie->getPosterPath();
+                $valuesArray["poster_path"] = $movie->getPosterPath();
                 $valuesArray["id"] = $movie->getId();
-                $valuesArray["language"] = $movie->getLanguage();
-                $valuesArray["genreIds"] = $movie->getGenreIds();
+                $valuesArray["original_language"] = $movie->getLanguage();
+                $valuesArray["genre_ids"] = $movie->getGenreIds();
                 $valuesArray["title"] = $movie->getTitle();
                 $valuesArray["overview"] = $movie->getOverview();
-                $valuesArray["releaseDate"] = $movie->getReleaseDate();
+                $valuesArray["release_date"] = $movie->getReleaseDate();
 
                 array_push($arrayToEncode, $valuesArray);
             }
@@ -74,13 +74,13 @@
                 foreach($arrayToDecode as $valuesArray)
                 {
                     $movie = new Movie();
-                    $movie->setPosterPath($valuesArray["posterPath"]);
+                    $movie->setPosterPath($valuesArray["poster_path"]);
                     $movie->setId($valuesArray["id"]);
-                    $movie->setLanguage($valuesArray["language"]);
-                    $movie->setGenreIds($valuesArray["genreIds"]);
+                    $movie->setLanguage($valuesArray["original_language"]);
+                    $movie->setGenreIds($valuesArray["genre_ids"]);
                     $movie->setTitle($valuesArray["title"]);
                     $movie->setOverview($valuesArray["overview"]);
-                    $movie->setReleaseDate($valuesArray["releaseDate"]);
+                    $movie->setReleaseDate($valuesArray["release_date"]);
 
                     array_push($this->movieList, $movie);
                 }
@@ -101,13 +101,13 @@
 
             foreach($arrayToDecode['results'] as $valuesArray)
             {
-                $posterPath = $valuesArray['posterPath'];
+                $posterPath = $valuesArray['poster_path'];
                 $id = $valuesArray['id'];
                 $language = $valuesArray['original_language'];
-                $genreIds = $valuesArray['genreIds'];
+                $genreIds = $valuesArray['genre_ids'];
                 $title = $valuesArray['title'];
                 $overview = $valuesArray['overview'];
-                $releaseDate = $valuesArray['releaseDate'];
+                $releaseDate = $valuesArray['release_date'];
 
                 $movie = new Movie($posterPath, $id, $language, $genreIds, $title, $overview, $releaseDate); 
                 array_push($this->movieList, $movie);
