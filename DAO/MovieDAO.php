@@ -30,10 +30,13 @@
 
             foreach($this->movieList as $movie)
             {
-				//TODO REEMPLAZAR POR DOMAIN MOVIE
-                $valuesArray["recordId"] = $movie->getRecordId();
-                $valuesArray["firstName"] = $movie->getFirstName();
-                $valuesArray["lastName"] = $movie->getLastName();
+                $valuesArray["posterPath"] = $movie->getPosterPath();
+                $valuesArray["id"] = $movie->getId();
+                $valuesArray["language"] = $movie->getLanguage();
+                $valuesArray["genreIds"] = $movie->getGenreIds();
+                $valuesArray["title"] = $movie->getTitle();
+                $valuesArray["overview"] = $movie->getOverview();
+                $valuesArray["releaseDate"] = $movie->getReleaseDate();
 
                 array_push($arrayToEncode, $valuesArray);
             }
@@ -56,14 +59,41 @@
                 foreach($arrayToDecode as $valuesArray)
                 {
                     $movie = new Movie();
-					//TODO REEMPLAZAR POR DOMAIN MOVIE
-                    $movie->setRecordId($valuesArray["recordId"]);
-                    $movie->setFirstName($valuesArray["firstName"]);
-                    $movie->setLastName($valuesArray["lastName"]);
+                    $movie->setPosterPath($valuesArray["posterPath"]);
+                    $movie->setId($valuesArray["id"]);
+                    $movie->setLanguage($valuesArray["language"]);
+                    $movie->setGenreIds($valuesArray["genreIds"]);
+                    $movie->setTitle($valuesArray["title"]);
+                    $movie->setOverview($valuesArray["overview"]);
+                    $movie->setReleaseDate($valuesArray["releaseDate"]);
 
                     array_push($this->movieList, $movie);
                 }
             }
         }
+
+        public function refreshData()
+        {
+            $arrayToEncode = array();
+            $jsonContentAPI = file_get_contents('https://api.themoviedb.org/3/movie/now_playing?page=1&language=es-US&api_key=36267897603498f1c34335429569f1c0'); #aca deberia leer el link de la api para traernos un json
+            $arrayToDecode = ($jsonContentAPI) ? json_decode($jsonContentAPI, true) : array(); #transformamos el json de la api en un arreglo
+
+            if(file_exists('Data/movies.json'))
+            {
+                unlink('Data/movies.json'); #si el archivo nuestro existe lo borramos
+            }
+
+            foreach($arrayToDecode['results'] as $valuesArray)
+            {
+                $movie = new Movie($valuesArray['posterPath'], $valuesArray['id'], $valuesArray['language'], $valuesArray['genreIds'], $valuesArray['title'], $valuesArray['overview'], $valuesArray['releaseDate']); 
+                array_push($arrayToEncode, $movie);
+            }
+
+            $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
+
+            file_put_contents('Data/movies.json', $jsonContent);
+
+        }
+
     }
 ?>
