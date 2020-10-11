@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg"> <!--le borre bg-light navbar-light a la class-->
+<nav class="navbar navbar-expand-lg fixed-top"> <!--le borre bg-light navbar-light a la class--> <!--La clase fixed top deja el navbar fijo-->
   <div class="container">
     <a class="navbar-brand" href="<?php echo FRONT_ROOT?>">MoviePass</a>
 <!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

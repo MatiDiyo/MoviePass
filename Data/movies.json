@@ -64,18 +64,6 @@
         "release_date": "2020-10-02"
     },
     {
-        "poster_path": "\/3k4TvOWxJZyeMJtbjHQELKIEhpb.jpg",
-        "id": 613504,
-        "original_language": "en",
-        "genre_ids": [
-            18,
-            10749
-        ],
-        "title": "After: en mil pedazos",
-        "overview": "Ha pasado el tiempo, y Hardin todav\u00eda no se sabe si es realmente el chico profundo y reflexivo del que Tessa se enamor\u00f3, o ha sido un extra\u00f1o todo este tiempo. Ella quiere alejarse, pero no es tan f\u00e1cil. Tessa se ha centrado en sus estudios y comienza a trabajar como becaria en Vance Publishing. All\u00ed conoce a Trevor, un nuevo y atractivo compa\u00f1ero de trabajo que es exactamente el tipo de persona con la que deber\u00eda estar. Pero Hardin sabe que cometi\u00f3 un error, posiblemente el m\u00e1s grande de su vida y quiere corregir sus errores y vencer a sus demonios... Secuela de la pel\u00edcula 'After'.",
-        "release_date": "2020-09-02"
-    },
-    {
         "poster_path": "\/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg",
         "id": 528085,
         "original_language": "en",
@@ -86,6 +74,18 @@
         "title": "2067",
         "overview": "El viaje de un hombre hacia el futuro para salvar un mundo moribundo.",
         "release_date": "2020-10-01"
+    },
+    {
+        "poster_path": "\/3k4TvOWxJZyeMJtbjHQELKIEhpb.jpg",
+        "id": 613504,
+        "original_language": "en",
+        "genre_ids": [
+            18,
+            10749
+        ],
+        "title": "After: en mil pedazos",
+        "overview": "Ha pasado el tiempo, y Hardin todav\u00eda no se sabe si es realmente el chico profundo y reflexivo del que Tessa se enamor\u00f3, o ha sido un extra\u00f1o todo este tiempo. Ella quiere alejarse, pero no es tan f\u00e1cil. Tessa se ha centrado en sus estudios y comienza a trabajar como becaria en Vance Publishing. All\u00ed conoce a Trevor, un nuevo y atractivo compa\u00f1ero de trabajo que es exactamente el tipo de persona con la que deber\u00eda estar. Pero Hardin sabe que cometi\u00f3 un error, posiblemente el m\u00e1s grande de su vida y quiere corregir sus errores y vencer a sus demonios... Secuela de la pel\u00edcula 'After'.",
+        "release_date": "2020-09-02"
     },
     {
         "poster_path": "\/lkiYPIuh314llJOHJokvjCPztRb.jpg",
@@ -116,15 +116,18 @@
         "release_date": "2019-12-20"
     },
     {
-        "poster_path": "\/kxekf7Ufxhubi00h02oWq6gbkWX.jpg",
-        "id": 627290,
+        "poster_path": "\/hPkqY2EMqWUnFEoedukilIUieVG.jpg",
+        "id": 531876,
         "original_language": "en",
         "genre_ids": [
-            27
+            28,
+            18,
+            36,
+            10752
         ],
-        "title": "Antebellum",
-        "overview": "Ver\u00f3nica es una escritora de \u00e9xito que queda atrapada en una terror\u00edfica realidad cuyo misterio debe resolver antes de que sea demasiado tarde.",
-        "release_date": "2020-09-02"
+        "title": "The Outpost",
+        "overview": "Narra la historia real de una de las batallas m\u00e1s duras que tuvo lugar durante la guerra de Afganist\u00e1n. Un peque\u00f1o equipo de 53 soldados estadounidenses tuvo que enfrentarse contra m\u00e1s de 400 combatientes talibanes durante la operaci\u00f3n llamada \u201cLibertad duradera\u201d... Adaptaci\u00f3n del best seller escrito por el corresponsal de guerra Jake Tapper",
+        "release_date": "2020-06-24"
     },
     {
         "poster_path": "\/gzFatNrw0lhKD5NxaU6zC7S2KjP.jpg",
@@ -140,44 +143,15 @@
         "release_date": "2020-08-27"
     },
     {
-        "poster_path": "\/hPkqY2EMqWUnFEoedukilIUieVG.jpg",
-        "id": 531876,
+        "poster_path": "\/kxekf7Ufxhubi00h02oWq6gbkWX.jpg",
+        "id": 627290,
         "original_language": "en",
         "genre_ids": [
-            28,
-            18,
-            36,
-            10752
+            27
         ],
-        "title": "The Outpost",
-        "overview": "Narra la historia real de una de las batallas m\u00e1s duras que tuvo lugar durante la guerra de Afganist\u00e1n. Un peque\u00f1o equipo de 53 soldados estadounidenses tuvo que enfrentarse contra m\u00e1s de 400 combatientes talibanes durante la operaci\u00f3n llamada \u201cLibertad duradera\u201d... Adaptaci\u00f3n del best seller escrito por el corresponsal de guerra Jake Tapper",
-        "release_date": "2020-06-24"
-    },
-    {
-        "poster_path": "\/4V2nTPfeB59TcqJcUfQ9ziTi7VN.jpg",
-        "id": 501979,
-        "original_language": "en",
-        "genre_ids": [
-            12,
-            35,
-            878
-        ],
-        "title": "Bill & Ted Face the Music",
-        "overview": "A dos aspirantes a rockeros de San Dimas, California, se les dijo una vez que salvar\u00edan el universo durante una aventura de viaje en el tiempo, pero se encuentran como padres de mediana edad que a\u00fan intentan poner en marcha una canci\u00f3n exitosa y cumplir su destino. Sin suerte e inspiraci\u00f3n, Bill y Ted emprendieron otra aventura de viaje en el tiempo para buscar la canci\u00f3n que establecer\u00e1 su mundo correcto y traer\u00e1 armon\u00eda al universo tal como lo conocemos.",
-        "release_date": "2020-08-27"
-    },
-    {
-        "poster_path": "\/57H8KjN5qHYJjaq5SaUPsuVypPh.jpg",
-        "id": 530723,
-        "original_language": "en",
-        "genre_ids": [
-            35,
-            18,
-            10770
-        ],
-        "title": "La estafa (Bad Education)",
-        "overview": "Frank Tassone, uno de los superintendentes m\u00e1s destacados del distrito escolar de Roslyn en Nueva York se desvive a diario para que la educaci\u00f3n de sus alumnos sea la mejor. Pero de forma paralela, este se lucra con dinero p\u00fablico para llevar una vida llena de lujos. As\u00ed, Tassone y su personal, amigos y familiares, se convierten en los principales sospechosos del mayor esc\u00e1ndalo de malversaci\u00f3n de fondos ocurrido en una escuela p\u00fablica de toda la historia de los Estados Unidos.",
-        "release_date": "2020-09-23"
+        "title": "Antebellum",
+        "overview": "Ver\u00f3nica es una escritora de \u00e9xito que queda atrapada en una terror\u00edfica realidad cuyo misterio debe resolver antes de que sea demasiado tarde.",
+        "release_date": "2020-09-02"
     },
     {
         "poster_path": "\/7XvaQsCoDW1x8CxPiv7AzQ5OUzX.jpg",
@@ -194,6 +168,19 @@
         "release_date": "2019-12-19"
     },
     {
+        "poster_path": "\/4V2nTPfeB59TcqJcUfQ9ziTi7VN.jpg",
+        "id": 501979,
+        "original_language": "en",
+        "genre_ids": [
+            12,
+            35,
+            878
+        ],
+        "title": "Bill & Ted Face the Music",
+        "overview": "A dos aspirantes a rockeros de San Dimas, California, se les dijo una vez que salvar\u00edan el universo durante una aventura de viaje en el tiempo, pero se encuentran como padres de mediana edad que a\u00fan intentan poner en marcha una canci\u00f3n exitosa y cumplir su destino. Sin suerte e inspiraci\u00f3n, Bill y Ted emprendieron otra aventura de viaje en el tiempo para buscar la canci\u00f3n que establecer\u00e1 su mundo correcto y traer\u00e1 armon\u00eda al universo tal como lo conocemos.",
+        "release_date": "2020-08-27"
+    },
+    {
         "poster_path": "\/vQgXwuJrlpzGDI8169tRQRy71Nv.jpg",
         "id": 479259,
         "original_language": "en",
@@ -204,6 +191,19 @@
         "title": "I Am Not a Bird",
         "overview": "Margaret est\u00e1 haciendo todo lo que est\u00e1 a su alcance para olvidar su hogar, y la vida nocturna ex\u00f3tica de Tokio, repleta de bebidas, drogas y hoteles de amor de tres horas, le permite mantener sus demonios a raya. Trabajando como especialista inglesa en Air-Pro Stewardess Training Institute durante el d\u00eda y perdi\u00e9ndose en un olvido sexual y narcotizado por la noche, Margaret reprime recuerdos de su dolorosa infancia en Canad\u00e1 y el descenso de su hermano mayor Frank a la locura. -an\u00f3nimo",
         "release_date": "2020-09-18"
+    },
+    {
+        "poster_path": "\/57H8KjN5qHYJjaq5SaUPsuVypPh.jpg",
+        "id": 530723,
+        "original_language": "en",
+        "genre_ids": [
+            35,
+            18,
+            10770
+        ],
+        "title": "La estafa (Bad Education)",
+        "overview": "Frank Tassone, uno de los superintendentes m\u00e1s destacados del distrito escolar de Roslyn en Nueva York se desvive a diario para que la educaci\u00f3n de sus alumnos sea la mejor. Pero de forma paralela, este se lucra con dinero p\u00fablico para llevar una vida llena de lujos. As\u00ed, Tassone y su personal, amigos y familiares, se convierten en los principales sospechosos del mayor esc\u00e1ndalo de malversaci\u00f3n de fondos ocurrido en una escuela p\u00fablica de toda la historia de los Estados Unidos.",
+        "release_date": "2020-09-23"
     },
     {
         "poster_path": "\/oh8XmxWlySHgGLlx8QOBmq9k72j.jpg",

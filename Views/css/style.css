@@ -2,6 +2,15 @@ body{
     font-family: 'Titillium Web', sans-serif;
 }
 
+h2{
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+
+section{
+    padding: 120px 0;
+}
+
 .navbar{
     background-color: #1a1a1a;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
@@ -27,9 +36,11 @@ body{
 
 .form-cine{
     min-height: 300px;
-    padding-top: 90px;
-    margin-bottom: 100px;
+    /*padding-top: 90px;*/
+    /*margin-bottom: 100px;*/
 }
+
+
 
 .btn{
     min-width: 255px;
