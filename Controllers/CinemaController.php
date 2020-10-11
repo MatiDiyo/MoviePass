@@ -25,13 +25,14 @@
             require_once(VIEWS_PATH."cinema-list.php");
         }
 
-        public function Add($cinemaName, $cinemaAddress, $cinemaCapacidad)
+        public function Add($cinemaName, $cinemaAddress, $cinemaCapacidad, $cinemaPrice)
         {
             $cinema = new Cinema();
 			//TODO REEMPLAZAR POR DOMAIN CINE
             $cinema->setName($cinemaName);
             $cinema->setAddress($cinemaAddress);
             $cinema->setCapacity($cinemaCapacidad);
+            $cinema->setPrice($cinemaPrice);
 
             $this->cinemaDao->Add($cinema);
 

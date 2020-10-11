@@ -5,7 +5,7 @@
     {
 		//TODO AGREGAR PROPIEDADES
 		
-        private $address, $name, $id, $capacity;
+        private $address, $name, $id, $capacity, $price;
 
 
 
@@ -39,6 +39,14 @@
 
 	function setCapacity($capacity) {  
 		$this->capacity = $capacity; 
+	} 
+
+	function getPrice() { 
+ 		return $this->price; 
+	} 
+
+	function setPrice($price) {  
+		$this->price = $price; 
 	} 
 
 }

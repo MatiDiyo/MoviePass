@@ -1,0 +1,42 @@
+body{
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.navbar{
+    background-color: #1a1a1a;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    /*min-height: 100px;*/
+}
+
+.navbar-brand{
+    color:#ffffff;
+    min-height: 40px;
+}
+
+.navbar-brand:hover{
+    color: gray;
+}
+
+.nav-link{ 
+    color:#ffffff;
+}
+
+.nav-link:hover{ 
+    color: gray;
+}
+
+.form-cine{
+    min-height: 300px;
+    padding-top: 90px;
+    margin-bottom: 100px;
+}
+
+.btn{
+    min-width: 255px;
+}
+
+.footer{
+    min-height: 100px;
+    padding-top: 50px;
+}
+

@@ -13,7 +13,8 @@
             <div>
                 <span>CINE <?php echo $cine->getName() ?></span><br/>
                 <span>Direccion: <?php echo $cine->getAddress() ?></span><br/>
-                <span>Capacidad: <?php echo $cine->getCapacity() ?></span>
+                <span>Capacidad: <?php echo $cine->getCapacity() ?></span><br/>
+                <span>Precio: <?php echo $cine->getPrice() ?></span>
             </div>
             <hr/>
     <?php
