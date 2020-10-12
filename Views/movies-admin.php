@@ -9,12 +9,9 @@
                 <div class="container">
                     <div class="listmovie-container">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-9">
                                 <h3>MoviePass</h3>
                                 <p>Las peliculas del momento, en tu cine mas cercano.</p>
-                            </div>
-                            <div class="col-3">
-                                <!--espaciado?-->
                             </div>
                             <div class="col-3">
                             <!--<button type="submit" class="btn btn-dark">Refrescar API</button>-->
@@ -30,7 +27,7 @@
 
                 <div class="row">
                     <?php
-                            foreach($movieList as $movie){
+                        foreach($movieList as $movie){
                     ?>
 
                         <div class="col-3">

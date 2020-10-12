@@ -1,20 +1,37 @@
 [
     {
-        "name": "Cine A",
-        "address": "CF 123",
-        "capacity": "100",
-        "price": null
+        "name": "Primero",
+        "address": "Sarmiento 2685",
+        "capacity": "92",
+        "price": "250",
+        "id": 1602541751
     },
     {
-        "name": "Cine B",
-        "address": "CF 123",
-        "capacity": "100",
-        "price": null
+        "name": "Segundo",
+        "address": "Pueyrred\u00f3n 3050",
+        "capacity": "90",
+        "price": "230",
+        "id": 1602541905
     },
     {
-        "name": "Sucursal",
-        "address": "Calle 123",
-        "capacity": "123",
-        "price": "15"
+        "name": "Tercero",
+        "address": "Rivadavia 3050",
+        "capacity": "105",
+        "price": "275",
+        "id": 1602541956
+    },
+    {
+        "name": "Cuarto",
+        "address": "Belgrano 2331",
+        "capacity": "45",
+        "price": "200",
+        "id": 1602542085
+    },
+    {
+        "name": "Quinto",
+        "address": "Alberti 1610",
+        "capacity": "70",
+        "price": "240",
+        "id": 1602542139
     }
 ]

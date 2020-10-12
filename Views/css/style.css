@@ -13,6 +13,9 @@ section{
 
 #galery a:hover { text-decoration: none; }
 
+#botonLink a:hover { text-decoration: none; 
+    color: #ffffff;}
+
 .navbar{
     background-color: #1a1a1a;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
