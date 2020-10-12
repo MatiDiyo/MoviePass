@@ -7,5 +7,6 @@
     {
         function Add(Movie $movie);
         function GetAll();
+        function refreshData();
     }
 ?>

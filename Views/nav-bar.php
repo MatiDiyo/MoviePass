@@ -9,7 +9,7 @@
     
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" id="cartelera" href="<?php echo FRONT_ROOT."Movie/refreshData"?>">Cartelera</a>
+            <a class="nav-link" id="cartelera" href="<?php echo FRONT_ROOT."Movie/RefreshData"?>">Cartelera<small>(del Admin)</small></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="login" href="#">Iniciar sesión</a>

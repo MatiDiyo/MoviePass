@@ -1,41 +1,59 @@
 <?php
     namespace Controllers;
 
-    use DAO\MovieDao as MovieDao;
+    use DAO\MovieDAO as MovieDAO;
     use Models\Movie as Movie;
 
     class MovieController
     {
-        private $movieDao;
+        private $movieDAO;
 
         public function __construct()
         {
-            $this->movieDao = new MovieDao();
+            $this->movieDAO = new MovieDAO();
         }
 
         public function ShowAddView()
         {
-            require_once(VIEWS_PATH."movie-add.php");
+            require_once(VIEWS_PATH."add-cellphone.php");
         }
 
         public function ShowListView()
         {
-            $movieList = $this->movieDao->GetAll();
+            $movieList = $this->movieDAO->GetAll();
 
-            require_once(VIEWS_PATH."movie-list.php");
+            require_once(VIEWS_PATH."movies-admin.php");
         }
 
-        public function Add($recordId, $firstName, $lastName)
+        public function RefreshData()
+        {
+            $movieDAO = new MovieDAO();
+            $movieDAO->refreshData();
+            $this->ShowListView();
+        }
+
+        public function Add($posterPath, $id, $language, $genreIds, $title, $overview, $releaseDate)
         {
             $movie = new Movie();
-			//TODO REEMPLAZAR POR DOMAIN CINE
-            $movie->setRecordId($recordId);
-            $movie->setfirstName($firstName);
-            $movie->setLastName($lastName);
-
-            $this->movieDao->Add($movie);
+           
+            $movie->setPosterPath($posterPath);
+            $movie->setId($id);
+            $movie->setLanguage($language);
+            $movie->setGenreIds($genreIds);
+            $movie->setTitle($title);
+            $movie->setOverview($overview);
+            $movie->setReleaseDate($releaseDate);
+            
+            $this->movieDAO->Add($movie);
 
             $this->ShowAddView();
         }
+
+        public function Remove($id)
+        {
+            $this->movieDAO->Remove($id);
+
+            $this->ShowListView();
+        }
+
     }
-?>
