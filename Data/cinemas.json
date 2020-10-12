@@ -2,11 +2,19 @@
     {
         "name": "Cine A",
         "address": "CF 123",
-        "capacity": "100"
+        "capacity": "100",
+        "price": null
     },
     {
         "name": "Cine B",
         "address": "CF 123",
-        "capacity": "100"
+        "capacity": "100",
+        "price": null
+    },
+    {
+        "name": "Sucursal",
+        "address": "Calle 123",
+        "capacity": "123",
+        "price": "15"
     }
 ]

@@ -1,16 +1,5 @@
 [
     {
-        "poster_path": "\/v0BiswYPEZzZTYazvwktPTOTMpP.jpg",
-        "id": 694919,
-        "original_language": "en",
-        "genre_ids": [
-            28
-        ],
-        "title": "El avi\u00f3n del dinero",
-        "overview": "Un ladr\u00f3n profesional con una deuda de 40 millones de d\u00f3lares a sus espaldas y la vida de su familia en peligro, se ve obligado a realizar un \u00faltimo golpe: robar un futurista casino a\u00e9reo cuya que tiene por clientes a los criminales m\u00e1s peligrosos del mundo.",
-        "release_date": "2020-09-29"
-    },
-    {
         "poster_path": "\/rd7ElSRYhN2CFqMcyH8rqrwLbd6.jpg",
         "id": 337401,
         "original_language": "en",
@@ -23,6 +12,17 @@
         "title": "Mul\u00e1n",
         "overview": "El emperador de China emite un decreto para reclutar a un var\u00f3n por cada familia que deber\u00e1 servir en el ej\u00e9rcito imperial para defender al pa\u00eds de los invasores del norte. Hua Mul\u00e1n, hija \u00fanica de un condecorado guerrero, se presenta para evitar que su anciano padre sea llamado a filas. Se hace pasar por un hombre, Hua Jun y se somete a todo tipo de pruebas. Para conseguirlo deber\u00e1 apelar a su fuerza interior y sacar a la luz todo su potencial. Se trata de una aventura \u00e9pica que la transformar\u00e1 en una guerrera laureada que la har\u00e1 merecedora del respeto de todo un pa\u00eds y motivo de orgullo para su padre.",
         "release_date": "2020-09-04"
+    },
+    {
+        "poster_path": "\/v0BiswYPEZzZTYazvwktPTOTMpP.jpg",
+        "id": 694919,
+        "original_language": "en",
+        "genre_ids": [
+            28
+        ],
+        "title": "El avi\u00f3n del dinero",
+        "overview": "Un ladr\u00f3n profesional con una deuda de 40 millones de d\u00f3lares a sus espaldas y la vida de su familia en peligro, se ve obligado a realizar un \u00faltimo golpe: robar un futurista casino a\u00e9reo cuya que tiene por clientes a los criminales m\u00e1s peligrosos del mundo.",
+        "release_date": "2020-09-29"
     },
     {
         "poster_path": "\/qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg",
@@ -64,6 +64,18 @@
         "release_date": "2020-10-02"
     },
     {
+        "poster_path": "\/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg",
+        "id": 528085,
+        "original_language": "en",
+        "genre_ids": [
+            878,
+            53
+        ],
+        "title": "2067",
+        "overview": "El viaje de un hombre hacia el futuro para salvar un mundo moribundo.",
+        "release_date": "2020-10-01"
+    },
+    {
         "poster_path": "\/3k4TvOWxJZyeMJtbjHQELKIEhpb.jpg",
         "id": 613504,
         "original_language": "en",
@@ -92,17 +104,6 @@
         "release_date": "2020-03-12"
     },
     {
-        "poster_path": "\/kxekf7Ufxhubi00h02oWq6gbkWX.jpg",
-        "id": 627290,
-        "original_language": "en",
-        "genre_ids": [
-            27
-        ],
-        "title": "Antebellum",
-        "overview": "Ver\u00f3nica es una escritora de \u00e9xito que queda atrapada en una terror\u00edfica realidad cuyo misterio debe resolver antes de que sea demasiado tarde.",
-        "release_date": "2020-09-02"
-    },
-    {
         "poster_path": "\/2KavuY24PpXBMQ2efbOknKaeYS.jpg",
         "id": 592350,
         "original_language": "ja",
@@ -113,31 +114,6 @@
         "title": "My Hero Academia: el despertar de los h\u00e9roes",
         "overview": "Un nuevo villano, llamado Nine, est\u00e1 buscando a Tomura Shigaraki. Para ello, decide atacar la isla de Nabut\u014d. Segunda pel\u00edcula de la serie anime \"My Hero Academia\".",
         "release_date": "2019-12-20"
-    },
-    {
-        "poster_path": "\/gzFatNrw0lhKD5NxaU6zC7S2KjP.jpg",
-        "id": 659986,
-        "original_language": "en",
-        "genre_ids": [
-            28,
-            27,
-            53
-        ],
-        "title": "The Owners",
-        "overview": "Un grupo de amigos cree que encuentran un blanco f\u00e1cil en una casa vac\u00eda con una caja fuerte llena de dinero en efectivo. Pero cuando la pareja de ancianos que vive all\u00ed llega temprano a casa, las cosas cambian de repente. Mientras se produce un juego mortal del gato y el rat\u00f3n, los posibles ladrones deben luchar para salvarse de una pesadilla que nunca hubieran imaginado.",
-        "release_date": "2020-08-27"
-    },
-    {
-        "poster_path": "\/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg",
-        "id": 528085,
-        "original_language": "en",
-        "genre_ids": [
-            878,
-            53
-        ],
-        "title": "2067",
-        "overview": "El viaje de un hombre hacia el futuro para salvar un mundo moribundo.",
-        "release_date": "2020-10-01"
     },
     {
         "poster_path": "\/hPkqY2EMqWUnFEoedukilIUieVG.jpg",
@@ -154,30 +130,28 @@
         "release_date": "2020-06-24"
     },
     {
-        "poster_path": "\/4V2nTPfeB59TcqJcUfQ9ziTi7VN.jpg",
-        "id": 501979,
+        "poster_path": "\/gzFatNrw0lhKD5NxaU6zC7S2KjP.jpg",
+        "id": 659986,
         "original_language": "en",
         "genre_ids": [
-            12,
-            35,
-            878
+            28,
+            27,
+            53
         ],
-        "title": "Bill & Ted Face the Music",
-        "overview": "A dos aspirantes a rockeros de San Dimas, California, se les dijo una vez que salvar\u00edan el universo durante una aventura de viaje en el tiempo, pero se encuentran como padres de mediana edad que a\u00fan intentan poner en marcha una canci\u00f3n exitosa y cumplir su destino. Sin suerte e inspiraci\u00f3n, Bill y Ted emprendieron otra aventura de viaje en el tiempo para buscar la canci\u00f3n que establecer\u00e1 su mundo correcto y traer\u00e1 armon\u00eda al universo tal como lo conocemos.",
+        "title": "The Owners",
+        "overview": "Un grupo de amigos cree que encuentran un blanco f\u00e1cil en una casa vac\u00eda con una caja fuerte llena de dinero en efectivo. Pero cuando la pareja de ancianos que vive all\u00ed llega temprano a casa, las cosas cambian de repente. Mientras se produce un juego mortal del gato y el rat\u00f3n, los posibles ladrones deben luchar para salvarse de una pesadilla que nunca hubieran imaginado.",
         "release_date": "2020-08-27"
     },
     {
-        "poster_path": "\/57H8KjN5qHYJjaq5SaUPsuVypPh.jpg",
-        "id": 530723,
+        "poster_path": "\/kxekf7Ufxhubi00h02oWq6gbkWX.jpg",
+        "id": 627290,
         "original_language": "en",
         "genre_ids": [
-            35,
-            18,
-            10770
+            27
         ],
-        "title": "La estafa (Bad Education)",
-        "overview": "Frank Tassone, uno de los superintendentes m\u00e1s destacados del distrito escolar de Roslyn en Nueva York se desvive a diario para que la educaci\u00f3n de sus alumnos sea la mejor. Pero de forma paralela, este se lucra con dinero p\u00fablico para llevar una vida llena de lujos. As\u00ed, Tassone y su personal, amigos y familiares, se convierten en los principales sospechosos del mayor esc\u00e1ndalo de malversaci\u00f3n de fondos ocurrido en una escuela p\u00fablica de toda la historia de los Estados Unidos.",
-        "release_date": "2020-09-23"
+        "title": "Antebellum",
+        "overview": "Ver\u00f3nica es una escritora de \u00e9xito que queda atrapada en una terror\u00edfica realidad cuyo misterio debe resolver antes de que sea demasiado tarde.",
+        "release_date": "2020-09-02"
     },
     {
         "poster_path": "\/7XvaQsCoDW1x8CxPiv7AzQ5OUzX.jpg",
@@ -194,6 +168,19 @@
         "release_date": "2019-12-19"
     },
     {
+        "poster_path": "\/4V2nTPfeB59TcqJcUfQ9ziTi7VN.jpg",
+        "id": 501979,
+        "original_language": "en",
+        "genre_ids": [
+            12,
+            35,
+            878
+        ],
+        "title": "Bill & Ted Face the Music",
+        "overview": "A dos aspirantes a rockeros de San Dimas, California, se les dijo una vez que salvar\u00edan el universo durante una aventura de viaje en el tiempo, pero se encuentran como padres de mediana edad que a\u00fan intentan poner en marcha una canci\u00f3n exitosa y cumplir su destino. Sin suerte e inspiraci\u00f3n, Bill y Ted emprendieron otra aventura de viaje en el tiempo para buscar la canci\u00f3n que establecer\u00e1 su mundo correcto y traer\u00e1 armon\u00eda al universo tal como lo conocemos.",
+        "release_date": "2020-08-27"
+    },
+    {
         "poster_path": "\/vQgXwuJrlpzGDI8169tRQRy71Nv.jpg",
         "id": 479259,
         "original_language": "en",
@@ -204,6 +191,19 @@
         "title": "I Am Not a Bird",
         "overview": "Margaret est\u00e1 haciendo todo lo que est\u00e1 a su alcance para olvidar su hogar, y la vida nocturna ex\u00f3tica de Tokio, repleta de bebidas, drogas y hoteles de amor de tres horas, le permite mantener sus demonios a raya. Trabajando como especialista inglesa en Air-Pro Stewardess Training Institute durante el d\u00eda y perdi\u00e9ndose en un olvido sexual y narcotizado por la noche, Margaret reprime recuerdos de su dolorosa infancia en Canad\u00e1 y el descenso de su hermano mayor Frank a la locura. -an\u00f3nimo",
         "release_date": "2020-09-18"
+    },
+    {
+        "poster_path": "\/57H8KjN5qHYJjaq5SaUPsuVypPh.jpg",
+        "id": 530723,
+        "original_language": "en",
+        "genre_ids": [
+            35,
+            18,
+            10770
+        ],
+        "title": "La estafa (Bad Education)",
+        "overview": "Frank Tassone, uno de los superintendentes m\u00e1s destacados del distrito escolar de Roslyn en Nueva York se desvive a diario para que la educaci\u00f3n de sus alumnos sea la mejor. Pero de forma paralela, este se lucra con dinero p\u00fablico para llevar una vida llena de lujos. As\u00ed, Tassone y su personal, amigos y familiares, se convierten en los principales sospechosos del mayor esc\u00e1ndalo de malversaci\u00f3n de fondos ocurrido en una escuela p\u00fablica de toda la historia de los Estados Unidos.",
+        "release_date": "2020-09-23"
     },
     {
         "poster_path": "\/oh8XmxWlySHgGLlx8QOBmq9k72j.jpg",

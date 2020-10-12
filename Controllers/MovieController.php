@@ -15,7 +15,7 @@
 
         public function ShowAddView()
         {
-            require_once(VIEWS_PATH."add-cellphone.php");
+            require_once(VIEWS_PATH."add-cellphone.php"); //hay que cambiar aca
         }
 
         public function ShowListView()
