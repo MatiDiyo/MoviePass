@@ -84,7 +84,9 @@
 
                     array_push($this->movieList, $movie);
                 }
-            }
+            }else{
+				RefreshData();
+			}
         }
 
         public function RefreshData()
@@ -114,6 +116,25 @@
             }
 
             $this->SaveData();
+        }
+		
+		public function GetAllThemes()
+        {
+			$themes = array();
+			
+            $jsonContentAPI = file_get_contents('https://api.themoviedb.org/3/genre/movie/list?page=1&language=es&api_key=36267897603498f1c34335429569f1c0'); #aca deberia leer el link de la api para traernos un json
+
+            $arrayToDecode = ($jsonContentAPI) ? json_decode($jsonContentAPI, true) : array(); #transformamos el json de la api en un arreglo
+
+            foreach($arrayToDecode['genres'] as $valuesArray)
+            {
+                $themeName = $valuesArray['name'];
+                $themeId = $valuesArray['id'];
+
+                $themes[$themeId] = $themeName;
+            }
+
+            return $themes;
         }
 
     }

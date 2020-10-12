@@ -81,3 +81,28 @@ section{
 .movie-details h3{
     margin-bottom: 0px;
 }
+
+.border-text {
+	color: #fff;
+	text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+.inline-form {
+	display: inline;
+	vertical-align: center;
+}
+
+.mouse-activate{
+	opacity: 20%;
+}
+
+.mouse-activate:hover{
+	opacity: 100%;
+	cursor: pointer;
+}
+
+.cinema-card {
+    height:180px;
+    text-align: center;
+    background-color: #ddd;
+}

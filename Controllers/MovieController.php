@@ -21,6 +21,7 @@
         public function ShowListView()
         {
             $movieList = $this->movieDAO->GetAll();
+			$themeList = $this->movieDAO->GetAllThemes();
 
             require_once(VIEWS_PATH."movies-admin.php");
         }
@@ -54,6 +55,28 @@
             $this->movieDAO->Remove($id);
 
             $this->ShowListView();
+        }
+
+        public function Search(){
+            $date = $_GET["date"] != null ? $_GET["date"] : null;
+            $theme = $_GET["theme"] != null ? $_GET["theme"] : null;
+
+            $movieList = $this->movieDAO->GetAll();
+            echo '<script>console.log("'.$date."---".$theme.'");</script>';
+            /*
+            $movieList = array_filter($movies, function($movie){
+                if($date != null && $movie->getReleaseDate() >= $date){
+                    return false;
+                }elseif($theme != null && !in_array($theme, $movie->getGenreIds()) ){
+                    return false;
+                }else{
+                    return true;
+                }
+            });
+            */
+            $themeList = $this->movieDAO->GetAllThemes();
+
+            require_once(VIEWS_PATH."movies-admin.php");
         }
 
     }
