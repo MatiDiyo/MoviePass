@@ -2,7 +2,11 @@
  include('header.php');
  include('nav-bar.php');
 ?>
-
+<script>
+    function goBack(){
+        window.location = "<?php echo FRONT_ROOT."Cinema/ShowListView"?>"
+    }
+</script>
 <section id="addcinema">
     <form id="cinemaForm" method="POST" action="<?php echo FRONT_ROOT."Cinema/Add"?>"> 
         <div class="container form-cine">
@@ -43,7 +47,7 @@
                             <button type="submit" class="btn btn-dark">Registrar cine</button>
                         </div>
                         <div class="col-md-6 ">
-                            <button type="" class="btn btn-danger">Cancelar</button>
+                            <input type="button" class="btn btn-danger" value="Cancelar" onclick="goBack();"/>
                         </div>
                 </div>
             </div>
