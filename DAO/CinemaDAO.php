@@ -30,7 +30,6 @@
 
             foreach($this->cinemaList as $cinema)
             {
-				//TODO REEMPLAZAR POR DOMAIN CINE
                 $valuesArray["name"] = $cinema->getName();
                 $valuesArray["address"] = $cinema->getAddress();
                 $valuesArray["capacity"] = $cinema->getCapacity();
@@ -58,7 +57,6 @@
                 foreach($arrayToDecode as $valuesArray)
                 {
                     $cinema = new Cinema();
-					//TODO REEMPLAZAR POR DOMAIN CINE
                     $cinema->setName($valuesArray["name"]);
                     $cinema->setAddress($valuesArray["address"]);
                     $cinema->setCapacity($valuesArray["capacity"]);

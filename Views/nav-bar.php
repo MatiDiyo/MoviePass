@@ -9,7 +9,7 @@
     
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" id="cartelera" href="<?php echo FRONT_ROOT."Movie/RefreshData"?>">Cartelera</a>
+            <a class="nav-link" id="cartelera" href="<?php echo FRONT_ROOT."Movie/ShowListView"?>">Cartelera</a>
           </li>
 
           <!--hacer cartelera usuario-->
