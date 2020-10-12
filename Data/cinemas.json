@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Cine A",
+        "address": "CF 123",
+        "capacity": "100"
+    },
+    {
+        "name": "Cine B",
+        "address": "CF 123",
+        "capacity": "100"
+    }
+]

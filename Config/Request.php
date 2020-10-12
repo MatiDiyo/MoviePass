@@ -66,7 +66,7 @@
             return $this->method;
         }
 
-        public function getparameters() {
+        public function getParameters() {
             return $this->parameters;
         }
     }
