@@ -18,7 +18,7 @@
 		<div class="container">
 			<div class="listmovie-container">
 				<div class="row">
-					<div class="col-6">
+					<div class="col-9">
 						<h2>MoviePass</h3>
 						<p>Las peliculas del momento, en tu cine mas cercano.</p>
 					</div>
@@ -65,7 +65,6 @@
 		</div>
 				
 		<div id="galery" class="container">
-
 			<div class="row">
 				<div class="col-auto">
 					<form class="inline-form" id="refreshMovies" method="POST" action="<?php echo FRONT_ROOT."Movie/RefreshData"?>">
@@ -78,7 +77,6 @@
 				<?php
 						foreach($movieList as $movie){
 				?>
-
 					<div class="col-3">
 						<div class="movie-container">
 							<div class="movie-details">

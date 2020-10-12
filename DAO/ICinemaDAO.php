@@ -7,5 +7,6 @@
     {
         function Add(Cinema $cinema);
         function GetAll();
+        function Remove($id);
     }
 ?>

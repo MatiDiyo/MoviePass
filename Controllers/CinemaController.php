@@ -28,13 +28,21 @@
         public function Add($cinemaName, $cinemaAddress, $cinemaCapacidad, $cinemaPrice)
         {
             $cinema = new Cinema();
-			//TODO REEMPLAZAR POR DOMAIN CINE
+            //TODO REEMPLAZAR POR DOMAIN CINE
+            $cinema->setId(time());
             $cinema->setName($cinemaName);
             $cinema->setAddress($cinemaAddress);
             $cinema->setCapacity($cinemaCapacidad);
             $cinema->setPrice($cinemaPrice);
 
             $this->cinemaDao->Add($cinema);
+
+            $this->ShowListView();
+        }
+
+        public function Remove($id)
+        {
+            $this->cinemaDao->Remove($id);
 
             $this->ShowListView();
         }

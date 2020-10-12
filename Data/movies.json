@@ -104,16 +104,17 @@
         "release_date": "2020-03-12"
     },
     {
-        "poster_path": "\/2KavuY24PpXBMQ2efbOknKaeYS.jpg",
-        "id": 592350,
-        "original_language": "ja",
+        "poster_path": "\/2gPe9cpLGRBbuTKjGBpGkzSGRRP.jpg",
+        "id": 619592,
+        "original_language": "en",
         "genre_ids": [
             28,
-            16
+            80,
+            18
         ],
-        "title": "My Hero Academia: el despertar de los h\u00e9roes",
-        "overview": "Un nuevo villano, llamado Nine, est\u00e1 buscando a Tomura Shigaraki. Para ello, decide atacar la isla de Nabut\u014d. Segunda pel\u00edcula de la serie anime \"My Hero Academia\".",
-        "release_date": "2019-12-20"
+        "title": "La fuerza de la naturaleza",
+        "overview": "Una banda de ladrones planea un atraco durante un hurac\u00e1n y se encuentra con problemas cuando un polic\u00eda en desgracia intenta obligar a todos en el edificio a evacuar.",
+        "release_date": "2020-07-02"
     },
     {
         "poster_path": "\/hPkqY2EMqWUnFEoedukilIUieVG.jpg",
@@ -130,17 +131,16 @@
         "release_date": "2020-06-24"
     },
     {
-        "poster_path": "\/gzFatNrw0lhKD5NxaU6zC7S2KjP.jpg",
-        "id": 659986,
-        "original_language": "en",
+        "poster_path": "\/2KavuY24PpXBMQ2efbOknKaeYS.jpg",
+        "id": 592350,
+        "original_language": "ja",
         "genre_ids": [
             28,
-            27,
-            53
+            16
         ],
-        "title": "The Owners",
-        "overview": "Un grupo de amigos cree que encuentran un blanco f\u00e1cil en una casa vac\u00eda con una caja fuerte llena de dinero en efectivo. Pero cuando la pareja de ancianos que vive all\u00ed llega temprano a casa, las cosas cambian de repente. Mientras se produce un juego mortal del gato y el rat\u00f3n, los posibles ladrones deben luchar para salvarse de una pesadilla que nunca hubieran imaginado.",
-        "release_date": "2020-08-27"
+        "title": "My Hero Academia: el despertar de los h\u00e9roes",
+        "overview": "Un nuevo villano, llamado Nine, est\u00e1 buscando a Tomura Shigaraki. Para ello, decide atacar la isla de Nabut\u014d. Segunda pel\u00edcula de la serie anime \"My Hero Academia\".",
+        "release_date": "2019-12-20"
     },
     {
         "poster_path": "\/kxekf7Ufxhubi00h02oWq6gbkWX.jpg",
@@ -154,18 +154,17 @@
         "release_date": "2020-09-02"
     },
     {
-        "poster_path": "\/7XvaQsCoDW1x8CxPiv7AzQ5OUzX.jpg",
-        "id": 413518,
-        "original_language": "it",
+        "poster_path": "\/gzFatNrw0lhKD5NxaU6zC7S2KjP.jpg",
+        "id": 659986,
+        "original_language": "en",
         "genre_ids": [
-            12,
-            18,
-            14,
-            10751
+            28,
+            27,
+            53
         ],
-        "title": "Pinocho",
-        "overview": "Adaptaci\u00f3n de la cl\u00e1sica historia del mu\u00f1eco de madera llamado Pinocho, que desea ser un ni\u00f1o de carne y hueso.",
-        "release_date": "2019-12-19"
+        "title": "The Owners",
+        "overview": "Un grupo de amigos cree que encuentran un blanco f\u00e1cil en una casa vac\u00eda con una caja fuerte llena de dinero en efectivo. Pero cuando la pareja de ancianos que vive all\u00ed llega temprano a casa, las cosas cambian de repente. Mientras se produce un juego mortal del gato y el rat\u00f3n, los posibles ladrones deben luchar para salvarse de una pesadilla que nunca hubieran imaginado.",
+        "release_date": "2020-08-27"
     },
     {
         "poster_path": "\/4V2nTPfeB59TcqJcUfQ9ziTi7VN.jpg",
@@ -193,6 +192,20 @@
         "release_date": "2020-09-18"
     },
     {
+        "poster_path": "\/7XvaQsCoDW1x8CxPiv7AzQ5OUzX.jpg",
+        "id": 413518,
+        "original_language": "it",
+        "genre_ids": [
+            12,
+            18,
+            14,
+            10751
+        ],
+        "title": "Pinocho",
+        "overview": "Adaptaci\u00f3n de la cl\u00e1sica historia del mu\u00f1eco de madera llamado Pinocho, que desea ser un ni\u00f1o de carne y hueso.",
+        "release_date": "2019-12-19"
+    },
+    {
         "poster_path": "\/57H8KjN5qHYJjaq5SaUPsuVypPh.jpg",
         "id": 530723,
         "original_language": "en",
@@ -206,17 +219,16 @@
         "release_date": "2020-09-23"
     },
     {
-        "poster_path": "\/oh8XmxWlySHgGLlx8QOBmq9k72j.jpg",
-        "id": 577922,
+        "poster_path": "\/a6p9zrXBQpLsDi2QykRhHdQk4EB.jpg",
+        "id": 579583,
         "original_language": "en",
         "genre_ids": [
-            28,
-            878,
-            53
+            35,
+            18
         ],
-        "title": "Tenet",
-        "overview": "Una acci\u00f3n \u00e9pica que gira en torno al espionaje internacional, los viajes en el tiempo y la evoluci\u00f3n, en la que un agente secreto debe prevenir la Tercera Guerra Mundial.",
-        "release_date": "2020-08-22"
+        "title": "El rey del barrio",
+        "overview": "Scott ha sido un caso de desarrollo arrestado desde que su padre bombero muri\u00f3 cuando \u00e9l ten\u00eda siete a\u00f1os. Ahora ha alcanzado la mitad de sus 20 a\u00f1os y ha logrado poco, persiguiendo el sue\u00f1o de convertirse en un artista del tatuaje que parece estar fuera de su alcance. Mientras su ambiciosa hermana menor se va a la universidad, Scott todav\u00eda vive con su agotada madre enfermera de emergencias y pasa sus d\u00edas fumando hierba, saliendo con los chicos, Oscar, Igor y Richie, y en secreto con su amigo de la infancia Kelsey. Pero cuando su madre comienza a salir con un bombero ruidoso llamado Ray, desencadena una serie de eventos que obligar\u00e1n a Scott a lidiar con su dolor y dar sus primeros pasos tentativos para avanzar en la vida.",
+        "release_date": "2020-07-22"
     },
     {
         "poster_path": "\/rIw4e4ZRMznLj21mASBcXIUuOsN.jpg",
@@ -232,27 +244,16 @@
         "release_date": "2020-09-11"
     },
     {
-        "poster_path": "\/xIKVeH1iAKJOYYh9lvObD3hYIaf.jpg",
-        "id": 605499,
+        "poster_path": "\/oh8XmxWlySHgGLlx8QOBmq9k72j.jpg",
+        "id": 577922,
         "original_language": "en",
         "genre_ids": [
-            18,
-            10749
+            28,
+            878,
+            53
         ],
-        "title": "Monsoon",
-        "overview": "Kit no recuerda mucho de su Vietnam natal. Cuando regresa a la Tierra de la Estrella Dorada por primera vez en m\u00e1s de treinta a\u00f1os, contempla su entorno local como lo har\u00eda cualquier turista occidental, y el entorno es tan ex\u00f3tico como incomprensible el idioma. El objetivo de los viajes de Kit, encontrar un lugar para esparcir las cenizas de sus padres, se convierte as\u00ed en parte de un viaje de regreso a sus ra\u00edces y al descubrimiento de su identidad, que las circunstancias externas han vuelto ambiguas y complejas.",
-        "release_date": "2020-09-25"
-    },
-    {
-        "poster_path": "\/a6p9zrXBQpLsDi2QykRhHdQk4EB.jpg",
-        "id": 579583,
-        "original_language": "en",
-        "genre_ids": [
-            35,
-            18
-        ],
-        "title": "El rey del barrio",
-        "overview": "Scott ha sido un caso de desarrollo arrestado desde que su padre bombero muri\u00f3 cuando \u00e9l ten\u00eda siete a\u00f1os. Ahora ha alcanzado la mitad de sus 20 a\u00f1os y ha logrado poco, persiguiendo el sue\u00f1o de convertirse en un artista del tatuaje que parece estar fuera de su alcance. Mientras su ambiciosa hermana menor se va a la universidad, Scott todav\u00eda vive con su agotada madre enfermera de emergencias y pasa sus d\u00edas fumando hierba, saliendo con los chicos, Oscar, Igor y Richie, y en secreto con su amigo de la infancia Kelsey. Pero cuando su madre comienza a salir con un bombero ruidoso llamado Ray, desencadena una serie de eventos que obligar\u00e1n a Scott a lidiar con su dolor y dar sus primeros pasos tentativos para avanzar en la vida.",
-        "release_date": "2020-07-22"
+        "title": "Tenet",
+        "overview": "Una acci\u00f3n \u00e9pica que gira en torno al espionaje internacional, los viajes en el tiempo y la evoluci\u00f3n, en la que un agente secreto debe prevenir la Tercera Guerra Mundial.",
+        "release_date": "2020-08-22"
     }
 ]

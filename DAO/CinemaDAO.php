@@ -34,6 +34,7 @@
                 $valuesArray["address"] = $cinema->getAddress();
                 $valuesArray["capacity"] = $cinema->getCapacity();
                 $valuesArray["price"] = $cinema->getPrice();
+                $valuesArray["id"] = $cinema->getId();
 
                 array_push($arrayToEncode, $valuesArray);
             }
@@ -60,10 +61,23 @@
                     $cinema->setAddress($valuesArray["address"]);
                     $cinema->setCapacity($valuesArray["capacity"]);
                     $cinema->setPrice($valuesArray["price"]);
+                    $cinema->setId($valuesArray["id"]);
 
                     array_push($this->cinemaList, $cinema);
                 }
             }
         }
+
+        public function Remove($id)
+        {            
+            $this->RetrieveData();
+            
+            $this->cinemaList = array_filter($this->cinemaList, function($cinema) use($id){                
+                return $cinema->getId() != $id;
+            });
+            
+            $this->SaveData();
+        }
+
     }
 ?>
