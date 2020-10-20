@@ -10,8 +10,9 @@
         private $title;
         private $overview;
         private $releaseDate;
+        private $runtime; // en minutos
 
-        public function __construct($posterPath = "", $id = "", $language = "", $genreIds = "", $title = "", $overview = "", $releaseDate = "")
+        public function __construct($posterPath = "", $id = "", $language = "", $genreIds = "", $title = "", $overview = "", $releaseDate = "", $runtime = "")
         {
             $this->posterPath = $posterPath;
             $this->id = $id;
@@ -20,6 +21,7 @@
             $this->title = $title;
             $this->overview = $overview;
             $this->releaseDate = $releaseDate;
+            $this->runtime = $runtime;
         }
 
         public function getPosterPath()
@@ -92,6 +94,15 @@
             $this->releaseDate = $releaseDate;
         }
 
+        public function getRuntime()
+        {
+            return $this->runtime;
+        }
+
+        public function setRuntime($runtime)
+        {
+            $this->runtime = $runtime;
+        }
 
     }
 ?>

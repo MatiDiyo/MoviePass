@@ -52,6 +52,7 @@
                 $valuesArray["title"] = $movie->getTitle();
                 $valuesArray["overview"] = $movie->getOverview();
                 $valuesArray["release_date"] = $movie->getReleaseDate();
+                $valuesArray["runtime"] = $movie->getRuntime();
 
                 array_push($arrayToEncode, $valuesArray);
             }
@@ -81,19 +82,20 @@
                     $movie->setTitle($valuesArray["title"]);
                     $movie->setOverview($valuesArray["overview"]);
                     $movie->setReleaseDate($valuesArray["release_date"]);
+                    $movie->setRuntime($valuesArray["runtime"]);
 
                     array_push($this->movieList, $movie);
                 }
             }else{
-				RefreshData();
+				$this->RefreshData();
 			}
         }
 
         public function RefreshData()
         {
-            //$arrayToEncode = array();
-            $jsonContentAPI = file_get_contents('https://api.themoviedb.org/3/movie/now_playing?page=1&language=es-US&api_key=36267897603498f1c34335429569f1c0'); #aca deberia leer el link de la api para traernos un json
-
+            // PRIMER LLAMADA A LA API, OBTIENE LA LISTA DE LOS ACTUALES
+            $method = 'movie/now_playing';
+            $jsonContentAPI = file_get_contents(API_URL . '/' . $method . '?page=1&language=' . LANGUAGE_API . '&api_key=' . API_KEY); #aca deberia leer el link de la api para traernos un json
             $arrayToDecode = ($jsonContentAPI) ? json_decode($jsonContentAPI, true) : array(); #transformamos el json de la api en un arreglo
 
             if(file_exists('Data/movies.json'))
@@ -111,7 +113,14 @@
                 $overview = $valuesArray['overview'];
                 $releaseDate = $valuesArray['release_date'];
 
-                $movie = new Movie($posterPath, $id, $language, $genreIds, $title, $overview, $releaseDate); 
+                // SEGUNDA LLAMADA A LA API, OBTIENE LOS DETALLES DE UNA PELICULA EN PARTICULAR
+                $method = 'movie/' . $id;
+                $jsonContentAPI = file_get_contents(API_URL . '/' . $method . '?api_key=' . API_KEY . '&language=' . LANGUAGE_API);
+                $arrayToDecode2 = ($jsonContentAPI) ? json_decode($jsonContentAPI, true) : array();
+
+                $runtime = $arrayToDecode2['runtime'];
+
+                $movie = new Movie($posterPath, $id, $language, $genreIds, $title, $overview, $releaseDate, $runtime); 
                 array_push($this->movieList, $movie);
             }
 
@@ -122,7 +131,8 @@
         {
 			$themes = array();
 			
-            $jsonContentAPI = file_get_contents('https://api.themoviedb.org/3/genre/movie/list?page=1&language=es&api_key=36267897603498f1c34335429569f1c0'); #aca deberia leer el link de la api para traernos un json
+            $method = 'genre/movie/list';
+            $jsonContentAPI = file_get_contents(API_URL . '/' . $method . '?page=1&language=' . LANGUAGE_API . '&api_key=' . API_KEY); #aca deberia leer el link de la api para traernos un json
 
             $arrayToDecode = ($jsonContentAPI) ? json_decode($jsonContentAPI, true) : array(); #transformamos el json de la api en un arreglo
 
@@ -136,6 +146,5 @@
 
             return $themes;
         }
-
     }
 ?>
