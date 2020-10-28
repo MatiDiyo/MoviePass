@@ -18,6 +18,11 @@
             require_once(VIEWS_PATH."signup.php");
         }
 
+        public function ShowLogin()
+        {
+            require_once(VIEWS_PATH."login.php");
+        }
+
         public function Add($mail, $password)
         {
             $user = new User();
@@ -26,10 +31,20 @@
 
             $this->userDAO->Add($user);
 
-            //en esta linea habria que hacer que nos lleve a otra vista
+            $this->ShowLogin();
         }
 
 
+/*
+        public function Login()
+        {
+            if($_POST)
+            {
+                $email = $_POST["email"];
+                $pass = $_POST["password"];
+            }
 
+        }
+*/
     }
 ?>

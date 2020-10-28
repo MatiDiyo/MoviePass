@@ -3,20 +3,21 @@
     include('nav-bar.php');
 ?>
 
-<section id="signup">
-    <form id="signupForm" method="POST" action="<?php echo FRONT_ROOT."User/Add"?>"> 
+<section id="login">
+    <form id=loginForm method="POST" action="<?php echo FRONT_ROOT."User/Login"?>">
         <div class="container">
             <div class="content-center">
+                
                 <div class="row">
                     <div class="col-12">
-                        <h3><b>Registrate.</b></h3>
+                        <h3><b>Iniciar sesion.</b></h3>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Mail" required /> 
+                            <input type="email" class="form-control" name="userMail" id="mail" placeholder="Mail" required/>
                         </div>
                     </div>
                 </div>
@@ -24,18 +25,18 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required /> 
+                            <input type="password" class="form-control" name="userPassword" id="password" placeholder="Contraseña" required/>
                         </div>
                     </div>
                 </div>
-
+            
                 <div class="row">
-                        <div class="col-6">
-                            <button type="submit" class="btn btn-dark">Registrarse</button>
-                        </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-dark">Iniciar Sesion</button>
+                    </div>
                 </div>
-
-            </div>        
+            
+            </div>    
         </div>    
     </form>
 </section>

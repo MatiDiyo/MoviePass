@@ -17,12 +17,12 @@
             {
                 $query = "INSERT INTO ".$this->tableName." (mail, password) VALUES (:mail, :password);";
 
-                $parameters["mail"] = $user->getMail();
+                $parameters["mail"] = $user->getMail(); //seteo de los parametros que vamos a enviar
                 $parameters["password"] = $user->getPassword();
 
-                $this->connection = Connection::GetInstance();
+                $this->connection = Connection::GetInstance(); //genera una instancia de PDO si no existe
 
-                $this->connection->ExecuteNonQuery($query, $parameters);
+                $this->connection->ExecuteNonQuery($query, $parameters); //hace un INSERT 
             }
             catch(Exception $ex)
             {
@@ -57,5 +57,29 @@
                 throw $ex
             }
         }
+
+        public function GetOne(User $user){
+            try{
+                $userList = array();
+
+                $query = "SELECT * FROM ".$this->tableName." WHERE mail = '" . $user->getMail() . "' AND pass = '" . $user->getPassword . "';";
+                
+                $this->connection = Connection::GetInstance();
+                
+                $resultSet = $this->connection->Execute($query);
+
+                if($resultSet){
+                    $user->setMail($resultSet["mail"]);
+                    $user->setPassword($resultSet["password"]);
+
+                    array_push($userList, $user);
+                }
+                return userList;
+            }catch(Exception $ex){
+                throw $ex;
+            }
+        }
+
+
     }
 ?>
