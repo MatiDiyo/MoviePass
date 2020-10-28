@@ -15,7 +15,7 @@
         {
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (mail, password) VALUES (:mail, :password);";
+                $query = "INSERT INTO ".$this->tableName." (mail, pass) VALUES (:mail, :password);";
 
                 $parameters["mail"] = $user->getMail(); //seteo de los parametros que vamos a enviar
                 $parameters["password"] = $user->getPassword();
@@ -54,7 +54,7 @@
             }
             catch(Exception $ex)
             {
-                throw $ex
+                throw $ex;
             }
         }
 

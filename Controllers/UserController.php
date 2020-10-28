@@ -8,7 +8,7 @@
     {
         private $userDAO;
 
-        public function __contruct()
+        public function __construct()
         {
             $this->userDAO = new UserDAO();
         }

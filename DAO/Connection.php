@@ -17,7 +17,7 @@
         {
             try
             {
-                $this->pdo = new PDO ("mysql:host=" . DB_HOST."; dbname=". DB_NAME, DB_USER, DB_PASS);
+                $this->pdo = new PDO ("mysql:host=".DB_HOST."; dbname=".DB_NAME, DB_USER, DB_PASS);
                 $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //establece el modo de errores a excepciones
             }
             catch(Exception $ex)
@@ -28,7 +28,7 @@
 
         public static function GetInstance()
         {
-            if(self:$instance == null) //self se utiliza para ingresar a una constante o metodo estatico desde dentro de una clase
+            if(self::$instance == null) //self se utiliza para ingresar a una constante o metodo estatico desde dentro de una clase
                 self::$instance = new Connection(); //si instance es null lo instancia
 
             return self::$instance; //y lo retornamos
