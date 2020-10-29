@@ -38,11 +38,7 @@
 /*
         public function Login()
         {
-            if($_POST)
-            {
-                $email = $_POST["email"];
-                $pass = $_POST["password"];
-            }
+            
 
         }
 */
