@@ -33,14 +33,6 @@
 		$this->id = $id; 
 	} 
 
-	function getCapacity() { 
- 		return $this->capacity; 
-	} 
-
-	function setCapacity($capacity) {  
-		$this->capacity = $capacity; 
-	} 
-
 	function getPrice() { 
  		return $this->price; 
 	} 

@@ -20,6 +20,9 @@
                 </div>
             </div>  
             <hr/>
+            <?php
+                    if($cinemaList != null){
+                ?>
             <div class="row">
                 <?php
                     foreach($cinemaList as $cine){
@@ -36,14 +39,19 @@
                             <div class="card-body">
                                 <!--<span class="h5 card-title"><?php echo $cine->getName() ?></span><br/>-->
                                 <span class="h5 card-title">Direccion: <?php echo $cine->getAddress() ?></span><br/>
-                                <span class="p card-text">Capacidad: <?php echo $cine->getCapacity() ?></span><br/>
+                                <!--<span class="p card-text">Capacidad: <?php /*echo $cine->getCapacity() */?></span><br/>-->
                                 <span class="p card-text">Precio: $<?php echo $cine->getPrice() ?></span>
-                                <!--<div class="col-auto">-->
-                                    <form class="" action="<?php echo FRONT_ROOT."Cinema/Remove"?>">
-                                        <button type="submit" name="id" class="btn-dark btn-sm" value="<?php echo $cine->getId() ?>">Eliminar</button>
+                                <hr/>
+                                <div class="row">
+                                    <form class="col-6" method="POST" action="<?php echo FRONT_ROOT."Cinema/ShowEditView"?>">
+                                        <button type="submit" name="id" class="btn-dark btn-sm btn-block" value="<?php echo $cine->getId() ?>">Editar</button>
                                         <!--probablemente haya que poner un boton mas para administrar el cine-->
                                     </form>
-                                <!--</div>-->
+                                    <form class="col-6" method="POST" action="<?php echo FRONT_ROOT."Cinema/Remove"?>">
+                                        <button type="submit" name="id" class="btn-danger btn-sm btn-block" value="<?php echo $cine->getId() ?>">Eliminar</button>
+                                        <!--probablemente haya que poner un boton mas para administrar el cine-->
+                                    </form>
+                                </div>
                             </div>    
                         </div>
                     </div>
@@ -51,6 +59,17 @@
                     }
                 ?>
             </div>
+            <?php
+                }else{
+            ?>
+            <div class="row">
+                <div clasS="col-12">
+                    <span class="h6">No se han encontrado cines. Ingrese uno desde el botón "Agregar nuevo cine".</span>
+                </div>
+            </div>
+            <?php
+                }
+            ?>
             <hr/>
         </div>
 

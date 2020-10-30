@@ -3,9 +3,9 @@
     
     class ProfileUser
     {
-        $surname;
-        $dni;
-        $name;
+        private $surname;
+        private $dni;
+        private $name;
 
         function getSurname()
         {
