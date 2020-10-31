@@ -18,9 +18,14 @@
             require_once(VIEWS_PATH."signup.php");
         }
 
-        public function ShowLogin()
+        public function ShowLogin($message = "")
         {
             require_once(VIEWS_PATH."login.php");
+        }
+
+        public function ShowProfile()
+        {
+            require_once(VIEWS_PATH."profile.php");
         }
 
         public function Add($mail, $password)
@@ -34,13 +39,31 @@
             $this->ShowLogin();
         }
 
-
-/*
-        public function Login()
+        public function Login($mail, $password)
         {
-            
+            $user = new User();
+            $user->setMail($mail);
+            $user->setPassword($password);
 
+            $userResult = $this->userDAO->GetOne($user);
+
+            if(($userResult != null) && ($userResult->getPassword() == $password))
+            {
+                $_SESSION["loggedUser"] = $userResult;
+                $this->ShowProfile();
+            }
+            else
+            {
+                $this->ShowLogin();
+            }
         }
-*/
+
+        public function Logout()
+        {
+            session_destroy();
+
+            $this->ShowLogin();
+        }
+
     }
 ?>

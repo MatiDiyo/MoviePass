@@ -35,9 +35,26 @@
                         </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-6">
+                        <hr/>
+                    </div>
+                </div>
+
             </div>        
         </div>    
     </form>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <form method="get" action="<?php echo FRONT_ROOT."User/ShowLogin"?>">
+                    <button type="submit" class="btn btn-danger">Ya tengo cuenta</button>
+                </form> 
+            </div>
+        </div>
+    </div>
+
 </section>
 
 <?php

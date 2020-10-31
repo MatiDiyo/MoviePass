@@ -35,10 +35,28 @@
                         <button type="submit" class="btn btn-dark">Iniciar Sesion</button>
                     </div>
                 </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-6">
+                        <hr/>
+                    </div>
+                </div>
             
             </div>    
         </div>    
     </form>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <form method="get" action="<?php echo FRONT_ROOT."User/ShowSignUp"?>">
+                    <button type="submit" class="btn btn-danger">Registrarme</button>
+                </form> 
+            </div>
+        </div>
+    </div>
+    
 </section>
 
 <?php

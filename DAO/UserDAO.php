@@ -45,7 +45,7 @@
                 foreach($resultSet as $row)
                 {
                     $user->setMail($row["mail"]);
-                    $user->setPassword($row["password"]);
+                    $user->setPassword($row["pass"]);
 
                     array_push($userList, $user);
                 }
@@ -58,24 +58,32 @@
             }
         }
 
-        public function GetOne(User $user){
-            try{
-                $userList = array();
-
-                $query = "SELECT * FROM ".$this->tableName." WHERE mail = '" . $user->getMail() . "' AND pass = '" . $user->getPassword . "';";
+        public function GetOne(User $user)
+        {
+            try
+            {
+                $userResult = null;
+                
+                $query = "SELECT * FROM ".$this->tableName." WHERE (mail = :mail) AND (pass = :password);"; 
+                
+                $parameters["mail"] = $user->getMail();
+                $parameters["password"] = $user->getPassword();
                 
                 $this->connection = Connection::GetInstance();
                 
-                $resultSet = $this->connection->Execute($query);
+                $resultSet = $this->connection->Execute($query, $parameters);
 
-                if($resultSet){
-                    $user->setMail($resultSet["mail"]);
-                    $user->setPassword($resultSet["password"]);
-
-                    array_push($userList, $user);
+                foreach($resultSet as $row)
+                {
+                    $userResult = new User();
+                
+                    $userResult->setMail($row["mail"]);
+                    $userResult->setPassword($row["pass"]);                
                 }
-                return userList;
-            }catch(Exception $ex){
+                return $userResult;
+            }
+            catch(Exception $ex)
+            {
                 throw $ex;
             }
         }

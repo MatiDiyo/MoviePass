@@ -53,7 +53,11 @@ section{
 .listcinema-container{
     padding-top: 90px;
 }
-
+/*
+.listprofile-container{
+    padding-top: 90px;
+}
+*/
 .btn{
     min-width: 255px;
 }

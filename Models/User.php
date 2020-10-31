@@ -3,8 +3,19 @@
 
     class User
     {
+        private $id;
         private $mail;
         private $password;
+
+        function getId()
+        {
+            return $this->id;
+        }
+
+        function setMail($id)
+        {
+            $this->id = $id;
+        }
 
         function getMail()
         {

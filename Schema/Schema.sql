@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS users(
 	mail VARCHAR(50) NOT NULL,
 	pass VARCHAR(50) NOT NULL,
 	CONSTRAINT pk_users PRIMARY KEY (id_user),
-	CONSTRAINT unq_mail UNIQUE (id_user, mail)
+	CONSTRAINT unq_mail UNIQUE (mail)
 );
 
 CREATE TABLE IF NOT EXISTS profileusers(
