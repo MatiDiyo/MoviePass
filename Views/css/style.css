@@ -45,6 +45,12 @@ section{
     margin-bottom: 100px;
 }
 
+.form-user{
+    min-height: 300px;
+    padding-top: 90px;
+    margin-bottom: 100px;
+}
+
 .listmovie-container{
     height: 40px;
     padding-top: 20px;

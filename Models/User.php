@@ -12,7 +12,7 @@
             return $this->id;
         }
 
-        function setMail($id)
+        function setId($id)
         {
             $this->id = $id;
         }
