@@ -1,6 +1,7 @@
 <?php
     namespace DAO;
 
+    use Controllers\APIController as APIController;
     use \Exception as Exception;
     use DAO\IMovieDAO as IMovieDAO;
     use Models\Movie as Movie;
@@ -108,10 +109,8 @@
 
         public function RefreshData()
         {
-            //$arrayToEncode = array();
-            $jsonContentAPI = file_get_contents('https://api.themoviedb.org/3/movie/now_playing?page=1&language=es-US&api_key=36267897603498f1c34335429569f1c0'); #aca deberia leer el link de la api para traernos un json
-
-            $arrayToDecode = ($jsonContentAPI) ? json_decode($jsonContentAPI, true) : array(); #transformamos el json de la api en un arreglo
+            // PRIMER LLAMADA A LA API, OBTIENE LA LISTA DE LOS ACTUALES
+            $arrayToDecode = APIController::GetRequest('movie/now_playing', '&language=' . API_LANGUAGE . '&page=1');
 
             $movieListDB = $this->RetrieveData();
 
@@ -125,6 +124,10 @@
                 $title = $valuesArray['title'];
                 $overview = $valuesArray['overview'];
                 $releaseDate = $valuesArray['release_date'];
+
+                // SEGUNDA LLAMADA A LA API, OBTIENE LOS DETALLES DE UNA PELICULA EN PARTICULAR
+                $arrayToDecode2 = APIController::GetRequest('movie/' . $id, '&language=' . API_LANGUAGE);
+                $runtime = $arrayToDecode2['runtime'];
 
                 $movie = new Movie($posterPath, $id, $language, $genreIds, $title, $overview, $releaseDate); 
                 array_push($movieList, $movie);
@@ -142,10 +145,7 @@
 		public function GetAllThemes()
         {
 			$themes = array();
-			
-            $jsonContentAPI = file_get_contents('https://api.themoviedb.org/3/genre/movie/list?page=1&language=es&api_key=36267897603498f1c34335429569f1c0'); #aca deberia leer el link de la api para traernos un json
-
-            $arrayToDecode = ($jsonContentAPI) ? json_decode($jsonContentAPI, true) : array(); #transformamos el json de la api en un arreglo
+            $arrayToDecode = APIController::GetRequest('genre/movie/list', '&language=' . API_LANGUAGE);
 
             foreach($arrayToDecode['genres'] as $valuesArray)
             {
@@ -190,6 +190,5 @@
 
             return $movie;
         }
-
     }
 ?>

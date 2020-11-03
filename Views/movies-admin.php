@@ -7,6 +7,14 @@
 	function submitSearch(){
 		document.getElementById("searchForm").submit();
 	}
+
+	function submitSearchForGenres(){
+		document.getElementById("searchFormGenres").submit();
+	}
+
+	function submitSearchForDate(){
+		document.getElementById("searchFormDate").submit();
+	}
 	
 	function submitRefresh(){
 		document.getElementById("refreshMovies").submit();
@@ -46,21 +54,35 @@
 				<div class="col"></div>
 				
 				<div class="col-auto align-self-end">
-					<form id="searchForm" name="searchForm" class="inline-form" method="GET" action="<?php echo FRONT_ROOT."Movie/Search"?>">
+					<form id="searchFormGenres" name="searchFormGenres" class="inline-form" method="GET" action="<?php echo FRONT_ROOT."Movie/SearchForGenres"?>">
 						<div class="form-inline">
-							<span class="h5 inline-form">Buscar&nbsp;</span>
-							<input class="form-control" type="datetime-local" name="date" value="<?php echo date("Y-m-d\Th:m") ?>"/>
-							&nbsp;
-							<select class="form-control" name="theme">
-								<?php foreach($themeList as $id => $name){?>
-								<option value="<?php echo $id ?>"><?php echo $name ?></option>
+
+							<span class="h5 inline-form">Buscar por Género&nbsp;</span>
+							<select class="form-control" name="genre">
+								<?php foreach($genreList as $genre){?>
+								<option value="<?php echo $genre->getId() ?>"><?php echo $genre->getName() ?></option>
 								<?php }?>
+
 							</select>
 							&nbsp;
-							<span class="h4 mouse-activate" onclick="submitSearch();"><i class="fa fa-search" aria-hidden="true"></i></span>
+							<span class="h4 mouse-activate" onclick="submitSearchForGenres();"><i class="fa fa-search" aria-hidden="true"></i></span>
 						</div>
 					</form>
 				</div>
+
+				<div class="col-auto align-self-end">
+					<form id="searchFormDate" name="searchFormDate" class="inline-form" method="GET" action="<?php echo FRONT_ROOT."Movie/SearchForDate"?>">
+						<div class="form-inline">
+
+							<span class="h5 inline-form">Buscar por Fecha&nbsp;</span>
+							<input class="form-control" type="datetime-local" name="date" value="<?php echo date("Y-m-d\Th:m") ?>"/>
+								&nbsp;
+
+							<span class="h4 mouse-activate" onclick="submitSearchForDate();"><i class="fa fa-search" aria-hidden="true"></i></span>
+						</div>
+					</form>
+				</div>
+
 			</div>
 		</div>
 				
@@ -73,6 +95,30 @@
 					</form>
 				</div>
 			</div>
+
+			<hr>
+
+			<div id = 'moviealert'>
+			<?php
+				if (isset($alert))
+				{
+					if ($alert['name'] == 'success')
+					{
+						?>
+						<div class="alert alert-success" role="alert">
+							<?php echo $alert['message']; ?>
+						</div> <?php
+					}
+					else if ($alert['name'] == 'failure')
+					{ ?>
+						<div class="alert alert-danger" role="alert">
+							<?php echo $alert['message']; ?>
+						</div> <?php
+					}
+				}
+				?>
+			</div>
+
 			<div class="row">
 				<?php
 					if($movieList != null && count($movieList)>0){
