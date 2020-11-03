@@ -13,4 +13,9 @@
     define("API_KEY", "36267897603498f1c34335429569f1c0");
     define("API_LANGUAGE", "es");
     define("API_URL_IMG", "https://image.tmdb.org/t/p/w500");
+
+    define("DB_HOST", "localhost");
+    define("DB_NAME", "moviepass");
+    define("DB_USER", "root");
+    define("DB_PASS", "");
 ?>

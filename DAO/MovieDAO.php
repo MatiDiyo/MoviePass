@@ -2,12 +2,16 @@
     namespace DAO;
 
     use Controllers\APIController as APIController;
+    use \Exception as Exception;
     use DAO\IMovieDAO as IMovieDAO;
     use Models\Movie as Movie;
+    use DAO\Connection as Connection;
 
     class MovieDAO implements IMovieDAO
     {
-        private $movieList = array();
+
+        private $connection;
+        private $tableName = "movie";
 
         public function Add(Movie $movie)
         {
@@ -35,61 +39,72 @@
 
         public function GetAll()
         {
-            $this->RetrieveData();
-
-            return $this->movieList;
+            return $this->RetrieveData();
         }
 
-        private function SaveData()
+        private function SaveData($movieList)
         {
-            $arrayToEncode = array();
-
-            foreach($this->movieList as $movie)
+            try
             {
-                $valuesArray["poster_path"] = $movie->getPosterPath();
-                $valuesArray["id"] = $movie->getId();
-                $valuesArray["original_language"] = $movie->getLanguage();
-                $valuesArray["genre_ids"] = $movie->getGenreIds();
-                $valuesArray["title"] = $movie->getTitle();
-                $valuesArray["overview"] = $movie->getOverview();
-                $valuesArray["release_date"] = $movie->getReleaseDate();
-                $valuesArray["runtime"] = $movie->getRuntime();
+                $query = "INSERT INTO ".$this->tableName." (`title`, `posterPath`, `language`, `overview`, `releaseDate`) VALUES (:title, :posterPath, :language, :overview, :releaseDate);" ;
 
-                array_push($arrayToEncode, $valuesArray);
+                $this->connection = Connection::GetInstance();
+                
+                foreach($movieList as $idx => $movie){
+
+                    $parameters = array();
+                    $parameters["title"] = $movie->getTitle();
+                    $parameters["posterPath"] = $movie->getPosterPath();
+                    $parameters["language"] = $movie->getLanguage();
+                    $parameters["overview"] = $movie->getOverview();
+                    $parameters["releaseDate"] = $movie->getReleaseDate();
+
+                    $this->connection->ExecuteNonQuery($query, $parameters);
+                }
+                //$query = preg_replace('/(,(?!.*,))/', ';', $query);
+        
             }
-
-            $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
-            
-            file_put_contents('Data/movies.json', $jsonContent);
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
         }
 
         private function RetrieveData()
         {
-            $this->movieList = array();
-
-            if(file_exists('Data/movies.json'))
+            $movieList = null;
+            try
             {
-                $jsonContent = file_get_contents('Data/movies.json');
+                $query = "SELECT id, title, posterPath, language, overview, releaseDate FROM ".$this->tableName.";";
 
-                $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
+                $this->connection = Connection::GetInstance();
+                
+                $result = $this->connection->Execute($query);
+                
+                $movieList = array();
+                if($result != null){
+                    foreach($result as $valuesArray)
+                    {
+                        $movie = new Movie();
+                        $movie->setId($valuesArray["id"]);
+                        $movie->setTitle($valuesArray["title"]);
+                        $movie->setPosterPath($valuesArray["posterPath"]);
+                        $movie->setLanguage($valuesArray["language"]);
+                        $movie->setOverview($valuesArray["overview"]);
+                        $movie->setReleaseDate($valuesArray["releaseDate"]);
 
-                foreach($arrayToDecode as $valuesArray)
-                {
-                    $movie = new Movie();
-                    $movie->setPosterPath($valuesArray["poster_path"]);
-                    $movie->setId($valuesArray["id"]);
-                    $movie->setLanguage($valuesArray["original_language"]);
-                    $movie->setGenreIds($valuesArray["genre_ids"]);
-                    $movie->setTitle($valuesArray["title"]);
-                    $movie->setOverview($valuesArray["overview"]);
-                    $movie->setReleaseDate($valuesArray["release_date"]);
-                    $movie->setRuntime($valuesArray["runtime"]);
-
-                    array_push($this->movieList, $movie);
-                }
-            }else{
-				$this->RefreshData();
-			}
+                        array_push($movieList, $movie);
+                    }
+                }/*else{
+                    RefreshData();
+                }*/
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+            
+            return $movieList;
         }
 
         public function RefreshData()
@@ -97,11 +112,9 @@
             // PRIMER LLAMADA A LA API, OBTIENE LA LISTA DE LOS ACTUALES
             $arrayToDecode = APIController::GetRequest('movie/now_playing', '&language=' . API_LANGUAGE . '&page=1');
 
-            if(file_exists('Data/movies.json'))
-            {
-                unlink('Data/movies.json'); #si el archivo nuestro existe lo borramos
-            }
+            $movieListDB = $this->RetrieveData();
 
+            $movieList = array();
             foreach($arrayToDecode['results'] as $valuesArray)
             {
                 $posterPath = $valuesArray['poster_path'];
@@ -116,11 +129,17 @@
                 $arrayToDecode2 = APIController::GetRequest('movie/' . $id, '&language=' . API_LANGUAGE);
                 $runtime = $arrayToDecode2['runtime'];
 
-                $movie = new Movie($posterPath, $id, $language, $genreIds, $title, $overview, $releaseDate, $runtime); 
-                array_push($this->movieList, $movie);
+                $movie = new Movie($posterPath, $id, $language, $genreIds, $title, $overview, $releaseDate); 
+                array_push($movieList, $movie);
             }
-
-            $this->SaveData();
+            
+            $moviesToAdd = array_udiff($movieList,$movieListDB, function($movieDB, $movieApi){
+                return(strcmp($movieDB->getTitle(),$movieApi->getTitle()));
+            });
+            if($moviesToAdd != null && count($moviesToAdd)>0){
+                echo '<script>console.log("Guardando Datos")</script>';
+                $this->SaveData($moviesToAdd);
+            }
         }
 		
 		public function GetAllThemes()
@@ -137,6 +156,39 @@
             }
 
             return $themes;
+        }
+
+        public function GetOne($id)
+        {            
+            $movie = null;
+
+            try
+            {
+                $query = "SELECT id, title, posterPath, language, overview, releaseDate FROM ".$this->tableName." WHERE id=:id;";
+
+                $parameters["id"] = $id;
+
+                $this->connection = Connection::GetInstance();
+                
+                $result = $this->connection->Execute($query, $parameters);
+                
+                if($result != null && !empty($result)){
+                    $valuesArray = $result[0];
+                    $movie = new Movie();
+                    $movie->setId($valuesArray["id"]);
+                    $movie->setTitle($valuesArray["title"]);
+                    $movie->setPosterPath($valuesArray["posterPath"]);
+                    $movie->setLanguage($valuesArray["language"]);
+                    $movie->setOverview($valuesArray["overview"]);
+                    $movie->setReleaseDate($valuesArray["releaseDate"]);
+                }
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+
+            return $movie;
         }
     }
 ?>

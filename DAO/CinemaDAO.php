@@ -2,81 +2,140 @@
     namespace DAO;
 
     use DAO\ICinemaDAO as ICinemaDAO;
+    use DAO\RoomDAO as RoomDAO;
     use Models\Cinema as Cinema;
+    use DAO\Connection as Connection; 
+    use \Exception as Exception;
 
     class CinemaDAO implements ICinemaDAO
     {
-        private $cinemaList = array();
+        private $connection;
+        private $tableName = "cinema";
 
         public function Add(Cinema $cinema)
         {
-            $this->RetrieveData();
-            
-            array_push($this->cinemaList, $cinema);
+            try
+            {
+                $query = "INSERT INTO ".$this->tableName." (name,address,price) VALUES (:name,:address,:price);";
 
-            $this->SaveData();
+                $parameters["name"] = $cinema->getName();
+                $parameters["address"] = $cinema->getAddress();
+                $parameters["price"] = $cinema->getPrice();
+
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
         }
 
         public function GetAll()
         {
-            $this->RetrieveData();
+            $cinemaList = null;
 
-            return $this->cinemaList;
-        }
-
-        private function SaveData()
-        {
-            $arrayToEncode = array();
-
-            foreach($this->cinemaList as $cinema)
+            try
             {
-                $valuesArray["name"] = $cinema->getName();
-                $valuesArray["address"] = $cinema->getAddress();
-                $valuesArray["capacity"] = $cinema->getCapacity();
-                $valuesArray["price"] = $cinema->getPrice();
-                $valuesArray["id"] = $cinema->getId();
+                $query = "SELECT id,name,address,price FROM ".$this->tableName.";";
 
-                array_push($arrayToEncode, $valuesArray);
-            }
+                $this->connection = Connection::GetInstance();
 
-            $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
-            
-            file_put_contents('Data/cinemas.json', $jsonContent);
-        }
+                $result = $this->connection->Execute($query);
 
-        private function RetrieveData()
-        {
-            $this->cinemaList = array();
+                $cinemaList = array();
+                if($result != null){
+                    
+                    foreach($result as $valuesArray)
+                    {
+                        $cinema = new Cinema();
+                        $cinema->setId($valuesArray["id"]);
+                        $cinema->setName($valuesArray["name"]);
+                        $cinema->setAddress($valuesArray["address"]);
+                        $cinema->setPrice($valuesArray["price"]);
 
-            if(file_exists('Data/cinemas.json'))
-            {
-                $jsonContent = file_get_contents('Data/cinemas.json');
-
-                $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
-
-                foreach($arrayToDecode as $valuesArray)
-                {
-                    $cinema = new Cinema();
-                    $cinema->setName($valuesArray["name"]);
-                    $cinema->setAddress($valuesArray["address"]);
-                    $cinema->setCapacity($valuesArray["capacity"]);
-                    $cinema->setPrice($valuesArray["price"]);
-                    $cinema->setId($valuesArray["id"]);
-
-                    array_push($this->cinemaList, $cinema);
+                        array_push($cinemaList, $cinema);
+                    }
                 }
             }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+
+            return $cinemaList;
         }
 
         public function Remove($id)
         {            
-            $this->RetrieveData();
-            
-            $this->cinemaList = array_filter($this->cinemaList, function($cinema) use($id){                
-                return $cinema->getId() != $id;
-            });
-            
-            $this->SaveData();
+            try
+            {
+                $query = "DELETE FROM ".$this->tableName." WHERE ID = :id;";
+
+                $parameters["id"] = $id;
+
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
+        public function GetOne($id)
+        {            
+            $cinema = null;
+
+            try
+            {
+                $query = "SELECT id,name,address,price FROM ".$this->tableName." WHERE id = :id;";
+
+                $parameters["id"] = $id;
+
+                $this->connection = Connection::GetInstance();
+
+                $result = $this->connection->Execute($query, $parameters);
+
+                if($result != null && !empty($result)){
+                    $cinema_array = $result[0];
+
+                    $cinema = new Cinema();
+                    $cinema->setName($cinema_array["name"]);
+                    $cinema->setAddress($cinema_array["address"]);
+                    $cinema->setPrice($cinema_array["price"]);
+                    $cinema->setId($cinema_array["id"]);
+                }
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+
+            return $cinema;
+        }
+
+        public function Update(Cinema $cinema)
+        {
+            try
+            {
+                $query = "UPDATE ".$this->tableName." SET name = :name, address = :address, price = :price WHERE ID = :id;";
+
+                $parameters["id"] = $cinema->getId();
+                $parameters["name"] = $cinema->getName();
+                $parameters["address"] = $cinema->getAddress();
+                $parameters["price"] = $cinema->getPrice();
+
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
         }
 
     }

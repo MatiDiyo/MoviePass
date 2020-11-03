@@ -41,6 +41,12 @@ section{
 
 .form-cine{
     min-height: 300px;
+    padding-top: 70px;
+    margin-bottom: 100px;
+}
+
+.form-user{
+    min-height: 300px;
     padding-top: 90px;
     margin-bottom: 100px;
 }
@@ -53,7 +59,11 @@ section{
 .listcinema-container{
     padding-top: 90px;
 }
-
+/*
+.listprofile-container{
+    padding-top: 90px;
+}
+*/
 .btn{
     min-width: 255px;
 }
@@ -108,4 +118,14 @@ section{
     height:180px;
     text-align: center;
     background-color: #ddd;
+}
+
+.to-the-right {
+    float: right;
+}
+
+.big-radio {
+    border: 0px;
+    width: 50%;
+    height: 2em;
 }

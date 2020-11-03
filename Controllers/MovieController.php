@@ -110,6 +110,7 @@
                     $alert['message'] = 'Se han encontrado '. $count . ' resultados.';
                 }
             }
+            //$themeList = $this->movieDAO->GetAllThemes();
 
             require_once(VIEWS_PATH."movies-admin.php");
         }

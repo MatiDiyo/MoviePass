@@ -1,61 +1,16 @@
 [
     {
-        "poster_path": "\/x7Dc6FTBYOfwMDEHSGW6EOitidk.jpg",
-        "id": 724989,
-        "original_language": "en",
-        "genre_ids": [
-            28,
-            53
-        ],
-        "title": "Mercenarios de \u00e9lite",
-        "overview": "El trabajo del multimillonario CEO de tecnolog\u00eda Donovan Chalmers es tan valioso que contrata mercenarios para protegerlo, y un grupo terrorista secuestra a su hija solo para conseguirlo.",
-        "release_date": "2020-10-23",
-        "runtime": 105
-    },
-    {
-        "poster_path": "\/81EQbcDaayfXEUoRpSmplwftOVQ.jpg",
-        "id": 531219,
-        "original_language": "en",
-        "genre_ids": [
-            14,
-            10751,
-            12,
-            35,
-            27
-        ],
-        "title": "Las brujas",
-        "overview": "Basada en el libro cl\u00e1sico de Roald Dahl 'Las brujas', la historia cuenta la aterradora, divertida e imaginativa historia de un ni\u00f1o de siete a\u00f1os que se encuentra con una congregaci\u00f3n de brujas liderada por la Gran Bruja.  A pesar de que su abuela se lo llev\u00f3 a un centro tur\u00edstico, llegan al mismo tiempo que ella y sus amigos llegan para comenzar sus rituales.",
-        "release_date": "2020-10-26",
-        "runtime": 106
-    },
-    {
         "poster_path": "\/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg",
         "id": 528085,
         "original_language": "en",
         "genre_ids": [
+            18,
             878,
-            53,
-            18
+            53
         ],
         "title": "2067",
         "overview": "El viaje de un hombre hacia el futuro para salvar un mundo moribundo.",
-        "release_date": "2020-10-01",
-        "runtime": 114
-    },
-    {
-        "poster_path": "\/3U7mXO9gs3iCm73mXHB0cfj6PDE.jpg",
-        "id": 560050,
-        "original_language": "en",
-        "genre_ids": [
-            16,
-            12,
-            10751,
-            14
-        ],
-        "title": "M\u00e1s all\u00e1 de la Luna",
-        "overview": "Una ni\u00f1a inteligente, decidida y enamorada de la ciencia construye un cohete para viajar a la Luna y demostrar la existencia de una legendaria diosa. All\u00ed la peque\u00f1a, de nombre Fei Fei, se ver\u00e1 envuelta en una inesperada aventura y descubrir\u00e1 un enigm\u00e1tico mundo de criaturas fant\u00e1sticas.",
-        "release_date": "2020-10-16",
-        "runtime": 100
+        "release_date": "2020-10-01"
     },
     {
         "poster_path": "\/rd7ElSRYhN2CFqMcyH8rqrwLbd6.jpg",
@@ -69,8 +24,149 @@
         ],
         "title": "Mul\u00e1n",
         "overview": "El emperador de China emite un decreto para reclutar a un var\u00f3n por cada familia que deber\u00e1 servir en el ej\u00e9rcito imperial para defender al pa\u00eds de los invasores del norte. Hua Mul\u00e1n, hija \u00fanica de un condecorado guerrero, se presenta para evitar que su anciano padre sea llamado a filas. Se hace pasar por un hombre, Hua Jun y se somete a todo tipo de pruebas. Para conseguirlo deber\u00e1 apelar a su fuerza interior y sacar a la luz todo su potencial. Se trata de una aventura \u00e9pica que la transformar\u00e1 en una guerrera laureada que la har\u00e1 merecedora del respeto de todo un pa\u00eds y motivo de orgullo para su padre.",
-        "release_date": "2020-09-04",
-        "runtime": 116
+        "release_date": "2020-09-04"
+    },
+    {
+        "poster_path": "\/v0BiswYPEZzZTYazvwktPTOTMpP.jpg",
+        "id": 694919,
+        "original_language": "en",
+        "genre_ids": [
+            28
+        ],
+        "title": "El avi\u00f3n del dinero",
+        "overview": "Un ladr\u00f3n profesional con una deuda de 40 millones de d\u00f3lares a sus espaldas y la vida de su familia en peligro, se ve obligado a realizar un \u00faltimo golpe: robar un futurista casino a\u00e9reo cuya que tiene por clientes a los criminales m\u00e1s peligrosos del mundo.",
+        "release_date": "2020-09-29"
+    },
+    {
+        "poster_path": "\/uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
+        "id": 718444,
+        "original_language": "en",
+        "genre_ids": [
+            28
+        ],
+        "title": "Rogue",
+        "overview": "Rogue es la historia de una peque\u00f1a unidad mercenaria de soldados que han sido contratados por el gobernador de un pa\u00eds africano para rescatar a su hija que ha sido secuestrada por una organizaci\u00f3n terrorista.",
+        "release_date": "2020-08-20"
+    },
+    {
+        "poster_path": "\/qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg",
+        "id": 539885,
+        "original_language": "en",
+        "genre_ids": [
+            28,
+            80,
+            18,
+            53
+        ],
+        "title": "Ava",
+        "overview": "Ava es una mort\u00edfera asesina a sueldo que trabaja para una organizaci\u00f3n de operaciones encubiertas, que viaja por todo el mundo acabando con aquellos objetivos que nadie m\u00e1s puede derribar. Cuando uno de sus encargos sale mal, Ava tendr\u00e1 que luchar por una vida.",
+        "release_date": "2020-07-02"
+    },
+    {
+        "poster_path": "\/ew1lAU8yV66JbivBU1Zh4Wj4pOB.jpg",
+        "id": 581392,
+        "original_language": "ko",
+        "genre_ids": [
+            28,
+            27,
+            53
+        ],
+        "title": "Train To Busan 2: Peninsula",
+        "overview": "Despu\u00e9s de que la infecci\u00f3n que se extendi\u00f3 hace 4 a\u00f1os, solo algunas partes de Corea del Sur permanecen resguardadas, aunque la Pen\u00ednsula de Busan es la \u00fanica parte en donde pueden buscar refugio los coreanos, muchos a\u00fan mantienen la esperanza de ser rescatados por ayuda internacional.",
+        "release_date": "2020-07-15"
+    },
+    {
+        "poster_path": "\/2KavuY24PpXBMQ2efbOknKaeYS.jpg",
+        "id": 592350,
+        "original_language": "ja",
+        "genre_ids": [
+            28,
+            16
+        ],
+        "title": "My Hero Academia: el despertar de los h\u00e9roes",
+        "overview": "Un nuevo villano, llamado Nine, est\u00e1 buscando a Tomura Shigaraki. Para ello, decide atacar la isla de Nabut\u014d. Segunda pel\u00edcula de la serie anime \"My Hero Academia\".",
+        "release_date": "2019-12-20"
+    },
+    {
+        "poster_path": "\/c3SbZPZPOfGMHq7DB7FnTIMQKuY.jpg",
+        "id": 667141,
+        "original_language": "en",
+        "genre_ids": [
+            35,
+            80,
+            27,
+            53
+        ],
+        "title": "12 Hour Shift",
+        "overview": "Los cuerpos comienzan a acumularse cuando una enfermera drogadicta y su prima intentan encontrar un ri\u00f1\u00f3n de reemplazo para un traficante de \u00f3rganos",
+        "release_date": "2020-10-02"
+    },
+    {
+        "poster_path": "\/kn6N5FqvjLghwA0k3padBCw6ZKt.jpg",
+        "id": 726739,
+        "original_language": "en",
+        "genre_ids": [
+            28,
+            35
+        ],
+        "title": "Como perros y gatos: La patrulla unida",
+        "overview": "A lo largo de una d\u00e9cada, la Gran Tregua ha logrado que la hostilidad entre perros y gatos se haya detenido. Merced a esto, Gwen el Gato y Roger el C\u00e1nido son 2 agentes secretos que resguardan y salvan el planeta de forma enmascarada sin que los humanos lo descubran. Mas, esta paz se ve conminada en el momento en que un papagayo supervillano descubre la forma de manipular las frecuencias inal\u00e1mbricas que solo los perros y los gatos son capaces de escuchar. Ahora, estos h\u00e9roes van a deber eludir una posible guerra entre especies.",
+        "release_date": "2020-10-02"
+    },
+    {
+        "poster_path": "\/lkiYPIuh314llJOHJokvjCPztRb.jpg",
+        "id": 446893,
+        "original_language": "en",
+        "genre_ids": [
+            12,
+            16,
+            35,
+            14,
+            10402,
+            10751
+        ],
+        "title": "Trolls 2 Gira mundial",
+        "overview": "En una aventura que les llevar\u00e1 m\u00e1s all\u00e1 de todo lo que hab\u00edan conocido, Poppy y Branch descubren que su tribu de Trolls es solo una de las seis que existen, que el resto est\u00e1n repartidas en seis reinos y consagradas a seis tipos distintos de m\u00fasica: funk, country, tecno, cl\u00e1sica, pop y rock. La reina B\u00e1rbara, miembro de la realeza del hard rock, y su padre, el Rey Metal, quieren acabar con el resto de g\u00e9neros musicales e imponer el reinado del rock. Con el destino del mundo en juego, Poppy y Branch, junto con el resto de la pandilla \u2014 Grandull\u00f3n, Chanelle, Sat\u00e9n, Cooper y Guy Diamante\u2014, visitar\u00e1n los dem\u00e1s reinos para unir a los Trolls contra los planes de Barb de eclipsarlos a todos.",
+        "release_date": "2020-03-12"
+    },
+    {
+        "poster_path": "\/3k4TvOWxJZyeMJtbjHQELKIEhpb.jpg",
+        "id": 613504,
+        "original_language": "en",
+        "genre_ids": [
+            10749,
+            18
+        ],
+        "title": "After: en mil pedazos",
+        "overview": "Ha pasado el tiempo, y Hardin todav\u00eda no se sabe si es realmente el chico profundo y reflexivo del que Tessa se enamor\u00f3, o ha sido un extra\u00f1o todo este tiempo. Ella quiere alejarse, pero no es tan f\u00e1cil. Tessa se ha centrado en sus estudios y comienza a trabajar como becaria en Vance Publishing. All\u00ed conoce a Trevor, un nuevo y atractivo compa\u00f1ero de trabajo que es exactamente el tipo de persona con la que deber\u00eda estar. Pero Hardin sabe que cometi\u00f3 un error, posiblemente el m\u00e1s grande de su vida y quiere corregir sus errores y vencer a sus demonios... Secuela de la pel\u00edcula 'After'.",
+        "release_date": "2020-09-02"
+    },
+    {
+        "poster_path": "\/4LvDXnDPvO5JpKKB7AXEVvPz9e7.jpg",
+        "id": 425001,
+        "original_language": "en",
+        "genre_ids": [
+            35,
+            18,
+            10751
+        ],
+        "title": "En guerra con mi abuelo",
+        "overview": "Molesto de que tenga que compartir la habitaci\u00f3n que ama con su abuelo, Peter decide declarar la guerra en un intento por recuperarla.",
+        "release_date": "2020-08-27"
+    },
+    {
+        "poster_path": "\/hPkqY2EMqWUnFEoedukilIUieVG.jpg",
+        "id": 531876,
+        "original_language": "en",
+        "genre_ids": [
+            28,
+            18,
+            36,
+            10752
+        ],
+        "title": "The Outpost",
+        "overview": "Narra la historia real de una de las batallas m\u00e1s duras que tuvo lugar durante la guerra de Afganist\u00e1n. Un peque\u00f1o equipo de 53 soldados estadounidenses tuvo que enfrentarse contra m\u00e1s de 400 combatientes talibanes durante la operaci\u00f3n llamada \u201cLibertad duradera\u201d... Adaptaci\u00f3n del best seller escrito por el corresponsal de guerra Jake Tapper",
+        "release_date": "2020-06-24"
     },
     {
         "poster_path": "\/m9cn5mhW519QKr1YGpGxNWi98VJ.jpg",
@@ -86,201 +182,84 @@
         ],
         "title": "Kimetsu no Yaiba Movie: Mugen Ressha-hen",
         "overview": "Enmu, liberado recientemente de las c\u00e9lulas de Muzan, se propone atacar un misterioso tren en movimiento. En el curso del ataque, el demonio consume muchos pasajeros. Tanjiro Kamado viene al rescate, pero este tren en movimiento lleva m\u00e1s de un demonio desagradable para luchar.",
-        "release_date": "2020-10-16",
-        "runtime": 117
-    },
-    {
-        "poster_path": "\/uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
-        "id": 718444,
-        "original_language": "en",
-        "genre_ids": [
-            28,
-            12,
-            18,
-            53
-        ],
-        "title": "Rogue",
-        "overview": "Rogue es la historia de una peque\u00f1a unidad mercenaria de soldados que han sido contratados por el gobernador de un pa\u00eds africano para rescatar a su hija que ha sido secuestrada por una organizaci\u00f3n terrorista.",
-        "release_date": "2020-08-20",
-        "runtime": 106
+        "release_date": "2020-10-16"
     },
     {
         "poster_path": "\/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg",
         "id": 590223,
         "original_language": "en",
         "genre_ids": [
-            28,
             12,
-            35,
-            878
+            878,
+            10749,
+            35
         ],
         "title": "Love and Monsters",
-        "overview": "Un mundo posapocal\u00edptico. Joel Dawson es un joven que deber\u00e1 luchar contra monstruos, con tal de reunirse con Aimee, su amor del instituto. En el camino, tendr\u00e1 que desafiar peligrosos animales mutantes y encontrar\u00e1 amistades inesperadas y tambi\u00e9n algunos enemigos.",
-        "release_date": "2020-10-16",
-        "runtime": 109
+        "overview": "Un mundo post-apocal\u00edptico. Joel Dawson (Dylan O\u2019Brien) es un joven que deber\u00e1 luchar contra monstruos, con tal de reunirse con Aimee (Jessica Henwick), su amor de la escuela secundaria. En el camino, tendr\u00e1 que desafiar peligrosos animales mutantes y encontrar\u00e1 amistades inesperadas y tambi\u00e9n algunos enemigos.",
+        "release_date": "2020-10-16"
     },
     {
-        "poster_path": "\/qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg",
-        "id": 539885,
-        "original_language": "en",
+        "poster_path": "\/7XvaQsCoDW1x8CxPiv7AzQ5OUzX.jpg",
+        "id": 413518,
+        "original_language": "it",
         "genre_ids": [
-            28,
-            80,
+            12,
             18,
-            53
-        ],
-        "title": "Ava",
-        "overview": "Ava es una mort\u00edfera asesina a sueldo que trabaja para una organizaci\u00f3n de operaciones encubiertas, que viaja por todo el mundo acabando con aquellos objetivos que nadie m\u00e1s puede derribar. Cuando uno de sus encargos sale mal, Ava tendr\u00e1 que luchar por una vida.",
-        "release_date": "2020-07-02",
-        "runtime": 96
-    },
-    {
-        "poster_path": "\/v0BiswYPEZzZTYazvwktPTOTMpP.jpg",
-        "id": 694919,
-        "original_language": "en",
-        "genre_ids": [
-            28
-        ],
-        "title": "El avi\u00f3n del dinero",
-        "overview": "Un ladr\u00f3n profesional con una deuda de 40 millones de d\u00f3lares a sus espaldas y la vida de su familia en peligro, se ve obligado a realizar un \u00faltimo golpe: robar un futurista casino a\u00e9reo cuya que tiene por clientes a los criminales m\u00e1s peligrosos del mundo.",
-        "release_date": "2020-09-29",
-        "runtime": 82
-    },
-    {
-        "poster_path": "\/ew1lAU8yV66JbivBU1Zh4Wj4pOB.jpg",
-        "id": 581392,
-        "original_language": "ko",
-        "genre_ids": [
-            28,
-            27,
-            53
-        ],
-        "title": "Train To Busan 2: Peninsula",
-        "overview": "Despu\u00e9s de que la infecci\u00f3n que se extendi\u00f3 hace 4 a\u00f1os, solo algunas partes de Corea del Sur permanecen resguardadas, aunque la Pen\u00ednsula de Busan es la \u00fanica parte en donde pueden buscar refugio los coreanos, muchos a\u00fan mantienen la esperanza de ser rescatados por ayuda internacional.",
-        "release_date": "2020-07-15",
-        "runtime": 116
-    },
-    {
-        "poster_path": "\/yckfWcCTKEplBCilRdE4d43xowl.jpg",
-        "id": 741074,
-        "original_language": "en",
-        "genre_ids": [
-            16,
-            35,
             14,
             10751
         ],
-        "title": "\u00c9rase una vez un mu\u00f1eco de nieve",
-        "overview": "Los primeros d\u00edas de vida del peque\u00f1o Olaf, cu\u00e1ndo y por qu\u00e9 cobra vida y c\u00f3mo empieza a buscar su propia identidad, despu\u00e9s de la hu\u00edda de Elsa del palacio de Arendelle.",
-        "release_date": "2020-10-23",
-        "runtime": 12
+        "title": "Pinocho",
+        "overview": "Adaptaci\u00f3n de la cl\u00e1sica historia del mu\u00f1eco de madera llamado Pinocho, que desea ser un ni\u00f1o de carne y hueso.",
+        "release_date": "2019-12-19"
     },
     {
-        "poster_path": "\/n9OzZmPMnVrV0cMQ7amX0DtBkQH.jpg",
-        "id": 509635,
-        "original_language": "en",
-        "genre_ids": [
-            53
-        ],
-        "title": "Alone",
-        "overview": "Un viajero que acaba de enviudar es secuestrado por un asesino a sangre fr\u00eda, solo para escapar al desierto donde se ve obligada a luchar contra los elementos mientras su perseguidor se acerca a ella.",
-        "release_date": "2020-09-10",
-        "runtime": 98
-    },
-    {
-        "poster_path": "\/3k4TvOWxJZyeMJtbjHQELKIEhpb.jpg",
-        "id": 613504,
-        "original_language": "en",
-        "genre_ids": [
-            10749,
-            18
-        ],
-        "title": "After: en mil pedazos",
-        "overview": "Ha pasado el tiempo, y Hardin todav\u00eda no se sabe si es realmente el chico profundo y reflexivo del que Tessa se enamor\u00f3, o ha sido un extra\u00f1o todo este tiempo. Ella quiere alejarse, pero no es tan f\u00e1cil. Tessa se ha centrado en sus estudios y comienza a trabajar como becaria en Vance Publishing. All\u00ed conoce a Trevor, un nuevo y atractivo compa\u00f1ero de trabajo que es exactamente el tipo de persona con la que deber\u00eda estar. Pero Hardin sabe que cometi\u00f3 un error, posiblemente el m\u00e1s grande de su vida y quiere corregir sus errores y vencer a sus demonios... Secuela de la pel\u00edcula 'After'.",
-        "release_date": "2020-09-02",
-        "runtime": 105
-    },
-    {
-        "poster_path": "\/8F9xUvb1JMWUMkFV2Yq3aiueAbq.jpg",
-        "id": 595149,
-        "original_language": "en",
-        "genre_ids": [
-            27
-        ],
-        "title": "Death of Me",
-        "overview": "Una pareja que se encuentra de vacaciones en un lugar ex\u00f3tico se ve envuelto en una trama que llevar\u00e1 a la ejecuci\u00f3n de un asesinato ritual.",
-        "release_date": "2020-10-02",
-        "runtime": 95
-    },
-    {
-        "poster_path": "\/9UQxxaJMZODEIh5zh7sm0ag75EY.jpg",
-        "id": 425001,
+        "poster_path": "\/22jwKxZf4rcrmh2NS07SZAQYYNY.jpg",
+        "id": 604578,
         "original_language": "en",
         "genre_ids": [
             35,
-            10751,
-            18
-        ],
-        "title": "En guerra con mi abuelo",
-        "overview": "El joven Peter se ve obligado a abandonar su habitaci\u00f3n cuando su abuelo Ed, recientemente enviudado, se muda a su casa. Con la ayuda de sus amigos, Peter declara la guerra a su abuelo para hacerle abandonar la habitaci\u00f3n, pero Ed es un testarudo y no va a pon\u00e9rselo nada f\u00e1cil.",
-        "release_date": "2020-08-27",
-        "runtime": 94
-    },
-    {
-        "poster_path": "\/lkiYPIuh314llJOHJokvjCPztRb.jpg",
-        "id": 446893,
-        "original_language": "en",
-        "genre_ids": [
-            16,
-            10751,
-            35,
-            14,
-            12,
-            10402
-        ],
-        "title": "Trolls 2 Gira mundial",
-        "overview": "En una aventura que les llevar\u00e1 m\u00e1s all\u00e1 de todo lo que hab\u00edan conocido, Poppy y Branch descubren que su tribu de Trolls es solo una de las seis que existen, que el resto est\u00e1n repartidas en seis reinos y consagradas a seis tipos distintos de m\u00fasica: funk, country, tecno, cl\u00e1sica, pop y rock. La reina B\u00e1rbara, miembro de la realeza del hard rock, y su padre, el Rey Metal, quieren acabar con el resto de g\u00e9neros musicales e imponer el reinado del rock. Con el destino del mundo en juego, Poppy y Branch, junto con el resto de la pandilla \u2014 Grandull\u00f3n, Chanelle, Sat\u00e9n, Cooper y Guy Diamante\u2014, visitar\u00e1n los dem\u00e1s reinos para unir a los Trolls contra los planes de Barb de eclipsarlos a todos.",
-        "release_date": "2020-03-12",
-        "runtime": 91
-    },
-    {
-        "poster_path": "\/wyN1R51euy3c2YHsyiSnc5ovF5t.jpg",
-        "id": 748224,
-        "original_language": "en",
-        "genre_ids": [
-            27
-        ],
-        "title": "Reaptown",
-        "overview": "En esta pel\u00edcula de terror sobrenatural, Carrie Baldwin es liberada de la prisi\u00f3n bajo las condiciones de un programa de liberaci\u00f3n laboral en Reaptown, Nevada. Mientras lucha por encontrar a su hermana desaparecida mientras trabaja en el turno de noche como guardia de seguridad para el Museo del Ferrocarril de Reaptown, Carrie pronto se encuentra en presencia del mal. \u00bfPodr\u00eda el Ferrocarril contener las pistas sobre la misteriosa desaparici\u00f3n de su hermana?",
-        "release_date": "2020-09-28",
-        "runtime": 77
-    },
-    {
-        "poster_path": "\/kn6N5FqvjLghwA0k3padBCw6ZKt.jpg",
-        "id": 726739,
-        "original_language": "en",
-        "genre_ids": [
-            35,
-            28
-        ],
-        "title": "Como perros y gatos: La patrulla unida",
-        "overview": "A lo largo de una d\u00e9cada, la Gran Tregua ha logrado que la hostilidad entre perros y gatos se haya detenido. Merced a esto, Gwen el Gato y Roger el C\u00e1nido son 2 agentes secretos que resguardan y salvan el planeta de forma enmascarada sin que los humanos lo descubran. Mas, esta paz se ve conminada en el momento en que un papagayo supervillano descubre la forma de manipular las frecuencias inal\u00e1mbricas que solo los perros y los gatos son capaces de escuchar. Ahora, estos h\u00e9roes van a deber eludir una posible guerra entre especies.",
-        "release_date": "2020-10-02",
-        "runtime": 84
-    },
-    {
-        "poster_path": "\/c3SbZPZPOfGMHq7DB7FnTIMQKuY.jpg",
-        "id": 667141,
-        "original_language": "en",
-        "genre_ids": [
-            53,
             27,
-            35,
-            80
+            878,
+            10749
         ],
-        "title": "12 Hour Shift",
-        "overview": "Los cuerpos comienzan a acumularse cuando una enfermera drogadicta y su prima intentan encontrar un ri\u00f1\u00f3n de reemplazo para un traficante de \u00f3rganos",
-        "release_date": "2020-10-02",
-        "runtime": 86
+        "title": "Spontaneous",
+        "overview": "Cuando los estudiantes de su escuela secundaria comienzan a explotar inexplicablemente (literalmente ...), Mara y Dylan luchan por sobrevivir en un mundo donde cada momento puede ser el \u00faltimo.",
+        "release_date": "2020-10-02"
+    },
+    {
+        "poster_path": "\/c59eplVELdwrUfGBUAZVin3HfaL.jpg",
+        "id": 597398,
+        "original_language": "en",
+        "genre_ids": [
+            12,
+            16,
+            14
+        ],
+        "title": "Away",
+        "overview": "Despu\u00e9s de sufrir un accidente a\u00e9reo en una isla misteriosa, un muchacho emprende un viaje \u00e9pico a trav\u00e9s de bosques, desiertos y monta\u00f1as tratando de escapar de la sombra de un enorme esp\u00edritu oscuro.",
+        "release_date": "2019-11-15"
+    },
+    {
+        "poster_path": "\/kxekf7Ufxhubi00h02oWq6gbkWX.jpg",
+        "id": 627290,
+        "original_language": "en",
+        "genre_ids": [
+            27
+        ],
+        "title": "Antebellum",
+        "overview": "Ver\u00f3nica es una escritora de \u00e9xito que queda atrapada en una terror\u00edfica realidad cuyo misterio debe resolver antes de que sea demasiado tarde.",
+        "release_date": "2020-09-02"
+    },
+    {
+        "poster_path": "\/a6p9zrXBQpLsDi2QykRhHdQk4EB.jpg",
+        "id": 579583,
+        "original_language": "en",
+        "genre_ids": [
+            35,
+            18
+        ],
+        "title": "El rey del barrio",
+        "overview": "Scott ha sido un caso de desarrollo arrestado desde que su padre bombero muri\u00f3 cuando \u00e9l ten\u00eda siete a\u00f1os. Ahora ha alcanzado la mitad de sus 20 a\u00f1os y ha logrado poco, persiguiendo el sue\u00f1o de convertirse en un artista del tatuaje que parece estar fuera de su alcance. Mientras su ambiciosa hermana menor se va a la universidad, Scott todav\u00eda vive con su agotada madre enfermera de emergencias y pasa sus d\u00edas fumando hierba, saliendo con los chicos, Oscar, Igor y Richie, y en secreto con su amigo de la infancia Kelsey. Pero cuando su madre comienza a salir con un bombero ruidoso llamado Ray, desencadena una serie de eventos que obligar\u00e1n a Scott a lidiar con su dolor y dar sus primeros pasos tentativos para avanzar en la vida.",
+        "release_date": "2020-07-22"
     }
 ]
