@@ -19,6 +19,6 @@
             
             //go to Cartelera por default
             $this->movieController->ShowListView();
-        }        
+        }
     }
 ?>

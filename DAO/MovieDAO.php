@@ -1,6 +1,7 @@
 <?php
     namespace DAO;
 
+    use Controllers\APIController as APIController;
     use DAO\IMovieDAO as IMovieDAO;
     use Models\Movie as Movie;
 
@@ -94,9 +95,7 @@
         public function RefreshData()
         {
             // PRIMER LLAMADA A LA API, OBTIENE LA LISTA DE LOS ACTUALES
-            $method = 'movie/now_playing';
-            $jsonContentAPI = file_get_contents(API_URL . '/' . $method . '?page=1&language=' . LANGUAGE_API . '&api_key=' . API_KEY); #aca deberia leer el link de la api para traernos un json
-            $arrayToDecode = ($jsonContentAPI) ? json_decode($jsonContentAPI, true) : array(); #transformamos el json de la api en un arreglo
+            $arrayToDecode = APIController::GetRequest('movie/now_playing', '&language=' . API_LANGUAGE . '&page=1');
 
             if(file_exists('Data/movies.json'))
             {
@@ -114,10 +113,7 @@
                 $releaseDate = $valuesArray['release_date'];
 
                 // SEGUNDA LLAMADA A LA API, OBTIENE LOS DETALLES DE UNA PELICULA EN PARTICULAR
-                $method = 'movie/' . $id;
-                $jsonContentAPI = file_get_contents(API_URL . '/' . $method . '?api_key=' . API_KEY . '&language=' . LANGUAGE_API);
-                $arrayToDecode2 = ($jsonContentAPI) ? json_decode($jsonContentAPI, true) : array();
-
+                $arrayToDecode2 = APIController::GetRequest('movie/' . $id, '&language=' . API_LANGUAGE);
                 $runtime = $arrayToDecode2['runtime'];
 
                 $movie = new Movie($posterPath, $id, $language, $genreIds, $title, $overview, $releaseDate, $runtime); 
@@ -130,11 +126,7 @@
 		public function GetAllThemes()
         {
 			$themes = array();
-			
-            $method = 'genre/movie/list';
-            $jsonContentAPI = file_get_contents(API_URL . '/' . $method . '?page=1&language=' . LANGUAGE_API . '&api_key=' . API_KEY); #aca deberia leer el link de la api para traernos un json
-
-            $arrayToDecode = ($jsonContentAPI) ? json_decode($jsonContentAPI, true) : array(); #transformamos el json de la api en un arreglo
+            $arrayToDecode = APIController::GetRequest('genre/movie/list', '&language=' . API_LANGUAGE);
 
             foreach($arrayToDecode['genres'] as $valuesArray)
             {

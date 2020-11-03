@@ -3,51 +3,46 @@
 
     class Cinema
     {
-		//TODO AGREGAR PROPIEDADES
-		
         private $address, $name, $id, $capacity, $price;
 
+		function getAddress() { 
+			return $this->address; 
+		} 
 
+		function setAddress($address) {  
+			$this->address = $address; 
+		} 
 
-	function getAddress() { 
- 		return $this->address; 
-	} 
+		function getName() { 
+			return $this->name; 
+		} 
 
-	function setAddress($address) {  
-		$this->address = $address; 
-	} 
+		function setName($name) {  
+			$this->name = $name; 
+		} 
 
-	function getName() { 
- 		return $this->name; 
-	} 
+		function getId() { 
+			return $this->id; 
+		} 
 
-	function setName($name) {  
-		$this->name = $name; 
-	} 
+		function setId($id) {  
+			$this->id = $id; 
+		} 
 
-	function getId() { 
- 		return $this->id; 
-	} 
+		function getCapacity() { 
+			return $this->capacity; 
+		} 
 
-	function setId($id) {  
-		$this->id = $id; 
-	} 
+		function setCapacity($capacity) {  
+			$this->capacity = $capacity; 
+		} 
 
-	function getCapacity() { 
- 		return $this->capacity; 
-	} 
+		function getPrice() { 
+			return $this->price; 
+		} 
 
-	function setCapacity($capacity) {  
-		$this->capacity = $capacity; 
-	} 
-
-	function getPrice() { 
- 		return $this->price; 
-	} 
-
-	function setPrice($price) {  
-		$this->price = $price; 
-	} 
-
-}
+		function setPrice($price) {  
+			$this->price = $price; 
+		} 
+	}
 ?>
