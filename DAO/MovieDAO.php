@@ -4,6 +4,7 @@
     use Controllers\APIController as APIController;
     use \Exception as Exception;
     use DAO\IMovieDAO as IMovieDAO;
+    use DAO\GenreDAO as GenreDAO;
     use Models\Movie as Movie;
     use DAO\Connection as Connection;
 
@@ -37,16 +38,16 @@
             $this->SaveData();
         }
 
-        public function GetAll()
+        public function GetAll($date = null)
         {
-            return $this->RetrieveData();
+            return $this->RetrieveData($date);
         }
 
         private function SaveData($movieList)
         {
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (`title`, `posterPath`, `language`, `overview`, `releaseDate`) VALUES (:title, :posterPath, :language, :overview, :releaseDate);" ;
+                $query = "INSERT INTO ".$this->tableName." (`title`, `posterPath`, `language`,`genreIds`, `overview`, `releaseDate`) VALUES (:title, :posterPath, :language, :genreIds, :overview, :releaseDate);" ;
 
                 $this->connection = Connection::GetInstance();
                 
@@ -56,6 +57,7 @@
                     $parameters["title"] = $movie->getTitle();
                     $parameters["posterPath"] = $movie->getPosterPath();
                     $parameters["language"] = $movie->getLanguage();
+                    $parameters["genreIds"] = implode(",",$movie->getGenreIds());
                     $parameters["overview"] = $movie->getOverview();
                     $parameters["releaseDate"] = $movie->getReleaseDate();
 
@@ -70,16 +72,22 @@
             }
         }
 
-        private function RetrieveData()
+        private function RetrieveData($date = null)
         {
             $movieList = null;
             try
             {
-                $query = "SELECT id, title, posterPath, language, overview, releaseDate FROM ".$this->tableName.";";
+                $query = "SELECT id, title, posterPath, language, genreIds, overview, releaseDate FROM ".$this->tableName;
+
+                $parameters = array();
+                if($date!=null){
+                    $query = $query." WHERE releaseDate <= str_to_date(:date,'%Y-%m-%d %H:%i');";
+                    $parameters["date"] = date("Y-m-d H:i",strtotime($date));
+                }
 
                 $this->connection = Connection::GetInstance();
                 
-                $result = $this->connection->Execute($query);
+                $result = $this->connection->Execute($query, $parameters);
                 
                 $movieList = array();
                 if($result != null){
@@ -90,6 +98,7 @@
                         $movie->setTitle($valuesArray["title"]);
                         $movie->setPosterPath($valuesArray["posterPath"]);
                         $movie->setLanguage($valuesArray["language"]);
+                        $movie->setGenreIds($valuesArray["genreIds"]);
                         $movie->setOverview($valuesArray["overview"]);
                         $movie->setReleaseDate($valuesArray["releaseDate"]);
 
@@ -126,8 +135,8 @@
                 $releaseDate = $valuesArray['release_date'];
 
                 // SEGUNDA LLAMADA A LA API, OBTIENE LOS DETALLES DE UNA PELICULA EN PARTICULAR
-                $arrayToDecode2 = APIController::GetRequest('movie/' . $id, '&language=' . API_LANGUAGE);
-                $runtime = $arrayToDecode2['runtime'];
+                //$arrayToDecode2 = APIController::GetRequest('movie/' . $id, '&language=' . API_LANGUAGE);
+                //$runtime = $arrayToDecode2['runtime'];
 
                 $movie = new Movie($posterPath, $id, $language, $genreIds, $title, $overview, $releaseDate); 
                 array_push($movieList, $movie);
@@ -140,6 +149,11 @@
                 echo '<script>console.log("Guardando Datos")</script>';
                 $this->SaveData($moviesToAdd);
             }
+
+
+            $genreDao = new GenreDAO();
+            $genreDao->RefreshData();
+
         }
 		
 		public function GetAllThemes()

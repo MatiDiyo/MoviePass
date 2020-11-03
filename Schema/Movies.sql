@@ -20,6 +20,7 @@ create table if not EXISTS Movie(id integer AUTO_INCREMENT,
         title varchar(100),
         posterPath varchar(200),
         language varchar(20),
+        genreIds varchar(50),
         overview varchar(2000),
         releaseDate timestamp,
         CONSTRAINT PK_MOVIES PRIMARY KEY (ID),
@@ -35,3 +36,8 @@ create table if not EXISTS Showtime(
         CONSTRAINT PK_SHOWTIME_ID PRIMARY KEY (ID),
         CONSTRAINT FK_Showtime_CINEMA FOREIGN KEY (MOVIEID) REFERENCES MOVIE(ID),
         CONSTRAINT FK_showtime_ROOM FOREIGN KEY (ROOMID) REFERENCES ROOM(ID));
+
+create table if not EXISTS GENRE(
+        id integer,
+        name VARCHAR(30),
+        CONSTRAINT PK_SHOWTIME_ID PRIMARY KEY (ID));

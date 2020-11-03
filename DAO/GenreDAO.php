@@ -2,104 +2,95 @@
     namespace DAO;
 
     use Controllers\APIController as APIController;
-    //use DAO\ICinemaDAO as ICinemaDAO;
     use Models\Genre as Genre;
 
     class GenreDAO
     {
-        private $genreList = array();
-
-        public function Add(Genre $genre)
-        {
-            $this->RetrieveData();
-            
-            array_push($this->genreList, $genre);
-
-            $this->SaveData();
-        }
+        private $tableName = "genre";
 
         public function GetAll()
         {
-            $this->RetrieveData();
-
-            return $this->genreList;
+            return $this->RetrieveData();
         }
 
-        private function SaveData()
+        private function SaveData($genreList)
         {
-            $arrayToEncode = array();
-
-            foreach($this->genreList as $genre)
+            try
             {
-                $valuesArray["id"] = $genre->getId();
-                $valuesArray["name"] = $genre->getName();
+                $query = "INSERT INTO ".$this->tableName." (id,name) VALUES (:id,:name);" ;
 
-                array_push($arrayToEncode, $valuesArray);
+                $this->connection = Connection::GetInstance();
+                
+                foreach($genreList as $idx => $genre){
+
+                    $parameters = array();
+                    $parameters["id"] = $genre->getId();
+                    $parameters["name"] = $genre->getName();
+
+                    $this->connection->ExecuteNonQuery($query, $parameters);
+                }
+        
             }
-
-            $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
-            
-            file_put_contents('Data/genres.json', $jsonContent);
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
         }
 
         private function RetrieveData()
         {
-            $this->genreList = array();
-
-            if(file_exists('Data/genres.json'))
+            $genreList = null;
+            try
             {
-                $jsonContent = file_get_contents('Data/genres.json');
+                $query = "SELECT id, name FROM ".$this->tableName.";";
 
-                $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
+                $this->connection = Connection::GetInstance();
+                
+                $result = $this->connection->Execute($query);
+                
+                $genreList = array();
+                if($result != null){
+                    foreach($result as $valuesArray)
+                    {
+                        $genre = new Genre();
+                        $genre->setId($valuesArray["id"]);
+                        $genre->setName($valuesArray["name"]);
 
-                foreach($arrayToDecode as $valuesArray)
-                {
-                    $genre = new Genre();
-
-                    $genre->setId($valuesArray["id"]);
-                    $genre->setName($valuesArray["name"]);
-                    
-                    array_push($this->genreList, $genre);
+                        array_push($genreList, $genre);
+                    }
                 }
             }
-        }
-
-        public function Remove($id)
-        {            
-            $this->RetrieveData();
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
             
-            $this->genreList = array_filter($this->genreList, function($genre) use($id){                
-                return $genre->getId() != $id;
-            });
+            return $genreList;   
             
-            $this->SaveData();
         }
 
         public function RefreshData()
         {
             // LLAMADA A LA API, OBTIENE TODOS LOS GÉNEROS PRINCIPALES
             $arrayToDecode = APIController::GetRequest('genre/movie/list', '&language=' . API_LANGUAGE);
-
-            if(file_exists('Data/genres.json'))
-            {
-                unlink('Data/genres.json'); #si el archivo nuestro existe lo borramos
-            }
-
+            $genreList = array();
             foreach($arrayToDecode['genres'] as $valuesArray)
             {
                 $id = $valuesArray['id'];
                 $name = $valuesArray['name'];
 
                 $genre = new Genre($id, $name); 
-                array_push($this->genreList, $genre);
+                array_push($genreList, $genre);
             }
 
-            $this->SaveData();
-        }
+            $genresDB = $this->GetAll();
 
-        public function Search()
-        {
-            
+            $genresToAdd = array_udiff($genreList,$genresDB, function($genreDB, $genreApi){
+                return(strcmp($genreDB->getName(),$genreApi->getName()));
+            });
+
+
+            $this->SaveData($genresToAdd);
         }
 
     }

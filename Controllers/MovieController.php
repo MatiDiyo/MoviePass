@@ -64,6 +64,10 @@
         public function SearchForDate(){
             $date = $_GET["date"] != null ? $_GET["date"] : null;
             
+            $movieList = $this->movieDAO->GetAll($date);
+
+            $genreDAO = new GenreDAO();
+            $genreList = $genreDAO->GetAll();
 
             require_once(VIEWS_PATH."movies-admin.php");
         }
@@ -72,7 +76,6 @@
         public function SearchForGenres()
         {
             $genre = $_GET["genre"] != null ? $_GET["genre"] : null;
-
             $genreDAO = new GenreDAO();
 
             $genreList = $genreDAO->GetAll();
@@ -82,7 +85,7 @@
 
             for ($i = 0; $i < $count; $i++)
             {
-                if($genre != $movieList[$i]->getGenreIds()[0])
+                if(!in_array($genre,explode(",",$movieList[$i]->getGenreIds())))
                 {   
                     unset($movieList[$i]);
                 }
