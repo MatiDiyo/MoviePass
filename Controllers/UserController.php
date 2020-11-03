@@ -3,6 +3,7 @@
 
     use DAO\UserDAO as UserDAO;
     use Models\User as User;
+    use Models\RoleUser as RoleUser;
 
     class UserController
     {
@@ -47,13 +48,15 @@
 
             $userResult = $this->userDAO->GetOne($user);
 
+            $role = $this->userDAO->GetRole($userResult);
+
             if(($userResult != null) && ($userResult->getPassword() == $password))
             {
                 $_SESSION["loggedUser"] = $userResult;
+                $_SESSION["roleUser"] = $role->getDescription();
                 $this->ShowProfile();
             }
-            else
-            {
+            else{
                 $this->ShowLogin();
             }
         }

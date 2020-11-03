@@ -3,7 +3,7 @@
     
     class RoleUser
     {
-        $description;
+        private $description;
 
         function getDescription()
         {
