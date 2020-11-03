@@ -2,6 +2,7 @@
     namespace Controllers;
 
     use DAO\CinemaDao as CinemaDao;
+    use DAO\RoomDao as RoomDao;
     use Models\Cinema as Cinema;
 
     class CinemaController
@@ -28,8 +29,6 @@
         public function Add($cinemaName, $cinemaAddress, $cinemaPrice)
         {
             $cinema = new Cinema();
-            //TODO REEMPLAZAR POR DOMAIN CINE
-            $cinema->setId(time());
             $cinema->setName($cinemaName);
             $cinema->setAddress($cinemaAddress);
             $cinema->setPrice($cinemaPrice);
@@ -49,6 +48,9 @@
         public function ShowEditView($id)
         {
             $cinema = $this->cinemaDao->GetOne($id);
+
+            $roomDao = new RoomDao();
+            $cinema->setRoomList($roomDao->GetAll($cinema));
             
             if($cinema!=null){
                 require_once(VIEWS_PATH."cinema-add.php");  
@@ -61,7 +63,6 @@
         public function Edit($cinemaId, $cinemaName, $cinemaAddress,$cinemaPrice)
         {
             $cinema = new Cinema();
-            //TODO REEMPLAZAR POR DOMAIN CINE
             $cinema->setId($cinemaId);
             $cinema->setName($cinemaName);
             $cinema->setAddress($cinemaAddress);

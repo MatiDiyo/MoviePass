@@ -10,10 +10,10 @@ create table if not EXISTS Cinema(id integer AUTO_INCREMENT,
         
 create table if not EXISTS Room(id integer AUTO_INCREMENT,
         name varchar(50),
-        capacitiy integer,
+        capacity integer,
         cinemaId integer,
         CONSTRAINT PK_ROOMS PRIMARY KEY (ID),
-        CONSTRAINT UK_ROOM_NAME UNIQUE (NAME),
+        CONSTRAINT UK_ROOM_NAME UNIQUE (CINEMAID, NAME),
         CONSTRAINT FK_Room_CINEMA FOREIGN KEY (CINEMAID) REFERENCES CINEMA(ID));
         
 create table if not EXISTS Movie(id integer AUTO_INCREMENT,
@@ -27,9 +27,11 @@ create table if not EXISTS Movie(id integer AUTO_INCREMENT,
         
         
 create table if not EXISTS Showtime(
-        starttime timestamp,
+        id integer AUTO_INCREMENT,
+        showtimeDate DATE,
+        showtimeTime TIME,
         movieId integer,
         roomId integer,
-        CONSTRAINT PK_SHOWTIME PRIMARY KEY (MOVIEID,ROOMID, STARTTIME),
+        CONSTRAINT PK_SHOWTIME_ID PRIMARY KEY (ID),
         CONSTRAINT FK_Showtime_CINEMA FOREIGN KEY (MOVIEID) REFERENCES MOVIE(ID),
         CONSTRAINT FK_showtime_ROOM FOREIGN KEY (ROOMID) REFERENCES ROOM(ID));

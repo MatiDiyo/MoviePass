@@ -1,10 +1,11 @@
 <?php
     namespace DAO;
 
-    use \Exception as Exception;
     use DAO\ICinemaDAO as ICinemaDAO;
+    use DAO\RoomDAO as RoomDAO;
     use Models\Cinema as Cinema;
     use DAO\Connection as Connection; 
+    use \Exception as Exception;
 
     class CinemaDAO implements ICinemaDAO
     {
@@ -43,15 +44,16 @@
 
                 $result = $this->connection->Execute($query);
 
+                $cinemaList = array();
                 if($result != null){
-                    $cinemaList = array();
+                    
                     foreach($result as $valuesArray)
                     {
                         $cinema = new Cinema();
+                        $cinema->setId($valuesArray["id"]);
                         $cinema->setName($valuesArray["name"]);
                         $cinema->setAddress($valuesArray["address"]);
                         $cinema->setPrice($valuesArray["price"]);
-                        $cinema->setId($valuesArray["id"]);
 
                         array_push($cinemaList, $cinema);
                     }
@@ -121,10 +123,10 @@
             {
                 $query = "UPDATE ".$this->tableName." SET name = :name, address = :address, price = :price WHERE ID = :id;";
 
+                $parameters["id"] = $cinema->getId();
                 $parameters["name"] = $cinema->getName();
                 $parameters["address"] = $cinema->getAddress();
                 $parameters["price"] = $cinema->getPrice();
-                $parameters["id"] = $cinema->getId();
 
                 $this->connection = Connection::GetInstance();
 

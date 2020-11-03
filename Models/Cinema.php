@@ -3,11 +3,7 @@
 
     class Cinema
     {
-		//TODO AGREGAR PROPIEDADES
-		
-        private $address, $name, $id, $capacity, $price;
-
-
+        private $address, $name, $id, $capacity, $price, $roomList;
 
 	function getAddress() { 
  		return $this->address; 
@@ -40,6 +36,15 @@
 	function setPrice($price) {  
 		$this->price = $price; 
 	} 
+
+	function getRoomList() { 
+		return $this->roomList; 
+   } 
+
+   function setRoomList($roomList) {  
+	   $this->roomList = $roomList; 
+   } 
+
 
 }
 ?>
