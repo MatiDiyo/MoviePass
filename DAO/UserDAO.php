@@ -27,21 +27,14 @@
                 $this->connection = Connection::GetInstance(); //genera una instancia de PDO si no existe
 
                 $this->connection->ExecuteNonQuery($query, $parameters); //hace un INSERT 
-
-                //parte nueva
-                /*
-                $search = $this->GetOne($user);
-
-                $this->NormalRoleUser($search);
-                */
             }
             catch(Exception $ex)
             {
                 throw $ex;
             }
         }
-
-        public function NormalRoleUser(User $user){
+/*
+        public function AddRoleUser(User $user){
             try
             {
                 $query = "INSERT INTO ".$this->$tableRole." (description_user, id_user) VALUES (:role, :id);";
@@ -59,7 +52,7 @@
                 throw $ex;
             }
         }
-
+*/
         public function GetAll()
         {
             try
