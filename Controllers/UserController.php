@@ -53,7 +53,11 @@
             if(($userResult != null) && ($userResult->getPassword() == $password))
             {
                 $_SESSION["loggedUser"] = $userResult;
-                $_SESSION["roleUser"] = $role->getDescription();
+
+                if($role != null){ //cambiar
+                    $_SESSION["roleUser"] = $role->getDescription();
+                }
+                
                 $this->ShowProfile();
             }
             else{

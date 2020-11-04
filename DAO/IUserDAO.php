@@ -10,10 +10,7 @@
         function Add(User $user);
         function GetAll();
         function GetOne(User $user);
-        function GetRole(User $user);
-        function NormalRoleUser(User $user);
-
-        
+        function GetRole(User $user);       
     }
 
 
