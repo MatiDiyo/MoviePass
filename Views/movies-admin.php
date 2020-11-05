@@ -59,7 +59,7 @@
 							</select>
 							&nbsp;
 							<span class="h5 inline-form">Buscar por Fecha&nbsp;</span>
-							<input class="form-control" type="datetime-local" name="date" value="<?php echo date("Y-m-d\TH:m",$date!=null?strtotime($date." ".$time):time()) ?>"/>
+							<input class="form-control" type="datetime-local" name="date" value="<?php echo date("Y-m-d\TH:i",$date!=null?strtotime($date." ".$time):time()) ?>"/>
 								&nbsp;
 
 							<span class="h4 mouse-activate" onclick="submitSearch();"><i class="fa fa-search" aria-hidden="true"></i></span>
@@ -105,18 +105,20 @@
 
 			<div class="row">
 				<?php
-					if($movieList != null && count($movieList)>0){
-						foreach($movieList as $movie){
+					//if($movieList != null && count($movieList)>0){
+					if($showtimeList != null && count($showtimeList)>0){
+						foreach($showtimeList as $showtime){
 				?>
 					<div class="col-3">
 						<div class="movie-container">
 							<div class="movie-details">
 								<a href="">
-									<h3 class="border-text"><?php echo $movie->getTitle() ?></h3>
+									<h3 class="border-text"><?php echo $showtime->getMovie()->getTitle() ?></h3>
+									<h6 class="border-text"><?php echo $showtime->getShowtimeDate()." - ".$showtime->getShowtimeTime()  ?></h6>
 								</a>
 							</div>
 							<a href="">
-							<img src="<?php echo 'https://image.tmdb.org/t/p/w500'.$movie->getPosterPath() ?>" class="img-fluid" alt="movie 1">
+							<img src="<?php echo 'https://image.tmdb.org/t/p/w500'.$showtime->getMovie()->getPosterPath() ?>" class="img-fluid" alt="movie 1">
 							</a>
 						</div>
 					</div>

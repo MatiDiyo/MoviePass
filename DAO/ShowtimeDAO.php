@@ -11,7 +11,7 @@
     class ShowtimeDAO implements IShowtimeDAO
     {
         private $connection;
-        private $tableName = "showtime s";
+        private $tableName = "showtime";
 
         public function Add(Showtime $showtime)
         {
@@ -25,6 +25,8 @@
                 $parameters["roomId"] = $showtime->getRoom()->getId();
 
                 $this->connection = Connection::GetInstance();
+
+                echo '<script>console.log("'.$query.'")</script>';
 
                 $this->connection->ExecuteNonQuery($query, $parameters);
             }
@@ -40,13 +42,13 @@
 
             try
             {
-                $query = "SELECT id,showtimeDate,showtimeTime, s.movieId as movieId, roomId FROM ".$this->tableName;
+                $query = "SELECT id,showtimeDate,showtimeTime, s.movieId as movieId, roomId FROM ".$this->tableName." s";
 
                 $parameters = array();
 
                 if($genreId!=null){
                     $parameters["genreId"] = $genreId; 
-                    $query .= "  INNER JOIN MOVIE_GENRE mg ON s.movieId = mg.movieId";
+                    $query .= " INNER JOIN MOVIE_GENRE mg ON s.movieId = mg.movieId";
                     $query .= " WHERE genreId = :genreId";
                }
                 if($roomId!=null){ 
@@ -67,7 +69,7 @@
                     $parameters["time"] = $time;
                     $query .= ($date != null ? "CONCAT(:date, ' '," : "current_date(), ' '," );
                     $query .= ($time != null ? " :time )": " current_time())");
-                    $query .= "as DATE)";
+                    $query .= "as DATETIME)";
                 }
                 
                 $query .= ";";
