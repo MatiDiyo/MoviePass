@@ -2,6 +2,7 @@
     namespace Controllers;
 
     use DAO\MovieDAO as MovieDAO;
+    use DAO\ShowtimeDAO as ShowtimeDAO;
     use DAO\GenreDAO as GenreDAO;
     use Models\Movie as Movie;
 
@@ -22,8 +23,14 @@
         public function ShowListView()
         {
             $genreDAO = new GenreDAO();
+            $showtimeDAO = new ShowtimeDAO();
 
-            $movieList = $this->movieDAO->GetAll();
+            $movieList = array();
+            $showtimeList = $showtimeDAO->GetAll(null,null,null,null);
+            foreach($showtimeList as $showtime){
+                array_push($movieList,$showtime->getMovie());
+            }
+
 			$genreList = $genreDAO->GetAll();
 
             require_once(VIEWS_PATH."movies-admin.php");
@@ -31,8 +38,7 @@
 
         public function RefreshData()
         {
-            $movieDAO = new MovieDAO();
-            $movieDAO->refreshData();
+            $this->movieDAO->refreshData();
             $this->ShowListView();
         }
 
@@ -61,59 +67,26 @@
             $this->ShowListView();
         }
 
-        public function SearchForDate(){
-            $date = $_GET["date"] != null ? $_GET["date"] : null;
-            
-            $movieList = $this->movieDAO->GetAll($date);
+        public function Search(){
+            $datetime = $_GET["date"] != null ? $_GET["date"] : null;
+            $genreId = $_GET["genre"] != null && $_GET["genre"] !== ""? $_GET["genre"] : null;
+            $datetime = explode("T",$datetime);
+            $date_part = $datetime[0];
+            $time_part = $datetime[1] != null ? $datetime[1] : "00:00";
+
+            $date = date('Y-m-d',strtotime($date_part));
+            $time = date('H:i',strtotime($time_part));
+
+            $showtimeDAO = new ShowtimeDAO();
+
+            $movieList = array();
+            $showtimeList = $showtimeDAO->GetAll(null,null,$date,$time,$genreId);
+            foreach($showtimeList as $showtime){
+                array_push($movieList,$showtime->getMovie());
+            }
 
             $genreDAO = new GenreDAO();
             $genreList = $genreDAO->GetAll();
-
-            require_once(VIEWS_PATH."movies-admin.php");
-        }
-
-
-        public function SearchForGenres()
-        {
-            $genre = $_GET["genre"] != null ? $_GET["genre"] : null;
-            $genreDAO = new GenreDAO();
-
-            $genreList = $genreDAO->GetAll();
-            $movieList = $this->movieDAO->GetAll();
-
-            $count = count($movieList);
-
-            for ($i = 0; $i < $count; $i++)
-            {
-                if(!in_array($genre,explode(",",$movieList[$i]->getGenreIds())))
-                {   
-                    unset($movieList[$i]);
-                }
-            }
-
-            $count = count($movieList);
-
-            $alert = array();
-
-            if ($count == 0)
-            {
-                $alert['name'] = 'failure';
-                $alert['message'] = 'No se han encontrado resultados.';
-            }
-            else
-            {
-                if ($count == 1)
-                {
-                    $alert['name'] = 'success';
-                    $alert['message'] = 'Se ha encontrado un resultado.';
-                }
-                else
-                {
-                    $alert['name'] = 'success';
-                    $alert['message'] = 'Se han encontrado '. $count . ' resultados.';
-                }
-            }
-            //$themeList = $this->movieDAO->GetAllThemes();
 
             require_once(VIEWS_PATH."movies-admin.php");
         }

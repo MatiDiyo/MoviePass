@@ -7,14 +7,6 @@
 	function submitSearch(){
 		document.getElementById("searchForm").submit();
 	}
-
-	function submitSearchForGenres(){
-		document.getElementById("searchFormGenres").submit();
-	}
-
-	function submitSearchForDate(){
-		document.getElementById("searchFormDate").submit();
-	}
 	
 	function submitRefresh(){
 		document.getElementById("refreshMovies").submit();
@@ -54,31 +46,23 @@
 				<div class="col"></div>
 				
 				<div class="col-auto align-self-end">
-					<form id="searchFormGenres" name="searchFormGenres" class="inline-form" method="GET" action="<?php echo FRONT_ROOT."Movie/SearchForGenres"?>">
+					<form id="searchForm" name="searchForm" class="inline-form" method="GET" action="<?php echo FRONT_ROOT."Movie/Search"?>">
 						<div class="form-inline">
 
 							<span class="h5 inline-form">Buscar por Género&nbsp;</span>
 							<select class="form-control" name="genre">
+								<option value="">Todos</option>
 								<?php foreach($genreList as $genre){?>
-								<option value="<?php echo $genre->getId() ?>"><?php echo $genre->getName() ?></option>
+								<option value="<?php echo $genre->getId() ?>" <?php echo ($genreId != null && $genreId == $genre->getId())?"selected='selected'":"" ?>><?php echo $genre->getName() ?></option>
 								<?php }?>
 
 							</select>
 							&nbsp;
-							<span class="h4 mouse-activate" onclick="submitSearchForGenres();"><i class="fa fa-search" aria-hidden="true"></i></span>
-						</div>
-					</form>
-				</div>
-
-				<div class="col-auto align-self-end">
-					<form id="searchFormDate" name="searchFormDate" class="inline-form" method="GET" action="<?php echo FRONT_ROOT."Movie/SearchForDate"?>">
-						<div class="form-inline">
-
 							<span class="h5 inline-form">Buscar por Fecha&nbsp;</span>
-							<input class="form-control" type="datetime-local" name="date" value="<?php echo date("Y-m-d\Th:m") ?>"/>
+							<input class="form-control" type="datetime-local" name="date" value="<?php echo date("Y-m-d\TH:m",$date!=null?strtotime($date." ".$time):time()) ?>"/>
 								&nbsp;
 
-							<span class="h4 mouse-activate" onclick="submitSearchForDate();"><i class="fa fa-search" aria-hidden="true"></i></span>
+							<span class="h4 mouse-activate" onclick="submitSearch();"><i class="fa fa-search" aria-hidden="true"></i></span>
 						</div>
 					</form>
 				</div>
@@ -144,7 +128,7 @@
 				?>
 				<div class="row">
 					<div class="col-12">
-						<h5>No hay peliculas en cartelera. Pruebe refrescar desde la API.</h5>
+						<h5>No hay peliculas en cartelera para los pr&oacute;ximos d&iacute;as.</h5>
 					</div>
 				</div>
 

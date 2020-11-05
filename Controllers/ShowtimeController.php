@@ -43,7 +43,6 @@
             $showtime->setShowtimeDate($showtimeDate);
             $showtime->setShowtimeTime($showtimeTime);
             $movie = $this->movieDao->GetOne($movieId);
-            echo '<script>console.log("'.$movie->getId().'")</script>';
             ;
             $showtime->setMovie($movie);
 
