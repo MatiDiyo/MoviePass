@@ -9,6 +9,19 @@
     function goBack(){
         window.location = "<?php echo FRONT_ROOT."Cinema/ShowEditView?id=".$cinemaId?>";
     }
+
+    function submitForm(){
+        var nombreSala = document.getElementById("nombre").value;
+        var capacidadSala = document.getElementById("capacidad").value;
+        if(nombreSala == ""){
+            alert("El nombre de la Sala no puede estar vacío.");
+        }else if(capacidadSala <= 0){
+            alert("La capacidad de la Sala tiene que ser mayor a 0.");
+        }else{
+            var myForm = document.getElementById("roomForm");
+            myForm.submit();
+        }
+    }
 </script>
 <div id="addroom" class="">
     <div class="container">
@@ -50,9 +63,7 @@
                     </div>
                     <div class="row">
                             <div class="col-md-6 ">
-                                <button type="submit" class="btn btn-dark">
-                                    <?php echo $editing? 'Guardar cambios' : 'Crear sala' ?>
-                                </button>
+                                <input type="button" class="btn btn-dark" value="<?php echo $editing? 'Guardar cambios' : 'Crear sala' ?>" onclick="submitForm()"/>
                             </div>
                             <div class="col-md-6 ">
                                 <input type="button" class="btn btn-danger" value="Cancelar" onclick="goBack();"/>

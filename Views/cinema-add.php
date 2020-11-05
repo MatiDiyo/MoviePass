@@ -29,6 +29,7 @@
     }
 
     function deleteSala(){
+        if(confirm("Desea eliminar la Sala y todas sus funciones asociadas?"))
         var form = document.getElementById("roomForm")
         form.action = "<?php echo FRONT_ROOT."Room/Remove"?>";
         form.submit();
@@ -37,6 +38,27 @@
     function setRoomId(id){
         var roomId = document.getElementById("roomId");
         roomId.value = id;
+    }
+
+    function doSubmit(){
+        var form = document.getElementById("cinemaForm");
+        var validate = true;
+        var nombreCine = document.getElementById("nombre").value;
+        var direccionCine = document.getElementById("direccion").value;
+        var precioCine = document.getElementById("precio").value;
+        if(nombreCine == ""){
+            alert("El nombre del Cine no puede estar vacío.");
+            validate = false;
+        }else if(direccionCine == ""){
+            alert("La dirección del Cine no puede estar vacía.");
+            validate = false;
+        }else if(precioCine <= 0){
+            alert("El precio de la entrada tiene que ser mayor a 0.");
+            validate = false;
+        }
+        if(validate){
+            form.submit();
+        }
     }
 
     <?php if( $cinema != null && count($cinema->getRoomList())>0){ ?>
@@ -95,9 +117,7 @@
                     </div>
                     <div class="row">
                             <div class="col-md-6 ">
-                                <button type="submit" class="btn btn-dark">
-                                    <?php echo $editing? 'Guardar cambios' : 'Registrar cine' ?>
-                                </button>
+                                <input type="button" class="btn btn-dark" value="<?php echo $editing? 'Guardar cambios' : 'Registrar cine' ?>" onclick="doSubmit()"/>
                             </div>
                             <div class="col-md-6 ">
                                 <input type="button" class="btn btn-danger" value="Cancelar" onclick="goBack();"/>
@@ -114,9 +134,11 @@
                             <span class="h5">Salas</span>
                             <span class="to-the-left">
                                 <input type="button" class="btn-sm btn-primary col-auto" value="Agregar Sala" onclick="addSala()" />
-                                <input type="button" class="btn-sm btn-secondary col-auto" value="Editar Sala" onclick="editSala()" />
-                                <input type="button" class="btn-sm btn-info" value="Funciones"  onclick="showtimes()" />
-                                <input type="button" class="btn-sm btn-danger" value="Eliminar" onclick="deleteSala()" />
+                                <?php if(count($cinema->getRoomList()) > 0) { ?>
+                                    <input type="button" class="btn-sm btn-secondary col-auto" value="Editar Sala" onclick="editSala()" />
+                                    <input type="button" class="btn-sm btn-info" value="Funciones"  onclick="showtimes()" />
+                                    <input type="button" class="btn-sm btn-danger" value="Eliminar" onclick="deleteSala()" />
+                                <?php }?>
                             </span>
                         </div>
                         <div class="col-12">

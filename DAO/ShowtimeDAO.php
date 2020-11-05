@@ -11,7 +11,7 @@
     class ShowtimeDAO implements IShowtimeDAO
     {
         private $connection;
-        private $tableName = "showtime";
+        private $tableName = "showtime s";
 
         public function Add(Showtime $showtime)
         {
@@ -34,16 +34,44 @@
             }
         }
 
-        public function GetAll($roomId)
+        public function GetAll($roomId = null, $movieId = null, $date = null, $time = null, $genreId=null)
         {
             $showtimeList = null;
 
             try
             {
-                $query = "SELECT id,showtimeDate,showtimeTime, movieId, roomId FROM ".$this->tableName." WHERE roomId = :roomId;";
+                $query = "SELECT id,showtimeDate,showtimeTime, s.movieId as movieId, roomId FROM ".$this->tableName;
 
-                $parameters["roomId"] = $roomId;
+                $parameters = array();
+
+                if($genreId!=null){
+                    $parameters["genreId"] = $genreId; 
+                    $query .= "  INNER JOIN MOVIE_GENRE mg ON s.movieId = mg.movieId";
+                    $query .= " WHERE genreId = :genreId";
+               }
+                if($roomId!=null){ 
+                    $parameters["roomId"] = $roomId;
+                    $query .= strstr($query,"WHERE")? " AND " : " WHERE ";
+                    $query .= " roomId = :roomId";
+                }
+                if($movieId!=null){
+                     $parameters["movieId"] = $movieId; 
+                     $query .= strstr($query,"WHERE")? " AND " : " WHERE ";
+                     $query .= "movieId = :movieId";
+                }
+                $query .= strstr($query,"WHERE")? " AND " : " WHERE ";
+                $query .= "TIMESTAMP(showtimeDate,showtimeTime) >= current_date()";
+                if($date!=null || $time!=null){
+                    $query .=  " AND TIMESTAMP(showtimeDate,showtimeTime) <= CAST(";
+                    $parameters["date"] = $date;
+                    $parameters["time"] = $time;
+                    $query .= ($date != null ? "CONCAT(:date, ' '," : "current_date(), ' '," );
+                    $query .= ($time != null ? " :time )": " current_time())");
+                    $query .= "as DATE)";
+                }
                 
+                $query .= ";";
+
                 $this->connection = Connection::GetInstance();
                 
                 $result = $this->connection->Execute($query, $parameters);

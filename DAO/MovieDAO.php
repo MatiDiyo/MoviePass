@@ -47,7 +47,7 @@
         {
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (`title`, `posterPath`, `language`,`genreIds`, `overview`, `releaseDate`) VALUES (:title, :posterPath, :language, :genreIds, :overview, :releaseDate);" ;
+                $query = "INSERT INTO ".$this->tableName." (`title`, `posterPath`, `language`, `overview`, `releaseDate`) VALUES (:title, :posterPath, :language, :overview, :releaseDate);" ;
 
                 $this->connection = Connection::GetInstance();
                 
@@ -57,11 +57,17 @@
                     $parameters["title"] = $movie->getTitle();
                     $parameters["posterPath"] = $movie->getPosterPath();
                     $parameters["language"] = $movie->getLanguage();
-                    $parameters["genreIds"] = implode(",",$movie->getGenreIds());
                     $parameters["overview"] = $movie->getOverview();
                     $parameters["releaseDate"] = $movie->getReleaseDate();
 
                     $this->connection->ExecuteNonQuery($query, $parameters);
+
+                    $idQuery = "SELECT LAST_INSERT_ID() as lastId;";
+                    $movieId = $this->connection->Execute($idQuery, $parameters)[0]["lastId"];
+
+                    foreach($movie->getGenreIds() as $genreId){
+                        $this->InsertMovieGenre($movieId, $genreId);
+                    }
                 }
                 //$query = preg_replace('/(,(?!.*,))/', ';', $query);
         
@@ -77,7 +83,7 @@
             $movieList = null;
             try
             {
-                $query = "SELECT id, title, posterPath, language, genreIds, overview, releaseDate FROM ".$this->tableName;
+                $query = "SELECT id, title, posterPath, language, overview, releaseDate FROM ".$this->tableName;
 
                 $parameters = array();
                 if($date!=null){
@@ -118,6 +124,10 @@
 
         public function RefreshData()
         {
+            $genreDao = new GenreDAO();
+            $genreDao->RefreshData();
+
+
             // PRIMER LLAMADA A LA API, OBTIENE LA LISTA DE LOS ACTUALES
             $arrayToDecode = APIController::GetRequest('movie/now_playing', '&language=' . API_LANGUAGE . '&page=1');
 
@@ -134,10 +144,6 @@
                 $overview = $valuesArray['overview'];
                 $releaseDate = $valuesArray['release_date'];
 
-                // SEGUNDA LLAMADA A LA API, OBTIENE LOS DETALLES DE UNA PELICULA EN PARTICULAR
-                //$arrayToDecode2 = APIController::GetRequest('movie/' . $id, '&language=' . API_LANGUAGE);
-                //$runtime = $arrayToDecode2['runtime'];
-
                 $movie = new Movie($posterPath, $id, $language, $genreIds, $title, $overview, $releaseDate); 
                 array_push($movieList, $movie);
             }
@@ -149,10 +155,6 @@
                 echo '<script>console.log("Guardando Datos")</script>';
                 $this->SaveData($moviesToAdd);
             }
-
-
-            $genreDao = new GenreDAO();
-            $genreDao->RefreshData();
 
         }
 		
@@ -203,6 +205,26 @@
             }
 
             return $movie;
+        }
+
+        private function InsertMovieGenre($movieId,$genreId){
+            try
+            {
+                $query = "INSERT INTO MOVIE_GENRE (`movieId`, `genreId`) VALUES (:movieId, :genreId);" ;
+
+                $this->connection = Connection::GetInstance();
+
+                $parameters = array();
+                $parameters["movieId"] = $movieId;
+                $parameters["genreId"] = $genreId;
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+        
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
         }
     }
 ?>

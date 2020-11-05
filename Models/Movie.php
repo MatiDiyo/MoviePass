@@ -12,7 +12,7 @@
         private $releaseDate;
         private $runtime; // en minutos
 
-        public function __construct($posterPath = "", $id = "", $language = "", $genreIds = "", $title = "", $overview = "", $releaseDate = "", $runtime = "")
+        public function __construct($posterPath = "", $id = "", $language = "", $genreIds = array(), $title = "", $overview = "", $releaseDate = "", $runtime = "")
         {
             $this->posterPath = $posterPath;
             $this->id = $id;
