@@ -3,9 +3,20 @@
     
     class ProfileUser
     {
+        private $id;
         private $surname;
         private $dni;
         private $name;
+
+        function getId()
+        {
+            return $this->id;
+        }
+
+        function setId($id)
+        {
+            $this->id = $id;
+        }
 
         function getSurname()
         {
