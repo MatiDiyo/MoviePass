@@ -8,7 +8,8 @@
     use Models\Showtime as Showtime;
     use Models\Room as Room;
     use Models\Movie as Movie;
-
+    use Models\Ticket as Ticket;
+    
     class ShowtimeController
     {
         private $showtimeDao;

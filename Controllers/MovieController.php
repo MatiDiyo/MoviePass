@@ -26,7 +26,7 @@
             $showtimeDAO = new ShowtimeDAO();
 
             $movieList = array();
-            $showtimeList = $showtimeDAO->GetAll(null,null,null,null);
+            $showtimeList = $showtimeDAO->GetBillboard();
             foreach($showtimeList as $showtime){
                 array_push($movieList,$showtime->getMovie());
             }
@@ -80,7 +80,7 @@
             $showtimeDAO = new ShowtimeDAO();
 
             $movieList = array();
-            $showtimeList = $showtimeDAO->GetAll(null,null,$date,$time,$genreId);
+            $showtimeList = $showtimeDAO->GetBillboard($date,$time,$genreId);
             /*foreach($showtimeList as $showtime){
                 array_push($movieList,$showtime->getMovie());
             }*/
