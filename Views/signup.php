@@ -2,6 +2,13 @@
     include('header.php');
     //include('nav-bar.php');
 ?>
+
+<script>
+    function goBack(){
+        window.history.back();
+    }
+</script>
+
 <section id="signup">
 
     <div class="container form-user">

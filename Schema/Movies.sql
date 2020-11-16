@@ -23,8 +23,7 @@ CREATE TABLE IF NOT EXISTS Movie(id INTEGER AUTO_INCREMENT,
         releaseDate TIMESTAMP,
         CONSTRAINT PK_MOVIES PRIMARY KEY (ID),
         CONSTRAINT UK_MOVIE_TITLE UNIQUE (TITLE));
-        
-        
+           
 CREATE TABLE IF NOT EXISTS Showtime(
         id INTEGER AUTO_INCREMENT,
         showtimeDate DATE,

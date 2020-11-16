@@ -31,6 +31,8 @@
 
             $profile = $_SESSION["profileUser"];
 
+            $role = $_SESSION["roleUser"];
+
             require_once(VIEWS_PATH."profile.php");
         }
 
@@ -47,7 +49,7 @@
 
             $this->userDAO->Add($user);
 
-            $userResult = $this->userDAO($user);
+            $userResult = $this->userDAO->GetOne($user);
 
             $this->userDAO->AddRoleUser($userResult);
 
@@ -78,8 +80,6 @@
             $user->setPassword($password);
 
             $userResult = $this->userDAO->GetOne($user);
-            
-            $role = $this->userDAO->GetRole($userResult);
 
             if(($userResult != null) && ($userResult->getPassword() == $password))
             {
@@ -88,10 +88,9 @@
                 $profileResult = $this->userDAO->GetProfile($userResult->getId());
                 $_SESSION["profileUser"] = $profileResult;
 
-                if($role != null){ //cambiar
-                    $_SESSION["roleUser"] = $role->getDescription();
-                }
-                
+                $role = $this->userDAO->GetRole($userResult);
+                $_SESSION["roleUser"] = $role;
+
                 $this->ShowProfile();
             }
             else{

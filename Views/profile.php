@@ -8,6 +8,12 @@
     -name, surname, dni
 -->
 
+<script>
+    function goBack(){
+        window.history.back();
+    }
+</script>
+
 <div id="profile">
     <div class="container">
         <div class="listcinema-container">
@@ -42,6 +48,18 @@
             <div class="row">
                 <div class="col-6">
                     <span>Contraseña: <?php echo $user->getPassword();?></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <span>Estado: <?php if($role->getDescription() == 'user_normal'){
+                                            echo 'Normal';
+                                        }else if($role->getDescription() == 'user_admin'){
+                                            echo 'Admin';
+                                        }
+                                    ?>
+                    </span>
                 </div>
             </div>
 

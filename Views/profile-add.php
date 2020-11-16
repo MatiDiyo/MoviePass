@@ -2,6 +2,12 @@
     include('header.php');
 ?>
 
+<script>
+    function goBack(){
+        window.history.back();
+    }
+</script>
+
 <section id="signup">
 
     <div class="container form-user">

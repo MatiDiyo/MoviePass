@@ -7,6 +7,12 @@
 scripts de busqueda
 -->
 
+<script>
+    function goBack(){
+        window.history.back();
+    }
+</script>
+
 <div id="listarVentasyRemanentes">
     <section id="admin-ventas">
         <div class="container">

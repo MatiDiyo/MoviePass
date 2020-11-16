@@ -15,7 +15,7 @@
         private $tableRole = "roleusers";
         private $tableProfile = "profileusers";
 
-        private $user = "user_normal";
+        private $role = "user_normal";
 
         public function Add(User $user)
         {
@@ -60,12 +60,12 @@
         public function AddRoleUser(User $user){
             try
             {
-                $query = "INSERT INTO ".$this->$tableRole." (description_user, id_user) VALUES (:role, :id);";
+                $query = "INSERT INTO ".$this->tableRole." (description_user, id_user) VALUES (:description_user, :id_user);";
 
-                $parameters["role"] = $this->user;
-                $parameters["id"] = $user->getId();
+                $parameters["description_user"] = $this->role;
+                $parameters["id_user"] = $user->getId();
 
-                $this->connection = Connection::GetInstance(); 
+                $this->connection = Connection::GetInstance();
 
                 $this->connection->ExecuteNonQuery($query, $parameters);
                 
@@ -166,30 +166,6 @@
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         public function GetRole(User $user)
         {
             try
@@ -197,6 +173,7 @@
                 $roleResult = null;
 
                 $query = "SELECT * FROM ". $this->tableUser ." u INNER JOIN ".  $this->tableRole ." r ON r.id_user = u.id_user WHERE u.id_user = :id";
+                //$query = "SELECT * FROM ".$this->tableRole." WHERE (id_user = :id);";
                 
                 $parameters["id"] = $user->getId();
 
@@ -208,7 +185,9 @@
                 {
                     $roleResult = new RoleUser();
 
+                    $roleResult->setId($row["id_role"]);
                     $roleResult->setDescription($row["description_user"]);
+                    $roleResult->setUser($row["id_user"]);
                 }
                 return $roleResult;
             }
