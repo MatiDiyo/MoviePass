@@ -134,3 +134,17 @@ section{
     height: 2em;
 }
 
+<<<<<<< HEAD
+=======
+.seat:hover {
+    background-color: green;
+}
+
+.seat.selected {
+    background-color: cyan;
+}
+
+.seat.occupied {
+    background-color: red;
+}
+>>>>>>> revision3.1
