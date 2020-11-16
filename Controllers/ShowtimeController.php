@@ -30,11 +30,17 @@
 
         public function ShowListView($cinemaId, $roomId)
         {
-            
             $showtimeList = $this->showtimeDao->GetAll($roomId);
             $room = $this->roomDao->GetOne($roomId);
 
             require_once(VIEWS_PATH."showtime-list.php");
+        }
+
+        public function ShowVentasRemanentes()
+        {
+            
+            $showtimeList = $this->showtimeDao->GetAllHistorial();
+            require_once(VIEWS_PATH."ventas-remanentes.php");
         }
 
         public function Add($roomId, $showtimeDate, $showtimeTime, $movieId)

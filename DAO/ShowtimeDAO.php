@@ -105,6 +105,41 @@
             return $showtimeList;
         }
 
+        public function GetAllHistorial()
+        {
+            try{
+                $showtimeList = array();
+
+                $query = "SELECT * FROM ".$this->tableName.";";
+    
+                $this->connection = Connection::GetInstance();
+        
+                $resultSet = $this->connection->Execute($query);
+
+                foreach($resultSet as $row)
+                {
+                    $showtime = new Showtime();
+
+                    $showtime->setId($row["id"]);
+                    $showtime->setShowtimeDate($row["showtimeDate"]);
+                    $showtime->setShowtimeTime($row["showtimeTime"]);
+
+                    $roomDao = new RoomDAO();
+                    $movieDao = new MovieDAO();
+
+                    $showtime->setRoom($roomDao->GetOne($row["roomId"]));
+                    $showtime->setMovie($movieDao->GetOne($row["movieId"]));
+
+                    array_push($showtimeList, $showtime); 
+                }
+                return $showtimeList;
+            }catch(Exception $ex)
+            {
+                throw $ex;
+            }
+
+        }
+
         public function Remove($id)
         {            
             try
