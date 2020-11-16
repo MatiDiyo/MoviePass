@@ -129,3 +129,15 @@ section{
     width: 50%;
     height: 2em;
 }
+
+.seat:hover {
+    background-color: green;
+}
+
+.seat.selected {
+    background-color: cyan;
+}
+
+.seat.occupied {
+    background-color: red;
+}

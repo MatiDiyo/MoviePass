@@ -26,8 +26,6 @@
 
                 $this->connection = Connection::GetInstance();
 
-                echo '<script>console.log("'.$query.'")</script>';
-
                 $this->connection->ExecuteNonQuery($query, $parameters);
             }
             catch(Exception $ex)
@@ -36,7 +34,7 @@
             }
         }
 
-        public function GetAll($roomId = null, $movieId = null, $date = null, $time = null, $genreId=null)
+        public function GetAll($roomId = null, $movieId = null)
         {
             $showtimeList = null;
 
@@ -46,11 +44,6 @@
 
                 $parameters = array();
 
-                if($genreId!=null){
-                    $parameters["genreId"] = $genreId; 
-                    $query .= " INNER JOIN MOVIE_GENRE mg ON s.movieId = mg.movieId";
-                    $query .= " WHERE genreId = :genreId";
-               }
                 if($roomId!=null){ 
                     $parameters["roomId"] = $roomId;
                     $query .= strstr($query,"WHERE")? " AND " : " WHERE ";
@@ -61,18 +54,8 @@
                      $query .= strstr($query,"WHERE")? " AND " : " WHERE ";
                      $query .= "movieId = :movieId";
                 }
-                $query .= strstr($query,"WHERE")? " AND " : " WHERE ";
-                $query .= "TIMESTAMP(showtimeDate,showtimeTime) >= current_date()";
-                if($date!=null || $time!=null){
-                    $query .=  " AND TIMESTAMP(showtimeDate,showtimeTime) <= CAST(";
-                    $parameters["date"] = $date;
-                    $parameters["time"] = $time;
-                    $query .= ($date != null ? "CONCAT(:date, ' '," : "current_date(), ' '," );
-                    $query .= ($time != null ? " :time )": " current_time())");
-                    $query .= "as DATETIME)";
-                }
                 
-                $query .= ";";
+                $query .= " ORDER BY showtimeDate, showtimeTime ASC;";
 
                 $this->connection = Connection::GetInstance();
                 
@@ -90,7 +73,7 @@
                         $roomDao = new RoomDAO();
                         $movieDao = new MovieDAO();
 
-                        $showtime->setRoom($roomDao->GetOne($roomId));
+                        $showtime->setRoom($roomDao->GetOne($valuesArray["roomId"]));
                         $showtime->setMovie($movieDao->GetOne($valuesArray["movieId"]));
 
                         array_push($showtimeList, $showtime);
@@ -178,6 +161,59 @@
             {
                 throw $ex;
             }
+        }
+
+        public function GetBillboard($date = null, $time = null, $genreId=null){
+            $showtimeList = null;
+
+            try
+            {
+                $query = "SELECT s.movieId as movieId FROM ".$this->tableName." s";
+
+                $parameters = array();
+
+                if($genreId!=null){
+                    $parameters["genreId"] = $genreId; 
+                    $query .= " INNER JOIN MOVIE_GENRE mg ON s.movieId = mg.movieId";
+                    $query .= " WHERE genreId = :genreId";
+               }
+                $query .= strstr($query,"WHERE")? " AND " : " WHERE ";
+                $query .= "TIMESTAMP(showtimeDate,showtimeTime) >= current_date()";
+                if($date!=null || $time!=null){
+                    $query .=  " AND TIMESTAMP(showtimeDate,showtimeTime) <= CAST(";
+                    $parameters["date"] = $date;
+                    $parameters["time"] = $time;
+                    $query .= ($date != null ? "CONCAT(:date, ' '," : "current_date(), ' '," );
+                    $query .= ($time != null ? " :time )": " current_time())");
+                    $query .= "as DATETIME)";
+                }
+                
+                $query .= " GROUP BY s.movieId;";
+
+                $this->connection = Connection::GetInstance();
+                
+                $result = $this->connection->Execute($query, $parameters);
+                
+                $showtimeList = array();
+                if($result != null){
+                    foreach($result as $valuesArray)
+                    {
+                        $showtime = new Showtime();
+
+                        $movieDao = new MovieDAO();
+
+                        $showtime->setMovie($movieDao->GetOne($valuesArray["movieId"]));
+
+                        array_push($showtimeList, $showtime);
+                    }
+                }
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+
+            return $showtimeList;
         }
 
     }

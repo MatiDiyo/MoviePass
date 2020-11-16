@@ -112,12 +112,11 @@
 					<div class="col-3">
 						<div class="movie-container">
 							<div class="movie-details">
-								<a href="">
+								<a href="<?php echo FRONT_ROOT."Ticket/ShowAvailable?movieId=".$showtime->getMovie()->getId()?>" >
 									<h3 class="border-text"><?php echo $showtime->getMovie()->getTitle() ?></h3>
-									<h6 class="border-text"><?php echo $showtime->getShowtimeDate()." - ".$showtime->getShowtimeTime()  ?></h6>
 								</a>
 							</div>
-							<a href="">
+							<a href="<?php echo FRONT_ROOT."Ticket/ShowAvailable?movieId=".$showtime->getMovie()->getId()?>" >
 							<img src="<?php echo 'https://image.tmdb.org/t/p/w500'.$showtime->getMovie()->getPosterPath() ?>" class="img-fluid" alt="movie 1">
 							</a>
 						</div>
