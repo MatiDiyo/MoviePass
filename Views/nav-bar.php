@@ -22,7 +22,7 @@
                 }
                 elseif(isset($_SESSION["loggedUser"]) && isset($_SESSION["roleUser"]))
                 {
-                  if($_SESSION["roleUser"] == 'user_admin')
+                  if($_SESSION["roleUser"]->getDescription() == 'user_admin')
                   {
               ?>
 
@@ -54,7 +54,7 @@
                     </ul>
 
               <?php
-                  }else{
+                  }else if($_SESSION["roleUser"]->getDescription() == 'user_normal'){
               ?>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
@@ -74,9 +74,9 @@
 
               <?php
                   }
-                }//elseif(isset($_SESSION["loggedUser"])){
+                }/*elseif(isset($_SESSION["loggedUser"])){
               ?>
-                  <!--  <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                           <a class="nav-link" id="cartelera" href="<?php echo FRONT_ROOT."Movie/ShowListView"?>">Cartelera</a>
                         </li>
@@ -91,9 +91,9 @@
                           </div>
                         </li>
                     </ul>
-                -->
+                
               <?php
-                //}
+                }*/
               ?>
 
             </div>       
