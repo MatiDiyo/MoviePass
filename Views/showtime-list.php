@@ -6,6 +6,11 @@
 ?>
 
 <script>
+
+    function goBack(){
+        window.history.back();
+    }
+
     
     function editShowtime(id){
         var myForm =document.getElementById("showtimeForm");

@@ -3,7 +3,19 @@
     
     class RoleUser
     {
+        private $id;
         private $description;
+        private $user;
+
+        function getId()
+        {
+            return $this->id;
+        }
+
+        function setId($id)
+        {
+            $this->id = $id;
+        }
 
         function getDescription()
         {
@@ -13,6 +25,16 @@
         function setDescription($description)
         {
             $this->description = $description;
+        }
+
+        function getUser()
+        {
+            return $this->user;
+        }
+
+        function setUser($user)
+        {
+            $this->user = $user;
         }
     }
 ?>

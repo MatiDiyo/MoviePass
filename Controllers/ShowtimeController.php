@@ -3,6 +3,7 @@
 
     use DAO\ShowtimeDao as ShowtimeDao;
     use DAO\RoomDao as RoomDao;
+    use DAO\CinemaDao as CinemaDao;
     use DAO\MovieDao as MovieDao;
     use Models\Showtime as Showtime;
     use Models\Room as Room;
@@ -20,6 +21,7 @@
             $this->showtimeDao = new ShowtimeDao();
             $this->roomDao = new RoomDao();
             $this->movieDao = new MovieDao();
+            $this->cinemaDao = new CinemaDao();
         }
 
         public function ShowAddView($roomId)
@@ -31,11 +33,17 @@
 
         public function ShowListView($cinemaId, $roomId)
         {
-            
             $showtimeList = $this->showtimeDao->GetAll($roomId);
             $room = $this->roomDao->GetOne($roomId);
 
             require_once(VIEWS_PATH."showtime-list.php");
+        }
+
+        public function ShowVentasRemanentes()
+        {
+            $showtimeList = $this->showtimeDao->GetAllHistorial();
+            $cinemaList = $this->cinemaDao->GetAll();
+            require_once(VIEWS_PATH."ventas-remanentes.php");
         }
 
         public function Add($roomId, $showtimeDate, $showtimeTime, $movieId)

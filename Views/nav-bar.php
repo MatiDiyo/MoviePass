@@ -22,7 +22,7 @@
                 }
                 elseif(isset($_SESSION["loggedUser"]) && isset($_SESSION["roleUser"]))
                 {
-                  if($_SESSION["roleUser"] == 'user_admin')
+                  if($_SESSION["roleUser"]->getDescription() == 'user_admin')
                   {
               ?>
 
@@ -30,56 +30,70 @@
                         <li class="nav-item">
                           <a class="nav-link" id="cartelera" href="<?php echo FRONT_ROOT."Movie/ShowListView"?>">Cartelera</a>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="admin" href="<?php echo FRONT_ROOT."Cinema/ShowListView"?>">Administrar Cines</a>
+
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Administrar
+                          </a>
+                          <div id="drop" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link" id="admin" href="<?php echo FRONT_ROOT."Cinema/ShowListView"?>">Cines</a>
+                            <a class="nav-link" id="ventas" href="<?php echo FRONT_ROOT."Showtime/ShowVentasRemanentes"?>">Ventas</a>
+                          </div>
                         </li>
+
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mi cuenta
+                          </a>
+                          <div id="drop" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link" id="profile" href="<?php echo FRONT_ROOT."User/ShowProfile"?>">Mi Perfil</a>
+                            <a class="nav-link" id="logout" href="<?php echo FRONT_ROOT."User/Logout"?>">Cerrar Sesion</a>
+                          </div>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="profile" href="<?php echo FRONT_ROOT."User/ShowProfile"?>">Mi Perfil</a>
-                        </li>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="logout" href="<?php echo FRONT_ROOT."User/Logout"?>">Cerrar Sesion</a>
-                        </li>
+
                     </ul>
 
               <?php
-                  }else{
+                  }else if($_SESSION["roleUser"]->getDescription() == 'user_normal'){
               ?>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                           <a class="nav-link" id="cartelera" href="<?php echo FRONT_ROOT."Movie/ShowListView"?>">Cartelera</a>
                         </li>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="profile" href="<?php echo FRONT_ROOT."User/ShowProfile"?>">Mi Perfil</a>
-                        </li>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="logout" href="<?php echo FRONT_ROOT."User/Logout"?>">Cerrar Sesion</a>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mi cuenta
+                          </a>
+                          <div id="drop" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link" id="profile" href="<?php echo FRONT_ROOT."User/ShowProfile"?>">Mi Perfil</a>
+                            <a class="nav-link" id="logout" href="<?php echo FRONT_ROOT."User/Logout"?>">Cerrar Sesion</a>
+                          </div>
                         </li>
                     </ul>
 
               <?php
                   }
-                }elseif(isset($_SESSION["loggedUser"])){
+                }/*elseif(isset($_SESSION["loggedUser"])){
               ?>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                           <a class="nav-link" id="cartelera" href="<?php echo FRONT_ROOT."Movie/ShowListView"?>">Cartelera</a>
                         </li>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="profile" href="<?php echo FRONT_ROOT."User/ShowProfile"?>">Mi Perfil</a>
-                        </li>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="logout" href="<?php echo FRONT_ROOT."User/Logout"?>">Cerrar Sesion</a>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mi cuenta
+                          </a>
+                          <div id="drop" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link" id="profile" href="<?php echo FRONT_ROOT."User/ShowProfile"?>">Mi Perfil</a>
+                            <a class="nav-link" id="logout" href="<?php echo FRONT_ROOT."User/Logout"?>">Cerrar Sesion</a>
+                          </div>
                         </li>
                     </ul>
-
+                
               <?php
-                }
+                }*/
               ?>
 
             </div>       
