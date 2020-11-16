@@ -8,6 +8,12 @@
     -name, surname, dni
 -->
 
+<script>
+    function goBack(){
+        window.history.back();
+    }
+</script>
+
 <div id="profile">
     <div class="container">
         <div class="listcinema-container">
@@ -17,9 +23,17 @@
                     <h2>Mi perfil</h2>
                 </div>
                 <div class="col-3">
-                    <form method="get" action="#"> <!--en el action hay que poner como en cinema-list-->
-                        <button type="submit" class="btn btn-dark">Editar Perfil</button>
-                    </form> 
+                            
+                    <?php
+                        if(!isset($_SESSION["profileUser"]))
+                        {
+                    ?>
+                            <form method="get" action="<?php echo FRONT_ROOT."User/ShowAddProfile"?>">
+                                <button type="submit" name="id" class="btn btn-dark" >Agregar info</button>
+                            </form>
+                    <?php
+                        }
+                    ?> 
                 </div>
             </div>
 
@@ -27,33 +41,54 @@
 
             <div class="row">
                 <div class="col-6">
-                    <span>Email: </span>
+                    <span>Email: <?php echo $user->getMail();?></span>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6">
-                    <span>Contraseña: </span>
+                    <span>Contraseña: <?php echo $user->getPassword();?></span>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6">
-                    <span>Nombre: </span>
+                    <span>Estado: <?php if($role->getDescription() == 'user_normal'){
+                                            echo 'Normal';
+                                        }else if($role->getDescription() == 'user_admin'){
+                                            echo 'Admin';
+                                        }
+                                    ?>
+                    </span>
+                </div>
+            </div>
+
+        <?php
+            if(isset($_SESSION["profileUser"]))
+            {
+        ?>
+
+            <div class="row">
+                <div class="col-6">
+                    <span>Nombre: <?php echo $profile->getName();?></span>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6">
-                    <span>Apellido: </span>
+                    <span>Apellido: <?php echo $profile->getSurname();?></span>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6">
-                    <span>DNI: </span>
+                    <span>DNI: <?php echo $profile->getDni();?></span>
                 </div>
             </div>
+
+        <?php
+            }
+        ?>
 
         </div>
     </div>

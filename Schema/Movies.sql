@@ -1,49 +1,47 @@
-use moviepass;
+USE moviepass;
 
-create table if not EXISTS Cinema(id integer AUTO_INCREMENT,
-        name varchar(100),
-        address varchar(200),
-        price float,
+CREATE TABLE IF NOT EXISTS Cinema(id INTEGER AUTO_INCREMENT,
+        NAME VARCHAR(100),
+        address VARCHAR(200),
+        price FLOAT,
         CONSTRAINT PK_CINEMAS PRIMARY KEY (ID),
         CONSTRAINT UK_CINEMA_NAME UNIQUE (NAME));
-        
-        
-create table if not EXISTS Room(id integer AUTO_INCREMENT,
-        name varchar(50),
-        capacity integer,
-        cinemaId integer,
+     
+CREATE TABLE IF NOT EXISTS Room(id INTEGER AUTO_INCREMENT,
+        NAME VARCHAR(50),
+        capacity INTEGER,
+        cinemaId INTEGER,
         CONSTRAINT PK_ROOMS PRIMARY KEY (ID),
         CONSTRAINT UK_ROOM_NAME UNIQUE (CINEMAID, NAME),
         CONSTRAINT FK_Room_CINEMA FOREIGN KEY (CINEMAID) REFERENCES CINEMA(ID)  ON DELETE CASCADE) ;
         
-create table if not EXISTS Movie(id integer AUTO_INCREMENT,
-        title varchar(100),
-        posterPath varchar(200),
-        language varchar(20),
-        overview varchar(2000),
-        releaseDate timestamp,
+CREATE TABLE IF NOT EXISTS Movie(id INTEGER AUTO_INCREMENT,
+        title VARCHAR(100),
+        posterPath VARCHAR(200),
+        LANGUAGE VARCHAR(20),
+        overview VARCHAR(2000),
+        releaseDate TIMESTAMP,
         CONSTRAINT PK_MOVIES PRIMARY KEY (ID),
         CONSTRAINT UK_MOVIE_TITLE UNIQUE (TITLE));
-        
-        
-create table if not EXISTS Showtime(
-        id integer AUTO_INCREMENT,
+           
+CREATE TABLE IF NOT EXISTS Showtime(
+        id INTEGER AUTO_INCREMENT,
         showtimeDate DATE,
         showtimeTime TIME,
-        movieId integer,
-        roomId integer,
+        movieId INTEGER,
+        roomId INTEGER,
         CONSTRAINT PK_SHOWTIME_ID PRIMARY KEY (ID),
         CONSTRAINT FK_Showtime_MOVIE FOREIGN KEY (MOVIEID) REFERENCES MOVIE(ID) ON DELETE CASCADE,
         CONSTRAINT FK_showtime_ROOM FOREIGN KEY (ROOMID) REFERENCES ROOM(ID) ON DELETE CASCADE);
 
-create table if not EXISTS GENRE(
-        id integer,
-        name VARCHAR(30),
+CREATE TABLE IF NOT EXISTS GENRE(
+        id INTEGER,
+        NAME VARCHAR(30),
         CONSTRAINT PK_GENRE_ID PRIMARY KEY (ID));
 
-create table if not EXISTS MOVIE_GENRE(
-        movieId integer,
-        genreId integer,
+CREATE TABLE IF NOT EXISTS MOVIE_GENRE(
+        movieId INTEGER,
+        genreId INTEGER,
         CONSTRAINT PK_MOVIE_GENRE_ID UNIQUE KEY (MOVIEID,genreId),
         CONSTRAINT FK_MG_MOVIEID FOREIGN KEY(MOVIEID) REFERENCES MOVIE(ID) ON DELETE CASCADE,
         CONSTRAINT FK_MG_GENREID FOREIGN KEY(GENREID) REFERENCES GENRE(ID) ON DELETE CASCADE);

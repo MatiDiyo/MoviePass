@@ -59,6 +59,10 @@ section{
 .listcinema-container{
     padding-top: 90px;
 }
+
+.listventas-container{
+    padding-top: 90px;
+}
 /*
 .listprofile-container{
     padding-top: 90px;
@@ -129,3 +133,4 @@ section{
     width: 50%;
     height: 2em;
 }
+

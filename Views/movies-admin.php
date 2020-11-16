@@ -19,7 +19,7 @@
 			<div class="listmovie-container">
 				<div class="row">
 					<div class="col-9">
-						<h2>MoviePass</h3>
+						<h2>MoviePass</h2>
 						<p>Las peliculas del momento, en tu cine mas cercano.</p>
 					</div>
 					<div class="col-3">
