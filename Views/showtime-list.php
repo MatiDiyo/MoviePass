@@ -42,6 +42,7 @@
                 </div>
             </div>  
             <hr/>
+            <span style="color:red"><?php echo $this->message != null ? $this->message : "" ?></span>
             <?php
                     if($showtimeList != null && count($showtimeList) >0){
                 ?>
