@@ -3,8 +3,10 @@
 
     use \Exception as Exception;
     use DAO\ITicketDAO as ITicketDAO;
-    use Models\Ticket as Ticket;
     use DAO\Connection as Connection; 
+    use DAO\ShowtimeDAO as ShowtimeDAO;
+    use DAO\OperationDAO as OperationDAO;
+    use Models\Ticket as Ticket;
 
     class TicketDAO implements ITicketDAO
     {
@@ -37,49 +39,50 @@
             }
         }
 
-        public function GetAll($userId)
+        public function GetAll($showtimeId=null, $userId=null)
         {
-            /*$showtimeList = null;
+            $ticketList = null;
 
             try
             {
-                $query = "SELECT id,showtimeDate,showtimeTime, s.movieId as movieId, roomId FROM ".$this->tableName." s";
+                $query = "SELECT id, ticketRow, ticketColumn,operationId,showtimeId FROM ".$this->tableName;
 
                 $parameters = array();
 
-                if($roomId!=null){ 
-                    $parameters["roomId"] = $roomId;
-                    $query .= strstr($query,"WHERE")? " AND " : " WHERE ";
-                    $query .= " roomId = :roomId";
+                if($userId!=null){ 
+                    $query .= " INNER JOIN Operation ON Operation.id = operationId WHERE userId = :userId";
+
+                    $parameters["userId"] = $userId;
                 }
-                if($movieId!=null){
-                     $parameters["movieId"] = $movieId; 
-                     $query .= strstr($query,"WHERE")? " AND " : " WHERE ";
-                     $query .= "movieId = :movieId";
+                if($showtimeId!=null){
+                    $query .= strstr($query,"WHERE")? " AND " : " WHERE ";
+                    $query .= "showtimeId = :showtimeId";
+
+                    $parameters["showtimeId"] = $showtimeId;
                 }
                 
-                $query .= " ORDER BY showtimeDate, showtimeTime ASC;";
+                $query .= " ORDER BY operationId, showtimeId ASC;";
 
                 $this->connection = Connection::GetInstance();
                 
                 $result = $this->connection->Execute($query, $parameters);
                 
-                $showtimeList = array();
+                $ticketList = array();
                 if($result != null){
                     foreach($result as $valuesArray)
                     {
-                        $showtime = new Showtime();
-                        $showtime->setId($valuesArray["id"]);
-                        $showtime->setShowtimeDate($valuesArray["showtimeDate"]);
-                        $showtime->setShowtimeTime($valuesArray["showtimeTime"]);
+                        $ticket = new Ticket();
+                        $ticket->setId($valuesArray["id"]);
+                        $ticket->setRow($valuesArray["ticketRow"]);
+                        $ticket->setColumn($valuesArray["ticketColumn"]);
 
-                        $roomDao = new RoomDAO();
-                        $movieDao = new MovieDAO();
+                        $showtimeDAO = new ShowtimeDAO();
+                        $operationDAO = new OperationDAO();
 
-                        $showtime->setRoom($roomDao->GetOne($valuesArray["roomId"]));
-                        $showtime->setMovie($movieDao->GetOne($valuesArray["movieId"]));
+                        $ticket->setShowtime($showtimeDAO->GetOne($valuesArray["showtimeId"]));
+                        $ticket->setOperation($operationDAO->GetOne($valuesArray["operationId"]));
 
-                        array_push($showtimeList, $showtime);
+                        array_push($ticketList, $ticket);
                     }
                 }
             }
@@ -88,7 +91,7 @@
                 throw $ex;
             }
 
-            return $showtimeList;*/
+            return $ticketList;
         }
 
         
