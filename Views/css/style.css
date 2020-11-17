@@ -145,3 +145,7 @@ section{
 .seat.occupied {
     background-color: red;
 }
+
+.dark-drop {
+    background-color: black !important;
+}
