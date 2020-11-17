@@ -31,11 +31,27 @@
         }
 
         public function SelectTickets($showtimeId){
-            $showtime = $this->showtimeDao->GetOne($showtimeId);
 
+            if($_SESSION["loggedUser"] == null){
+                $msg = "Tiene que estar logueado para realizar esta acción";
+                header('location:../User/ShowLogin?message='.$msg);
+            }
+
+            $showtime = $this->showtimeDao->GetOne($showtimeId);
+            $tickets = $this->ticketDao->GetAll($showtimeId);
             $seats = array();
-            for($i=0;$i<200;$i++){
-                array_push($seats,$i);
+            for($i=0;$i<$showtime->getRoom()->getCapacity();$i++){
+                $occupied = false;
+                //Busco si el asiento ya esta ocupado
+                $seatRow = floor($i/12) +1;
+                $seatColumn = $i%12 +1;
+                
+                foreach($tickets as $ticket){ 
+                    if($ticket->getRow() == $seatRow && $ticket->getColumn() == $seatColumn)  {
+                        $occupied = true;
+                    }
+                }
+                array_push($seats,$occupied);
             }
 
             require_once(VIEWS_PATH."tickets-seats.php");

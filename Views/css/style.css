@@ -134,8 +134,6 @@ section{
     height: 2em;
 }
 
-<<<<<<< HEAD
-=======
 .seat:hover {
     background-color: green;
 }
@@ -147,4 +145,7 @@ section{
 .seat.occupied {
     background-color: red;
 }
->>>>>>> revision3.1
+
+.dark-drop {
+    background-color: black !important;
+}

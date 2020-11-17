@@ -16,6 +16,8 @@
         private $roomDao;
         private $movieDao;
 
+        private $message;
+
         public function __construct()
         {
             $this->showtimeDao = new ShowtimeDao();
@@ -50,7 +52,6 @@
 
                 array_push($vendidasList, $ventas);
             }
-
             require_once(VIEWS_PATH."ventas-remanentes.php");
         }
 
@@ -65,8 +66,11 @@
 
             $room = $this->roomDao->GetOne($roomId);
             $showtime->setRoom($room);
-
-            $this->showtimeDao->Add($showtime);
+            
+            $this->message = $this->showtimeDao->ValidateShowtime($showtime);
+            if($this->message == null || $this->message == ""){
+                $this->showtimeDao->Add($showtime);
+            }
 
             $this->ShowListView(null, $roomId);
         }
@@ -101,13 +105,16 @@
             $showtime->setShowtimeTime($showtimeTime);
             
             $movie = $this->movieDao->GetOne($movieId);
-
             $showtime->setMovie($movie);
-            
-            $this->showtimeDao->Update($showtime);
             
             $room = $this->roomDao->GetOne($roomId);
             $showtime->setRoom($room);
+
+            $this->message = $this->showtimeDao->ValidateShowtime($showtime);
+            if($this->message == null || $this->message == ""){
+                $this->showtimeDao->Update($showtime);
+            }
+            
 
             $this->ShowListView(null, $roomId);
         }

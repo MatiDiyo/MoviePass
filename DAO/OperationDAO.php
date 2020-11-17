@@ -3,6 +3,7 @@
 
     use \Exception as Exception;
     use DAO\IOperationDAO as IOperationDAO;
+    use DAO\UserDAO as UserDAO;
     use Models\Operation as Operation;
     use DAO\Connection as Connection; 
 
@@ -35,6 +36,42 @@
             {
                 throw $ex;
             }
+        }
+
+        public function GetOne($id)
+        {            
+            $operation = null;
+
+            try
+            {
+                $query = "SELECT id,cant_entradas,operationDate,total, userId FROM ".$this->tableName." WHERE id = :id;";
+
+                $parameters["id"] = $id;
+
+                $this->connection = Connection::GetInstance();
+
+                $result = $this->connection->Execute($query, $parameters);
+
+                if($result != null && !empty($result)){
+                    $valuesArray = $result[0];
+
+                    $operation = new Operation();
+                    $operation->setId($valuesArray["id"]);
+                    $operation->setCantEntradas($valuesArray["cant_entradas"]);
+                    $operation->setOperationDate($valuesArray["operationDate"]);
+                    $operation->setTotal($valuesArray["total"]);
+
+                    //$userDAO = new UserDAO();
+                    $user = $_SESSION["loggedUser"];
+                    $operation->setUser($user);
+                }
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+
+            return $showtime;
         }
 
         public function GetAll($userId)

@@ -45,13 +45,13 @@ $movie = $showtime->getMovie();
                         <span class="h5">Pagar con Tarjeta</span>
                     </div>
                     <div class="col-12">
-                        <input type="text" class="form-control" name="cardNumber" id="cardNumber" placeholder="Numero de la tarjeta" />
+                        <input type="text" class="form-control" name="cardNumber" id="cardNumber" placeholder="Numero de la tarjeta" required/>
                     </div>
                     <div class="col-6">
-                        <input type="text" class="form-control" name="cardExpDate" id="cardExpDate" placeholder="Fecha de expiración" />
+                        <input type="text" class="form-control" name="cardExpDate" id="cardExpDate" placeholder="Fecha de expiración" required/>
                     </div>
                     <div class="col-6">
-                        <input type="text" class="form-control" name="cardCVV" id="cardCVV" placeholder="Código de verificación" />
+                        <input type="text" class="form-control" name="cardCVV" id="cardCVV" placeholder="Código de verificación" required/>
                     </div>
                     <div class="col-6">
                         <select name="documentType" class="form-control" placeholder="Tipo de documento" >
@@ -62,22 +62,23 @@ $movie = $showtime->getMovie();
                         </select>
                     </div>
                     <div class="col-6">
-                        <input type="text" class="form-control" name="documentNumber" id="documentNumber" placeholder="Número de documento" />
+                        <input type="text" class="form-control" name="documentNumber" id="documentNumber" placeholder="Número de documento" required/>
                     </div>
                     <div class="col-12">
-                        <input type="text" class="form-control" name="cardOwner" id="cardOwner" placeholder="Titular de la tarjeta" />
+                        <input type="text" class="form-control" name="cardOwner" id="cardOwner" placeholder="Titular de la tarjeta" required/>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-6">
                         <input type="button" class="btn btn-primary" value="Confirmar compra" onclick="submitForm()"/>
-                        <input type="button" class="btn btn-danger" value="Cancelar" onclick=""/>
+                        <input type="button" class="btn btn-danger" value="Cancelar" onclick="window.history.back();"/>
                     </div>
                 </div>
             </form>
             <?php
                 }
                 ?>
+                
             <hr/>
         </div>
 
@@ -100,7 +101,13 @@ $movie = $showtime->getMovie();
     }
 
     function validate(){
-        return true;
+        if( $("#cardNumber").val() == "") { $("#cardNumber").focus(); }
+        else if( $("#cardExpDate").val() == "") { $("#cardExpDate").focus(); }
+        else if( $("#cardCVV").val() == "") { $("#cardCVV").focus(); }
+        else if( $("#documentNumber").val() == "") { $("#documentNumber").focus(); }
+        else if( $("#cardOwner").val() == "") { $("#cardOwner").focus(); }
+        else {return true;}
+        
     }
 
 </script>
