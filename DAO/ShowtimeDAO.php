@@ -251,5 +251,55 @@
             return $showtimeList;
         }
 
+        public function ValidateShowtime($showtime){
+            try
+            {
+                //VALIDACION DE PELICULA EXHIBIDA EN EL DIA POR CINE
+
+                $query = "SELECT movieId FROM ".$this->tableName." INNER JOIN room ON room.id = roomId WHERE movieId = :movieId AND cinemaId = :cinemaId AND showtimeDate = :showtimeDate";
+
+                $parameters = array();
+                $parameters["movieId"] = $showtime->getMovie()->getId();
+                $parameters["cinemaId"] = $showtime->getRoom()->getCinema()->getId();
+                $parameters["showtimeDate"] = $showtime->getShowtimeDate();
+               
+                $this->connection = Connection::GetInstance();
+                
+                $result = $this->connection->Execute($query, $parameters);
+                
+                $showtimeList = array();
+                if($result != null && count($result)>0){
+                    return "La película elegida ya se esta exhibiendo en los cines el día de hoy";
+                }
+                
+                //VALIDACION DE 15 MIN ENTRE PELICULAS
+                $query = "SELECT movieId FROM ".$this->tableName." WHERE roomId = :roomId AND showtimeDate = :showtimeDate AND showtimeTime BETWEEN ADDTIME(:showtimeTime,'-00:15:00') AND ADDTIME(:showtimeTime,'00:15:00') ";
+                
+                $parameters = array();
+                $parameters["roomId"] = $showtime->getRoom()->getId();
+                $parameters["showtimeDate"] = $showtime->getShowtimeDate();
+                $parameters["showtimeTime"] = $showtime->getShowtimeTime();
+                
+                echo '<script>console.log("'.$parameters["roomId"].'")</script>';
+                echo '<script>console.log("'.$parameters["showtimeDate"].'")</script>';
+                echo '<script>console.log("'.$parameters["showtimeTime"].'")</script>';
+
+                $this->connection = Connection::GetInstance();
+                
+                $result = $this->connection->Execute($query, $parameters);
+                
+                $showtimeList = array();
+                if($result != null && count($result)>0){
+                    return "Ya se esta exhibiendo una película en ese horario";
+                }
+                
+                return null;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
     }
 ?>
