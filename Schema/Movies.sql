@@ -46,21 +46,21 @@ CREATE TABLE IF NOT EXISTS MOVIE_GENRE(
         CONSTRAINT FK_MG_MOVIEID FOREIGN KEY(MOVIEID) REFERENCES MOVIE(ID) ON DELETE CASCADE,
         CONSTRAINT FK_MG_GENREID FOREIGN KEY(GENREID) REFERENCES GENRE(ID) ON DELETE CASCADE);
 
-create table if not EXISTS OPERATION(
-        id integer AUTO_INCREMENT,
-        cant_entradas integer,
-        operationDate date,
-        total float,
-        userId integer,
+CREATE TABLE IF NOT EXISTS OPERATION(
+        id INTEGER AUTO_INCREMENT,
+        cant_entradas INTEGER,
+        operationDate DATE,
+        total FLOAT,
+        userId INTEGER,
         CONSTRAINT PK_OPERATION_ID PRIMARY KEY (ID),
         CONSTRAINT FK_OP_USERID FOREIGN KEY(USERID) REFERENCES USERS(ID_user) ON DELETE CASCADE);
 
-create table if not EXISTS TICKETS(
-        id integer AUTO_INCREMENT,
-        ticketRow integer,
-        ticketColumn integer,
-        showtimeId integer,
-        operationId integer,
+CREATE TABLE IF NOT EXISTS TICKETS(
+        id INTEGER AUTO_INCREMENT,
+        ticketRow INTEGER,
+        ticketColumn INTEGER,
+        showtimeId INTEGER,
+        operationId INTEGER,
         CONSTRAINT PK_TICKET_ID PRIMARY KEY (id),
         CONSTRAINT FK_TK_SHOWTIMEID FOREIGN KEY(SHOWTIMEID) REFERENCES SHOWTIME(ID) ON DELETE CASCADE,
         CONSTRAINT FK_TK_OPERATIONID FOREIGN KEY(OPERATIONID) REFERENCES OPERATION(ID) ON DELETE CASCADE); 

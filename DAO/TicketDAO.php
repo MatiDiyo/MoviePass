@@ -4,7 +4,8 @@
     use \Exception as Exception;
     use DAO\ITicketDAO as ITicketDAO;
     use DAO\Connection as Connection; 
-    use DAO\ShowtimeDAO as ShowtimeDAO;
+    use Models\Showtime as Showtime;
+    use DAO\ShowtimeDao as ShowtimeDao;
     use DAO\OperationDAO as OperationDAO;
     use Models\Ticket as Ticket;
 
@@ -94,7 +95,6 @@
             return $ticketList;
         }
 
-        
 
     }
 ?>

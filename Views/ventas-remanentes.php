@@ -44,16 +44,25 @@ scripts de busqueda
                                 <td><?php foreach($cinemaList as $cinema){
                                             if($cinema->getId() == $showtime->getRoom()->getCinema()->getId()){
                                                 echo $cinema->getName();
-                                            }else{
-                                                //echo $showtime->getRoom()->getCinema()->getId();
                                             }
                                         }  
                                 ?></td>
                                 <td><?php echo $showtime->getRoom()->getName()?></td>
                                 <td><?php echo $showtime->getShowtimeDate()?></td>
                                 <td><?php echo $showtime->getShowtimeTime()?></td>
-                                <td><?php ?>-0-</td>
-                                <td><?php echo $showtime->getRoom()->getCapacity()?></td>
+                                <td><?php foreach($vendidasList as $ventas){
+                                            if($ventas["id"] == $showtime->getId()){
+                                                echo $ventas["total"];
+                                            }
+                                        }
+                                ?></td>
+                                <td><?php foreach($vendidasList as $ventas){
+                                            if($ventas["id"] == $showtime->getId()){
+                                                $total = $showtime->getRoom()->getCapacity() - $ventas["total"];
+                                                echo $total;
+                                            }
+                                        }
+                                ?></td>
                             </tr>
                         <?php }?>
                     </tbody>

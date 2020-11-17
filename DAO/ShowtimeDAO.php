@@ -12,6 +12,7 @@
     {
         private $connection;
         private $tableName = "showtime";
+        private $tableTickets = "tickets";
 
         public function Add(Showtime $showtime)
         {
@@ -249,6 +250,26 @@
             }
 
             return $showtimeList;
+        }
+
+        public function GetVentas(ShowTime $showtime){
+            try{
+                $suma = null;
+
+                $query = "SELECT COUNT(*) as TOTAL FROM ".$this->tableTickets." WHERE (showtimeId = :showtimeId);";
+
+                $parameters["showtimeId"] = $showtime->getId();
+
+                $this->connection = Connection::GetInstance();
+                
+                $suma = $this->connection->Execute($query, $parameters);
+
+                echo '<script>console.log("'.$suma[0]["TOTAL"].'")</script>';
+                return $suma[0]["TOTAL"];
+                
+            }catch(Exception $ex){
+                throw $ex;
+            }
         }
 
         public function ValidateShowtime($showtime){
