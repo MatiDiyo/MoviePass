@@ -43,6 +43,14 @@
         {
             $showtimeList = $this->showtimeDao->GetAllHistorial();
             $cinemaList = $this->cinemaDao->GetAll();
+            $vendidasList = array();
+            foreach($showtimeList as $row){
+                $ventas["id"] = $row->getId();
+                $ventas["total"] = $this->showtimeDao->GetVentas($row);
+
+                array_push($vendidasList, $ventas);
+            }
+
             require_once(VIEWS_PATH."ventas-remanentes.php");
         }
 

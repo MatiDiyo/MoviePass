@@ -5,6 +5,8 @@
     use DAO\ITicketDAO as ITicketDAO;
     use Models\Ticket as Ticket;
     use DAO\Connection as Connection; 
+    use Models\Showtime as Showtime;
+    use DAO\ShowtimeDao as ShowtimeDao;
 
     class TicketDAO implements ITicketDAO
     {
@@ -91,7 +93,6 @@
             return $showtimeList;*/
         }
 
-        
 
     }
 ?>

@@ -9,5 +9,6 @@
         function GetOne($id);
         function Remove($id);
         function Update(Showtime $showtime);
+        function GetVentas(Showtime $showtime);
     }
 ?>
