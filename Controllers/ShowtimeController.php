@@ -118,5 +118,15 @@
 
             $this->ShowListView(null, $roomId);
         }
+
+        public function Totals($filter=null, $dateFrom=null, $dateTo=null){
+            $filter;
+            $dateFrom;
+            $dateTo;
+            echo '<script>console.log("'.$filter." - ".$dateFrom." - ".$dateTo.'")</script>';
+            $totalList = $this->showtimeDao->GetTotals($dateFrom, $dateTo,$filter);
+
+            require_once(VIEWS_PATH."total-vendido.php");  
+        }
     }
 ?>

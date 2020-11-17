@@ -264,7 +264,7 @@
                 
                 $suma = $this->connection->Execute($query, $parameters);
 
-                echo '<script>console.log("'.$suma[0]["TOTAL"].'")</script>';
+                //echo '<script>console.log("'.$suma[0]["TOTAL"].'")</script>';
                 return $suma[0]["TOTAL"];
                 
             }catch(Exception $ex){
@@ -300,10 +300,6 @@
                 $parameters["roomId"] = $showtime->getRoom()->getId();
                 $parameters["showtimeDate"] = $showtime->getShowtimeDate();
                 $parameters["showtimeTime"] = $showtime->getShowtimeTime();
-                
-                echo '<script>console.log("'.$parameters["roomId"].'")</script>';
-                echo '<script>console.log("'.$parameters["showtimeDate"].'")</script>';
-                echo '<script>console.log("'.$parameters["showtimeTime"].'")</script>';
 
                 $this->connection = Connection::GetInstance();
                 
@@ -322,5 +318,65 @@
             }
         }
 
+        public function GetTotals($dateFrom, $dateTo, $filter){
+            try{
+                $totalList = null;
+
+                if($filter=="cinema"){
+                    $query = "SELECT cinema.id as cinemaId, SUM(t.total) as total FROM ".$this->tableName.
+                    " INNER JOIN room ON room.id = roomId 
+                      INNER JOIN cinema ON cinema.id = room.cinemaId
+                      INNER JOIN (
+                          select tickets.showtimeId as showtimeId, operation.total as total 
+                          from operation 
+                          INNER JOIN tickets on tickets.operationId = operation.id 
+                          WHERE operationDate BETWEEN ".($dateFrom == null ? "ADDDATE(current_date(),INTERVAL -7 DAY) " : "CAST(:dateFrom as DATE) and ")
+                                                       .($dateTo== null ? "ADDDATE(current_date(),INTERVAL 7 DAY) " :"CAST(:dateTo as DATE)" )
+                      ." group by tickets.operationId) t ON t.showtimeId = showtime.id
+                      GROUP BY cinema.id";
+                }else{
+                    $query = "SELECT movieId, SUM(t.total) as total FROM ".$this->tableName.
+                    " INNER JOIN room ON room.id = roomId 
+                      INNER JOIN cinema ON cinema.id = room.cinemaId
+                      INNER JOIN (
+                        select tickets.showtimeId as showtimeId, operation.total as total 
+                        from operation 
+                        INNER JOIN tickets on tickets.operationId = operation.id 
+                      WHERE operationDate BETWEEN ".($dateFrom == null ? "ADDDATE(current_date(),INTERVAL -7 DAY) " : "CAST(:dateFrom as DATE) ").
+                                                   " and ".($dateTo== null ? "ADDDATE(current_date(),INTERVAL 7 DAY) " :"CAST(:dateTo as DATE)" )
+                      ." group by tickets.operationId) t ON t.showtimeId = showtime.id
+                       GROUP BY movieId";
+                }
+
+                if($dateFrom != null) { $parameters["dateFrom"] = $dateFrom; }
+                if($dateTo != null) { $parameters["dateTo"] = $dateTo; }
+
+                $this->connection = Connection::GetInstance();
+                
+                $result = $this->connection->Execute($query, $parameters);
+
+                $totalList = array();
+                if($result != null){
+                    $cinemaDao = new CinemaDAO();
+                    $movieDao = new MovieDAO();
+                    foreach($result as $valuesArray)
+                    {
+                        $total = array();
+                        $total["total"] = $valuesArray["total"];
+                        if($filter=="cinema"){
+                            $total["cinema"] = $cinemaDao->GetOne($valuesArray["cinemaId"]);
+                        }else{
+                            $total["movie"] = $movieDao->GetOne($valuesArray["movieId"]);
+                        }
+
+                        array_push($totalList, $total);
+                    }
+                }
+                return $totalList;
+                
+            }catch(Exception $ex){
+                throw $ex;
+            }
+        }
     }
 ?>

@@ -38,6 +38,7 @@
                           <div id="drop" class="dropdown-menu dark-drop" aria-labelledby="navbarDropdown">
                             <a class="nav-link" id="admin" href="<?php echo FRONT_ROOT."Cinema/ShowListView"?>">Cines</a>
                             <a class="nav-link" id="ventas" href="<?php echo FRONT_ROOT."Showtime/ShowVentasRemanentes"?>">Ventas</a>
+                            <a class="nav-link" id="totales" href="<?php echo FRONT_ROOT."Showtime/Totals"?>">Ingresos</a>
                           </div>
                         </li>
 
