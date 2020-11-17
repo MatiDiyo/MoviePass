@@ -18,6 +18,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h4>Iniciar sesión.</h4>
+                                <h5 style="color:red"><?php echo $message ?></h5>
                             </div>
                         </div>
 

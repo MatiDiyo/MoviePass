@@ -22,6 +22,7 @@
 
         public function ShowLogin($message = "")
         {
+            $message;
             require_once(VIEWS_PATH."login.php");
         }
 
@@ -94,7 +95,7 @@
                 $this->ShowProfile();
             }
             else{
-                $this->ShowLogin();
+                $this->ShowLogin("Usuario o contraseña incorrecto");
             }
         }
 

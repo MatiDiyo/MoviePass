@@ -31,12 +31,12 @@ $movie = $showtime->getMovie();
                     </div>
                     <?php
                         foreach($seats as $idx => $seat){
-                            $seatRow = floor($idx/12);
-                            $seatColumn = $idx%12;
+                            $seatRow = floor($idx/12) +1;
+                            $seatColumn = $idx%12 +1;
                     ?>
                         <div class="col-1" style="padding:1px;">
-                            <a href="javascript:selectSeat('<?php echo ($seatRow+1)."-".($seatColumn+1)?>');">
-                                <img class="seat" id="<?php echo ($seatRow+1)."-".($seatColumn+1)?>" src="<?php echo IMG_PATH."seat.svg" ?>" width="40px"></img>
+                            <a href="javascript:selectSeat('<?php echo $seatRow."-".$seatColumn?>');">
+                                <img class="<?php echo $seat? "seat occupied" : "seat" ?>" id="<?php echo $seatRow."-".$seatColumn?>" src="<?php echo IMG_PATH."seat.svg" ?>" width="40px"></img>
                             </a>
                         </div>
                 <?php
@@ -50,7 +50,7 @@ $movie = $showtime->getMovie();
             <div class="row justify-content-center">
                 <div class="col-6">
                     <input type="button" class="btn btn-primary" value="Comprar entradas" onclick="buyTickets()"/>
-                    <input type="button" class="btn btn-danger" value="Cancelar" onclick=""/>
+                    <input type="button" class="btn btn-danger" value="Cancelar" onclick="window.history.back();"/>
                 </div>
             </div>
             </form>
@@ -60,7 +60,11 @@ $movie = $showtime->getMovie();
 </div>
 <script>
     function selectSeat(seat){
-        $("#"+seat).toggleClass("selected");
+        if($("#"+seat).hasClass("occupied")){
+            alert("Este asiento ya fue reservado");
+        }else{
+            $("#"+seat).toggleClass("selected");
+        }
     }
 
     function buyTickets(){
